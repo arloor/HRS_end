@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="CDLL酒店预订系统——客户" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.HomeController">
+   <content>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <ImageView fx:id="imageView" fitHeight="99.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="258.0" prefWidth="580.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="1.0" layoutY="4.0" prefHeight="21.0" prefWidth="559.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="3.0" text="欢迎您！客户：" />
+                        <TextField fx:id="nameField" layoutX="109.0" layoutY="-1.0" onAction="#setNameField" prefHeight="23.0" prefWidth="56.0" />
+                        <Button fx:id="logOutButton" layoutX="424.0" mnemonicParsing="false" onMouseClicked="#setLogOutButton" prefHeight="11.0" prefWidth="65.0" text="退出登录" />
+                        <Button fx:id="backButton" layoutX="280.0" mnemonicParsing="false" onMouseClicked="#setBackButton" text="返回首页" />
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutX="21.0" layoutY="35.0" prefHeight="216.0" prefWidth="288.0">
+                     <children>
+                        <Label layoutX="106.0" layoutY="21.0" text="搜索酒店">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="74.0" text="城市" />
+                        <ChoiceBox fx:id="cityChoiceBox" layoutX="85.0" layoutY="70.0" onDragDetected="#setCityChoiceBox" prefWidth="150.0" />
+                        <Label layoutX="31.0" layoutY="129.0" text="商圈" />
+                        <ChoiceBox fx:id="areaChoiceBox" layoutX="85.0" layoutY="125.0" onDragDetected="#setAreaChoiceBox" prefWidth="150.0" />
+                        <Button fx:id="searchButton" layoutX="124.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setSearchButton" text="搜索" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="detailedSearchButton" layoutX="323.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#setDetailedSearchButton" text="详细搜索">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="historyOrderButton" layoutX="323.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#setHistoryOrderButton" text="历史订单">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="personalInformationButton" layoutX="443.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#setPersonalInformationButton" text="个人信息">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="historyHotelButton" layoutX="443.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#setHistoryHotelButton" text="历史酒店">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </content>
+</TitledPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webmanager.view.AddWebSalesManController">
+   <children>
+      <Label layoutX="126.0" layoutY="113.0" text="姓名" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
+      <TextField fx:id="salesManNameField" layoutX="162.0" layoutY="109.0" maxWidth="250.0" prefHeight="23.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+      <Button fx:id="confirmButton" layoutX="207.0" layoutY="295.0" mnemonicParsing="false" onAction="#setConfirmButton" prefHeight="23.0" prefWidth="62.0" text="确认" />
+      <Label layoutX="22.0" layoutY="42.0" />
+      <Label layoutX="102.0" layoutY="170.0" text="初始密码" GridPane.rowIndex="1" />
+      <PasswordField fx:id="initialPasswordField" layoutX="162.0" layoutY="166.0" prefHeight="23.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label layoutX="100.0" layoutY="236.0" text=" 联系方式" GridPane.rowIndex="2" />
+      <TextField fx:id="phoneNumber" layoutX="162.0" layoutY="232.0" prefHeight="23.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+</AnchorPane>

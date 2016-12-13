@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0"
+            prefWidth="420.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.hotelworker.view.CheckOutController">
+    <children>
+        <Label layoutX="148.0" layoutY="84.0" text="确认退房？">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Label>
+
+        <Button fx:id="confirmButton" layoutX="103.0" layoutY="177.0" mnemonicParsing="false" onAction="#confirmAction"
+                prefWidth="75.0" styleClass="button-default" text="确认"/>
+        <Button fx:id="cancelButton" layoutX="243.0" layoutY="177.0" mnemonicParsing="false" onAction="#cancelAction"
+                prefWidth="75.0" styleClass="button-default" text="取消"/>
+    </children>
+</AnchorPane>

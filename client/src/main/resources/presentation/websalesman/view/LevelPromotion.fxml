@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0"
+            prefWidth="480.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.websalesman.view.LevelPromotionController">
+    <children>
+        <Label layoutX="116.0" layoutY="63.0" text="会员等级："/>
+        <TextField fx:id="levelField" layoutX="203.0" layoutY="59.0" promptText="如“1”"/>
+        <Label layoutX="116.0" layoutY="118.0" text="信用值下限："/>
+        <TextField fx:id="creditField" layoutX="203.0" layoutY="114.0" promptText="如“100.00”"/>
+        <Label layoutX="116.0" layoutY="173.0" text="折扣："/>
+        <TextField fx:id="discountField" layoutX="203.0" layoutY="169.0" promptText="如“0.95”表示九五折"/>
+        <Button fx:id="confirmButton" onAction="#confirmAction" layoutX="202.0" layoutY="238.0" mnemonicParsing="false"
+                prefWidth="75.0" styleClass="button-default"
+                text="确认"/>
+    </children>
+</AnchorPane>

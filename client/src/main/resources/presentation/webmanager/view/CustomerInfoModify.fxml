@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webmanager.view.CustomerInfoModifyController">
+   <children>
+      <Button layoutX="206.0" layoutY="329.0" mnemonicParsing="false" onAction="#confirm"  prefHeight="23.0" prefWidth="64.0" text="确认修改" />
+      <TextField fx:id="contactField" layoutX="165.0" layoutY="189.0" />
+      <TextField fx:id="idtentifyContextField" layoutX="165.0" layoutY="250.0" />
+      <TextField fx:id="actualNameField" layoutX="165.0" layoutY="134.0" />
+      <Label layoutX="84.0" layoutY="193.0" text="联系方式" />
+      <Label layoutX="84.0" layoutY="138.0" text="用户姓名" />
+      <Label fx:id="idtentifyLabel" layoutX="93.0" layoutY="254.0" text="Label" />
+   </children>
+</AnchorPane>

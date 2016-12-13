@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0"
+            prefWidth="420.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.hotelworker.view.NewRoomTypeController">
+    <children>
+        <Label layoutX="91.0" layoutY="63.0" text="房间类型"/>
+        <ChoiceBox fx:id="typeChoiceBox" layoutX="168.0" layoutY="59.0" prefWidth="160.0"/>
+        <Label layoutX="103.0" layoutY="108.0" text="数量"/>
+        <TextField fx:id="numberField" layoutX="168.0" layoutY="104.0" prefWidth="160.0"/>
+        <Label layoutX="103.0" layoutY="153.0" text="价格"/>
+        <TextField fx:id="priceField" layoutX="168.0" layoutY="149.0"/>
+        <Button fx:id="confirmButton" layoutX="173.0" layoutY="209.0" mnemonicParsing="false" onAction="#confirmAction"
+                prefWidth="75.0" styleClass="button-default" text="确认"/>
+    </children>
+</AnchorPane>

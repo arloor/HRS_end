@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0"
+            prefWidth="480.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.websalesman.view.CirclePromotionController">
+    <children>
+        <Label layoutX="116.0" layoutY="92.0" text="商圈："/>
+        <TextField fx:id="circleField" layoutX="203.0" layoutY="88.0" promptText="如“1”"/>
+        <Label layoutX="116.0" layoutY="145.0" text="折扣："/>
+        <TextField fx:id="discountField" layoutX="203.0" layoutY="141.0" promptText="如“0.95”表示九五折"/>
+        <Button fx:id="confirmButton" onAction="#confirmAction" layoutX="202.0" layoutY="210.0" mnemonicParsing="false"
+                prefWidth="75.0" styleClass="button-default"
+                text="确认"/>
+    </children>
+</AnchorPane>

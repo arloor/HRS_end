@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0"
+            prefWidth="420.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.hotelworker.view.RoomNumEditController">
+    <children>
+        <ChoiceBox fx:id="increaseOrDecreaseChoiceBox" layoutX="179.0" layoutY="63.0" prefWidth="160.0"/>
+        <Label layoutX="81.0" layoutY="67.0" text="增加/减少"/>
+        <Label layoutX="96.0" layoutY="133.0" text="数量"/>
+        <TextField fx:id="numberField" layoutX="179.0" layoutY="129.0" prefWidth="160.0"/>
+        <Button fx:id="confirmButton" onAction="#confirmAction" layoutX="172.0" layoutY="195.0" mnemonicParsing="false"
+                prefWidth="75.0" styleClass="button-default" text="确认"/>
+    </children>
+</AnchorPane>

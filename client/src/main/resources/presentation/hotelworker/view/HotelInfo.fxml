@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css" vgap="5.0"
+          xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="presentation.hotelworker.view.HotelInfoController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <GridPane prefWidth="475.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="  酒店名称：" GridPane.halignment="LEFT"/>
+                        <TextField fx:id="nameField" maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1"/>
+                        <GridPane GridPane.columnIndex="2">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label text="星级："/>
+                                <Label text="评分：" GridPane.rowIndex="1"/>
+                                <Label fx:id="starLabel" text="Label" GridPane.columnIndex="1"/>
+                                <Label fx:id="scoreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            </children>
+        </GridPane>
+        <GridPane GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="225.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="  城市："/>
+                <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1"/>
+                <Label text="  商圈：" GridPane.columnIndex="2"/>
+                <Label fx:id="circleLabel" text="Label" GridPane.columnIndex="3"/>
+            </children>
+        </GridPane>
+        <GridPane prefWidth="475.0" GridPane.rowIndex="2">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="  地址：" GridPane.halignment="LEFT"/>
+                <TextField fx:id="addressField" maxWidth="385.0" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+        <GridPane prefWidth="475.0" GridPane.rowIndex="3">
+            <children>
+                <Label text="  简介：" GridPane.valignment="TOP"/>
+                <TextArea fx:id="introductionArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+        <GridPane prefWidth="475.0" GridPane.rowIndex="4">
+            <children>
+                <Label text="  设施服务：" GridPane.valignment="TOP"/>
+                <TextArea fx:id="facilityArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+        <GridPane prefWidth="475.0" GridPane.rowIndex="5">
+            <children>
+                <Label text="  合作企业：" GridPane.valignment="TOP"/>
+                <TextArea fx:id="cooperArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+        <GridPane GridPane.rowIndex="6">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button onAction="#confirmAction" mnemonicParsing="false" prefWidth="75.0" styleClass="button-default"
+                        text="确认"
+                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP"/>
+            </children>
+        </GridPane>
+    </children>
+</GridPane>

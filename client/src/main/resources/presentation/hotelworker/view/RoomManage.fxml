@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.hotelworker.view.RoomManageController">
+    <children>
+        <TableView fx:id="availableRoomTable" layoutX="25.0" layoutY="50.0" prefHeight="275.0" prefWidth="425.0">
+                            <columns>
+                                <TableColumn fx:id="typeColumn" prefWidth="150.0" text="客房类型"/>
+                                <TableColumn fx:id="priceColumn" prefWidth="150.0" text="原始价格"/>
+                                <TableColumn fx:id="numColumn" prefWidth="100.0" text="房间数量"/>
+                            </columns>
+                        </TableView>
+
+        <Button layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#editAction" prefWidth="75.0"
+                styleClass="button-default" text="编辑数量"/>
+        <Button layoutX="350.0" layoutY="350.0" mnemonicParsing="false" onAction="#insertAction" prefWidth="75.0"
+                styleClass="button-default" text="新增类型"/>
+    </children>
+</AnchorPane>

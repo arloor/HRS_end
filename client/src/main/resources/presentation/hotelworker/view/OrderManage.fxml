@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+         prefWidth="475.0" styleClass="tab-pane-order-manage" stylesheets="@DarkTheme.css"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="presentation.hotelworker.view.OrderManageController">
+    <tabs>
+        <Tab text="未执行订单">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="unexecutedTable" layoutX="12.5" layoutY="14.0" prefHeight="300.0"
+                                   prefWidth="450.0">
+                            <columns>
+                                <TableColumn fx:id="unexecutedOrderIDColumn" prefWidth="75.0"
+                                             text="订单编号"/>
+                                <TableColumn fx:id="unexecutedCustomerIDColumn" prefWidth="75.0"
+                                             text="会员编号"/>
+                                <TableColumn fx:id="unexecutedRoomTypeColumn" prefWidth="75.0"
+                                             text="房间类型"/>
+                                <TableColumn fx:id="unexecutedRoomNumberColumn" prefWidth="75.0"
+                                             text="房间数量"/>
+                                <TableColumn fx:id="unexecutedPeopleNumberColumn" prefWidth="75.0"
+                                             text="入住人数"/>
+                                <TableColumn fx:id="unexecutedChildColumn" prefWidth="75.0"
+                                             text="有无儿童"/>
+                                <TableColumn fx:id="unexecutedExceptInTimeColumn" prefWidth="150.0"
+                                             text="预计入住时间"/>
+                                <TableColumn fx:id="unexecutedExceptOutTimeColumn" prefWidth="150.0"
+                                             text="预计退房时间"/>
+                                <TableColumn fx:id="unexecutedPriceColumn" prefWidth="75.0" text="原价"/>
+                                <TableColumn fx:id="unexecutedChargeColumn" prefWidth="75.0"
+                                             text="实际收费"/>
+                            </columns>
+                        </TableView>
+
+                        <Button fx:id="unexecutedButton" onAction="#unexecutedAction" layoutX="350.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="75.0"
+                                styleClass="button-default" text="执行"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="异常订单">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="abnormalTable" layoutX="12.5" layoutY="14.0" prefHeight="300.0"
+                                   prefWidth="450.0">
+                            <columns>
+                                <TableColumn fx:id="abnormalOrderIDColumn" prefWidth="75.0"
+                                             text="订单编号"/>
+                                <TableColumn fx:id="abnormalCustomerIDColumn" prefWidth="75.0"
+                                             text="会员编号"/>
+                                <TableColumn fx:id="abnormalRoomTypeColumn" prefWidth="75.0"
+                                             text="房间类型"/>
+                                <TableColumn fx:id="abnormalRoomNumberColumn" prefWidth="75.0"
+                                             text="房间数量"/>
+                                <TableColumn fx:id="abnormalPeopleNumberColumn" prefWidth="75.0"
+                                             text="入住人数"/>
+                                <TableColumn fx:id="abnormalChildColumn" prefWidth="75.0" text="有无儿童"/>
+                                <TableColumn fx:id="abnormalExceptInTimeColumn" prefWidth="150.0"
+                                             text="预计入住时间"/>
+                                <TableColumn fx:id="abnormalPriceColumn" prefWidth="75.0" text="原价"/>
+                                <TableColumn fx:id="abnormalChargeColumn" prefWidth="75.0" text="实际收费"/>
+                            </columns>
+                        </TableView>
+
+                        <Button fx:id="abnormalButton" onAction="#abnormalAction" layoutX="350.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="75.0"
+                                styleClass="button-default" text="执行"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="已执行订单">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="executedTable" layoutX="12.5" layoutY="14.0" prefHeight="300.0"
+                                   prefWidth="450.0">
+                            <columns>
+                                <TableColumn fx:id="executedOrderIDColumn" prefWidth="75.0"
+                                             text="订单编号"/>
+                                <TableColumn fx:id="executedCustomerIDColumn" prefWidth="75.0"
+                                             text="会员编号"/>
+                                <TableColumn fx:id="executedRoomTypeColumn" prefWidth="75.0"
+                                             text="房间类型"/>
+                                <TableColumn fx:id="executedRoomNumberColumn" prefWidth="75.0"
+                                             text="房间数量"/>
+                                <TableColumn fx:id="executedPeopleNumberColumn" prefWidth="75.0"
+                                             text="入住人数"/>
+                                <TableColumn fx:id="executedChildColumn" prefWidth="75.0" text="有无儿童"/>
+                                <TableColumn fx:id="executedExceptInTimeColumn" prefWidth="150.0"
+                                             text="预计入住时间"/>
+                                <TableColumn fx:id="executedActualInTimeColumn" prefWidth="150.0"
+                                             text="实际入住时间"/>
+                                <TableColumn fx:id="executedExceptOutTimeColumn" prefWidth="150.0"
+                                             text="预计退房时间"/>
+                                <TableColumn fx:id="executedActualOutTimeColumn" prefWidth="150.0"
+                                             text="实际退房时间"/>
+                                <TableColumn fx:id="executedPriceColumn" prefWidth="75.0" text="原价"/>
+                                <TableColumn fx:id="executedChargeColumn" prefWidth="75.0" text="实际收费"/>
+                            </columns>
+                        </TableView>
+
+                        <Button fx:id="executedButton" onAction="#executedAction" layoutX="350.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="75.0"
+                                styleClass="button-default" text="退房"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="已撤销订单">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="canceledTable" layoutX="12.5" layoutY="14.0" prefHeight="300.0"
+                                   prefWidth="450.0">
+                            <columns>
+                                <TableColumn fx:id="canceledOrderIDColumn" prefWidth="75.0"
+                                             text="订单编号"/>
+                                <TableColumn fx:id="canceledCustomerIDColumn" prefWidth="75.0"
+                                             text="会员编号"/>
+                                <TableColumn fx:id="canceledRoomTypeColumn" prefWidth="75.0"
+                                             text="房间类型"/>
+                                <TableColumn fx:id="canceledRoomNumberColumn" prefWidth="75.0"
+                                             text="房间数量"/>
+                                <TableColumn fx:id="canceledPeopleNumberColumn" prefWidth="75.0"
+                                             text="入住人数"/>
+                                <TableColumn fx:id="canceledChildColumn" prefWidth="75.0" text="有无儿童"/>
+                                <TableColumn fx:id="canceledCancelTimeColumn" prefWidth="150.0"
+                                             text="撤销时间"/>
+                                <TableColumn fx:id="canceledPriceColumn" prefWidth="75.0" text="原价"/>
+                                <TableColumn fx:id="canceledChargeColumn" prefWidth="75.0" text="实际收费"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

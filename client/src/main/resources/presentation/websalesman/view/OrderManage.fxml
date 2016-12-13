@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+         prefWidth="475.0" stylesheets="@DarkTheme.css" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="presentation.websalesman.view.OrderManageController">
+    <tabs>
+        <Tab text="未执行订单">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="unexecutedTable" layoutX="25" layoutY="20" maxHeight="300.0" maxWidth="425.0"
+                                   prefHeight="300.0" prefWidth="425">
+                            <columns>
+                                <TableColumn fx:id="unexecutedOrderIDColumn" prefWidth="75.0" text="订单编号"/>
+                                <TableColumn fx:id="unexecutedCustomerIDColumn" prefWidth="75.0" text="会员编号"/>
+                                <TableColumn fx:id="unexecutedRoomTypeColumn" prefWidth="75.0" text="房间类型"/>
+                                <TableColumn fx:id="unexecutedRoomNumberColumn" prefWidth="75.0" text="房间数量"/>
+                                <TableColumn fx:id="unexecutedPeopleNumberColumn" prefWidth="75.0" text="入住人数"/>
+                                <TableColumn fx:id="unexecutedChildColumn" prefWidth="75.0" text="有无儿童"/>
+                                <TableColumn fx:id="unexecutedExceptInTimeColumn" prefWidth="150.0" text="预计入住时间"/>
+                                <TableColumn fx:id="unexecutedExceptOutTimeColumn" prefWidth="150.0" text="预计退房时间"/>
+                                <TableColumn fx:id="unexecutedPriceColumn" prefWidth="75.0" text="原价"/>
+                                <TableColumn fx:id="unexecutedChargeColumn" prefWidth="75.0" text="实际收费"/>
+                            </columns>
+                        </TableView>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="异常订单">
+            <content>
+                <BorderPane fx:id="abnormalOrderRoot" prefHeight="200.0" prefWidth="200.0">
+                    <top>
+                        <GridPane hgap="15.0" prefHeight="50.0" prefWidth="475.0" BorderPane.alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="335.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <TextField fx:id="orderIDField" maxWidth="250.0" prefWidth="250.0" promptText="订单编号"
+                                           GridPane.halignment="RIGHT"/>
+                                <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchAction"
+                                        prefWidth="50.0" styleClass="button-default" text="查询"
+                                        GridPane.columnIndex="1"/>
+                            </children>
+                        </GridPane>
+                    </top>
+                </BorderPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

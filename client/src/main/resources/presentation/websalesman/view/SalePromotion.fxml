@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+         prefWidth="475.0" styleClass="tab-pane-order-manage" stylesheets="@DarkTheme.css"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="presentation.websalesman.view.SalePromotionController">
+    <tabs>
+        <Tab text="特定期间预订折扣">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <Label layoutX="114.0" layoutY="88.0" text="开始时间："/>
+                        <TextField fx:id="startDateField" layoutX="201.0" layoutY="84.0" promptText="如“2016-11-11”"/>
+                        <Label layoutX="114.0" layoutY="143.0" text="结束时间："/>
+                        <TextField fx:id="endDateField" layoutX="201.0" layoutY="139.0" promptText="如“2016-11-11”"/>
+                        <Label layoutX="114.0" layoutY="198.0" text="折扣："/>
+                        <TextField fx:id="discountField" layoutX="201.0" layoutY="194.0" promptText="如“0.95”表示九五折"/>
+                        <Button fx:id="specialTimeSaveButton" onAction="#specialTimeSaveAction" layoutX="200.0"
+                                layoutY="263.0" mnemonicParsing="false" prefWidth="75.0" styleClass="button-default"
+                                text="保存更改"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="VIP会员专属折扣">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="levelTable" layoutX="25" layoutY="14.0" prefHeight="300.0" prefWidth="425.0">
+                            <columns>
+                                <TableColumn fx:id="levelColumn" prefWidth="150.0" text="会员等级"/>
+                                <TableColumn fx:id="creditColumn" prefWidth="150.0" text="信用值下限"/>
+                                <TableColumn fx:id="levelDiscountColumn" prefWidth="100.0" text="折扣"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="levelAddButton" onAction="#levelAddAction" layoutX="170.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #F6FF84;"
+                                styleClass="button-default" text="添加"/>
+                        <Button fx:id="levelEditButton" onAction="#levelEditAction" layoutX="235.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #F6FF84;"
+                                styleClass="button-default" text="修改"/>
+                        <Button fx:id="levelDeleteButton" onAction="#levelDeleteAction" layoutX="300.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #F6FF84;"
+                                styleClass="button-default" text="删除"/>
+                        <Button fx:id="levelSaveButton" onAction="#levelSaveAction" layoutX="365.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="75.0" styleClass="button-default" text="保存更改"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="特定商圈折扣">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="475.0">
+                    <children>
+                        <TableView fx:id="circleTable" layoutX="25" layoutY="14.0" prefHeight="300.0" prefWidth="425.0">
+                            <columns>
+                                <TableColumn fx:id="circleColumn" prefWidth="250.0" text="商圈"/>
+                                <TableColumn fx:id="circleDiscountColumn" prefWidth="150.0" text="折扣"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="circleAddButton" onAction="#circleAddAction" layoutX="170.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #F6FF84;"
+                                styleClass="button-default" text="添加"/>
+                        <Button fx:id="circleEditButton" onAction="#circleEditAction" layoutX="235.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #F6FF84;"
+                                styleClass="button-default" text="修改"/>
+                        <Button fx:id="circleDeleteButton" onAction="#circleDeleteAction" layoutX="300.0"
+                                layoutY="325.0" mnemonicParsing="false" prefWidth="50.0"
+                                style="-fx-background-color: #F6FF84;" styleClass="button-default" text="删除"/>
+                        <Button fx:id="circleSaveButton" onAction="#circleSaveAction" layoutX="365.0" layoutY="325.0"
+                                mnemonicParsing="false" prefWidth="75.0" styleClass="button-default" text="保存更改"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
