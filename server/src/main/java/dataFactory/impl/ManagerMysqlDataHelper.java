@@ -39,6 +39,7 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
     @Override
     public Map<String, ManagerPO> findManagerInfo(ManagerType managerType) {
         Map<String, ManagerPO> managerPOMap = new HashMap<String, ManagerPO>();
+        DeEnCode deEnCode = new DeEnCode();
         try {
             Statement statement = conn.createStatement();
             ResultSet resultSet;
@@ -47,8 +48,8 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
                     resultSet = statement.executeQuery("SELECT * FROM hotelWorker");
                     while(resultSet.next()) {
                         String hotelName = resultSet.getString(1);
-                        String username = resultSet.getString(2);
-                        String password = resultSet.getString(3);
+                        String username = deEnCode.decode(resultSet.getString(2));
+                        String password = deEnCode.decode(resultSet.getString(3));
                         String phoneNumber = resultSet.getString(4);
 
                         ManagerPO mpo = new ManagerPO(ManagerType.HotelWorker, username, password, phoneNumber, hotelName);
@@ -61,8 +62,8 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
                 case WebSalesMan:
                     resultSet = statement.executeQuery("SELECT * FROM webSalesMan");
                     while(resultSet.next()) {
-                        String username = resultSet.getString(1);
-                        String password = resultSet.getString(2);
+                        String username = deEnCode.decode(resultSet.getString(1));
+                        String password = deEnCode.decode(resultSet.getString(2));
                         String phoneNumber = resultSet.getString(3);
 
                         ManagerPO mpo = new ManagerPO(ManagerType.WebSalesMan, username, password, phoneNumber, null);
@@ -75,8 +76,8 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
                 case WebManager:
                     resultSet = statement.executeQuery("SELECT * FROM webManager");
                     while(resultSet.next()) {
-                        String username = resultSet.getString(1);
-                        String password = resultSet.getString(2);
+                        String username = deEnCode.decode(resultSet.getString(1));
+                        String password = deEnCode.decode(resultSet.getString(2));
                         String phoneNumber = resultSet.getString(3);
 
                         ManagerPO mpo = new ManagerPO(ManagerType.WebManager, username, password, phoneNumber, null);
@@ -99,22 +100,23 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
 
     @Override
     public void updateManagerInfo(ManagerPO mpo) {
+        DeEnCode deEnCode = new DeEnCode();
         try {
             Statement statement = conn.createStatement();
             switch(mpo.getManagerType()) {
                 case HotelWorker:
                     statement.executeUpdate("UPDATE hotelWorker " +
-                            "SET password='"+mpo.getPassword()+"', " +
+                            "SET password='"+deEnCode.encode(mpo.getPassword())+"', " +
                             "phoneNumber='"+mpo.getPhoneNumber()+"' " +
-                            "WHERE username='"+mpo.getUsername()+"'");
+                            "WHERE username='"+deEnCode.encode(mpo.getUsername())+"'");
                     statement.close();
                     break;
 
                 case WebSalesMan:
                     statement.executeUpdate("UPDATE webSalesMan " +
-                            "SET password='"+mpo.getPassword()+"', " +
+                            "SET password='"+deEnCode.encode(mpo.getPassword())+"', " +
                             "phoneNumber='"+mpo.getPhoneNumber()+"' " +
-                            "WHERE username='"+mpo.getUsername()+"'");
+                            "WHERE username='"+deEnCode.encode(mpo.getUsername())+"'");
                     statement.close();
                     break;
 
@@ -129,22 +131,23 @@ public class ManagerMysqlDataHelper implements ManagerDataHelper {
 
     @Override
     public void insertManager(ManagerPO mpo) {
+        DeEnCode deEnCode = new DeEnCode();
         try {
             Statement statement = conn.createStatement();
             switch(mpo.getManagerType()) {
                 case HotelWorker:
                     statement.executeUpdate("INSERT INTO hotelWorker " +
                             "VALUES ('"+mpo.getHotelName()+"', " +
-                            "'"+mpo.getUsername()+"', " +
-                            "'"+mpo.getPassword()+"', " +
+                            "'"+deEnCode.encode(mpo.getUsername())+"', " +
+                            "'"+deEnCode.encode(mpo.getPassword())+"', " +
                             "'"+mpo.getPhoneNumber()+"')");
                     statement.close();
                     break;
 
                 case WebSalesMan:
                     statement.executeUpdate("INSERT INTO webSalesMan " +
-                            "VALUES ('"+mpo.getUsername()+"', " +
-                            "'"+mpo.getPassword()+"', " +
+                            "VALUES ('"+deEnCode.encode(mpo.getUsername())+"', " +
+                            "'"+deEnCode.encode(mpo.getPassword())+"', " +
                             "'"+mpo.getPhoneNumber()+"')");
                     statement.close();
                     break;

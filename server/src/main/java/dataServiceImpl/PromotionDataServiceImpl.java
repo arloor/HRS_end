@@ -90,6 +90,7 @@ public class PromotionDataServiceImpl extends UnicastRemoteObject implements Pro
 
             case /*HotelPromotionType.*/SpecialTime:
                 promotionDataHelper.updateHotelPromotion(HotelPromotionType.SpecialTime, hppo);
+                return true;
 
             default:
                 return false;
