@@ -1,5 +1,6 @@
 package po.WebPromotionPO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * circleList   0商圈及其对应折扣列表
  * @author Qin Liu
  */
-public class WebCirclePromotionPO extends WebPromotionPO {
+public class WebCirclePromotionPO extends WebPromotionPO implements Serializable {
 
     ArrayList<CirclePO> circleList;
 

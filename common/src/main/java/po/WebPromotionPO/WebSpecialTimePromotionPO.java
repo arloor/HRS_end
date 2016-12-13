@@ -4,13 +4,15 @@ package po.WebPromotionPO;
  * Created by Qin Liu on 2016/12/8.
  */
 
+import java.io.Serializable;
+
 /**
  * startDate    0开始时间
  * endDate      1结束时间
  * discount     2折扣
  * @author Qin Liu
  */
-public class WebSpecialTimePromotionPO extends WebPromotionPO {
+public class WebSpecialTimePromotionPO extends WebPromotionPO implements Serializable {
 
     private String startDate;
 

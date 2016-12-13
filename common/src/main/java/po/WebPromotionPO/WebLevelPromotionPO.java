@@ -1,5 +1,6 @@
 package po.WebPromotionPO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * levelList    0等级及其对应信用值、折扣列表
  * @author Qin Liu
  */
-public class WebLevelPromotionPO extends WebPromotionPO {
+public class WebLevelPromotionPO extends WebPromotionPO implements Serializable {
 
     ArrayList<LevelPO> levelList;
 
