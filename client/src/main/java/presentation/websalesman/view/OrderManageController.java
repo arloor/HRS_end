@@ -3,6 +3,7 @@ package presentation.websalesman.view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -88,6 +89,14 @@ public class OrderManageController {
         String orderID = orderIDField.getText();
 
         OrderVO orderVO = mainApp.getOrderService().getAbnomalOrder(Integer.valueOf(orderID));
-        mainApp.showAbnormalOrderView(orderVO);
+        if (orderVO != null) {
+            mainApp.showAbnormalOrderView(orderVO);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText("订单号不存在 或 不为异常订单");
+            alert.setContentText("请检查订单号 该订单或已被撤销");
+            alert.showAndWait();
+        }
     }
 }

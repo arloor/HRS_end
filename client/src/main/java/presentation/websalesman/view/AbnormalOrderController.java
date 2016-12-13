@@ -45,7 +45,7 @@ public class AbnormalOrderController {
         orderIDLabel.setText(Integer.toString(vo.getOrderID()));
         hotelLabel.setText(vo.getHotel());
         usernameLabel.setText(vo.getCustomerID());
-        creditLabel.setText(Double.toString(vo.getPrice()));
+        creditLabel.setText(Double.toString(vo.getCharge()));
     }
 
     @FXML
@@ -57,6 +57,7 @@ public class AbnormalOrderController {
             alert.setHeaderText("撤销成功");
             alert.setContentText("已恢复一半信用值");
             alert.showAndWait();
+            confirmButton.setDisable(true);
         } else if (allRecoverRadioButton.isSelected()) {
             mainApp.getOrderService().cancelAbnormalOrder(orderVO.getOrderID(), RecoveryType.WHOLE);
             alert = new Alert(Alert.AlertType.INFORMATION);
@@ -64,6 +65,7 @@ public class AbnormalOrderController {
             alert.setHeaderText("撤销成功");
             alert.setContentText("已恢复全部信用值");
             alert.showAndWait();
+            confirmButton.setDisable(true);
         } else {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("警告");
