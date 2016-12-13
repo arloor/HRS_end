@@ -1,0 +1,43 @@
+package po;
+
+import vo.OrderEvaluationVO;
+
+import java.io.Serializable;
+
+/**
+ * Created by 曹利航 on 2016/10/16 17:17.
+ */
+public class OrderEvaluationPO implements Serializable {
+    private int orderID;
+    private double pingfen;
+    private String pingjia;
+
+    public OrderEvaluationPO(){
+        super();
+    }
+
+    public OrderEvaluationPO(int orderID,double pingfen,String pingjia){
+        super();
+        this.orderID=orderID;
+        this.pingfen=pingfen;
+        this.pingjia=pingjia;
+    }
+
+    public OrderEvaluationPO(OrderEvaluationVO oevo){
+        int orderID=oevo.getOrderID();
+        double pingfen=oevo.getPingfen();
+        String pingjia=oevo.getPingjia();
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public double getPingfen() {
+        return pingfen;
+    }
+
+    public String getPingjia() {
+        return pingjia;
+    }
+}
