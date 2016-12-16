@@ -24,22 +24,17 @@ public class HotelInfoController {
     private CustomerVO customerVO;
     private HotelInfoVO hotelInfoVO;
     private SearchInfoVO searchInfoVO;
+
     @FXML
-    private Button backButton;
+    private Label hotelNameField;
     @FXML
-    private Button logOutButton;
+    private Label hotelAddressField;
     @FXML
-    private TextField nameField;
+    private Label serviceField;
     @FXML
-    private TextField hotelNameField;
+    private Label hotelLevelField;
     @FXML
-    private TextField hotelAddressField;
-    @FXML
-    private TextField serviceField;
-    @FXML
-    private TextField hotelLevelField;
-    @FXML
-    private TextField hotelGradeField;
+    private Label hotelGradeField;
     @FXML
     private TextArea briefInformationArea;
     @FXML
@@ -48,56 +43,33 @@ public class HotelInfoController {
     private TableColumn<ViewRoomAndPriceObjects,String> roomTypeColumn;
     @FXML
     private TableColumn<ViewRoomAndPriceObjects,String> originPriceColumn;
-    @FXML
-    private Button orderGeneratedButton;
-    @FXML
-    private Button cancelButton;
-    @FXML
-    private Button searchOrderButton;
+
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
     }
     public void setHotelInfoVO(String hotelName){
         HotelBLService hotelBLService=new Hotel();
-        hotelBLService.getHotelInfo(hotelName);
+        hotelInfoVO=hotelBLService.getHotelInfo(hotelName);
     }
-    @FXML
-    private void setBackButton(){
-          mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-       mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
+
     @FXML
     private void setHotelNameField(){
-        hotelNameField.setEditable(false);
         hotelNameField.setText(hotelInfoVO.getHotelName());
     }
     @FXML
     private void setHotelAddressField(){
-        hotelAddressField.setEditable(false);
         hotelAddressField.setText(hotelInfoVO.getAddress());
     }
     @FXML
     private  void setServiceField(){
-        serviceField.setEditable(false);
         serviceField.setText(hotelInfoVO.getFacility());
     }
     @FXML
     private void setHotelLevelField(){
-        hotelLevelField.setEditable(false);
         hotelLevelField.setText(String.valueOf(hotelInfoVO.getStarLevel()));
     }
     @FXML
     private void setHotelGradeField(){
-        hotelGradeField.setEditable(false);
         hotelGradeField.setText(String.valueOf(hotelInfoVO.getScore()));
     }
     @FXML

@@ -6,8 +6,7 @@ import businesslogic.roombl.Room;
 import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import businesslogicservice.roomblservice.RoomBLService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import vo.*;
 
 import java.util.List;
@@ -22,28 +21,19 @@ public class OrderGenerated2Controller {
     private SearchInfoVO searchInfoVO;
     private HotelInfoVO hotelInfoVO;
     private Boolean hasRoom=false;
+
     @FXML
-    private Button backButton;
+    private Label roomTypeField;
     @FXML
-    private Button logOutButton;
+    private Label roomNumField;
     @FXML
-    private TextField nameField;
+    private Label checkInDate;
     @FXML
-    private Button confirmButton;
+    private Label checkOutDate;
     @FXML
-    private Button cancelButton;
-   @FXML
-   private TextField roomTypeField;
+    private Label initialPrice;
     @FXML
-    private TextField roomNumField;
-    @FXML
-    private TextField checkInDate;
-    @FXML
-    private TextField checkOutDate;
-    @FXML
-    private TextField initialPrice;
-    @FXML
-    private TextField actualPrice;
+    private Label actualPrice;
     public void setOrderVO(OrderVO orderVO) {
         this.orderVO=orderVO;
     }
@@ -58,44 +48,33 @@ public class OrderGenerated2Controller {
     }
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        setRoomNumField();
+        setRoomTypeField();
+        setCheckInDate();
+        setCheckOutDate();
+        setInitialPrice();
+        setActualPrice();
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
-    @FXML
+
+
     private void setRoomTypeField(){
-        roomTypeField.setEditable(false);
         roomTypeField.setText(orderVO.getRoomID());
     }
-    @FXML
+
     private void setRoomNumField(){
-        roomNumField.setEditable(false);
         roomNumField.setText(String.valueOf(orderVO.getRoomNum()));
     }
-    @FXML
+
     private void setCheckInDate(){
-        checkInDate.setEditable(false);
         String checkInTime=orderVO.getCheckInTime().split(" ")[0];       //checkInDate的格式是2016-12-06 08:08:08这样，现在只需要前半部分
         checkInDate.setText(checkInTime);
     }
-    @FXML
+
     private void setCheckOutDate(){
         String checkOutTime=orderVO.getCheckOutTime().split(" ")[0];
-        checkOutDate.setEditable(false);
         checkOutDate.setText(checkOutTime);
     }
-    @FXML
+
     private void setInitialPrice(){
         RoomBLService roomBLService=new Room();
         List<AvailableRoomVO>availableRoomVOs=roomBLService.getAvailableRoomList(hotelInfoVO.getHotelName(),checkInDate.getText(),checkOutDate.getText());
@@ -111,13 +90,13 @@ public class OrderGenerated2Controller {
             mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
         }
     }
-    @FXML
+
     private void setActualPrice(){
         /***
-        actualPrice.setEditable(false);
-        double price=Double.parseDouble(initialPrice.getText());
-        PromotionBLService salePromotionBLService=new Promotion();
-        actualPrice.setText(String.valueOf(salePromotionBLService.getPrice(orderVO)));
+         actualPrice.setEditable(false);
+         double price=Double.parseDouble(initialPrice.getText());
+         PromotionBLService salePromotionBLService=new Promotion();
+         actualPrice.setText(String.valueOf(salePromotionBLService.getPrice(orderVO)));
          ***/
     }
     @FXML
@@ -132,7 +111,7 @@ public class OrderGenerated2Controller {
     }
     @FXML
     public void setCancelButton() {
-       mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
+        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
     }
 
 }

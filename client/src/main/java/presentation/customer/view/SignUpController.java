@@ -50,15 +50,15 @@ public class SignUpController {
     @FXML
     private void NextStep(){
         if(passwordField.getText().equals(passwordConfirmField.getText())) {
-                if (customerType.equals(CustomerType.PERSONAL)) {
-                    mainAPP.showSignUpBirthdayView(new CustomerVO(usernameField.getText(), passwordField.getText(),
-                           contactField.getText(), trueNameField.getText(), customerType, "",emailField.getText()));
-                }
-                else if (customerType.equals(CustomerType.COMPANY)) {
-                    mainAPP.showSignUpEnterpriseView(new CustomerVO(usernameField.getText(),passwordField.getText(),
-                            contactField.getText(),trueNameField.getText(),customerType,"",emailField.getText()));
+            if (customerType.equals(CustomerType.PERSONAL)) {
+                mainAPP.showSignUpBirthdayView(new CustomerVO(usernameField.getText(), passwordField.getText(),
+                        contactField.getText(), trueNameField.getText(), customerType, "",emailField.getText()));
+            }
+            else if (customerType.equals(CustomerType.COMPANY)) {
+                mainAPP.showSignUpEnterpriseView(new CustomerVO(usernameField.getText(),passwordField.getText(),
+                        contactField.getText(),trueNameField.getText(),customerType,"",emailField.getText()));
 
-                }
+            }
         }
         else{
             //弹出窗口提示密码两次输入不一致，请重新输入

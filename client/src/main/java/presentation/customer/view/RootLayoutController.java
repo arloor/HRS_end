@@ -74,4 +74,5 @@ public class RootLayoutController {
     private void signOutAction() {
         mainAPP.showSignInView();
     }
+
 }

@@ -7,10 +7,9 @@ import businesslogicservice.promotionblservice.PromotionBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import vo.CreditVO;
 import vo.CustomerVO;
 
@@ -25,13 +24,7 @@ public class CreditInfoController {
     private CustomerVO customerVO;
 
     @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
-    @FXML
-    private TextField numCreditField;
+    private Label numCreditField;
     @FXML
     private TableView<ViewCreditObjects> creditInfoTable;
     @FXML
@@ -43,25 +36,20 @@ public class CreditInfoController {
     @FXML
     private TableColumn<ViewCreditObjects,String> creditChangeTableColumn;
     @FXML
-    private TextField levelField;
+    private Label levelField;
+
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        initialize();
     }
 
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        nameField.setText(customerVO.getUserName());
-    }
 
-    @FXML
     private void setNumCreditField(){
-        numCreditField.setEditable(false);
         double credit=creditBLservice.getNumCredit(customerVO.getUserName());
         numCreditField.setText(String.valueOf(credit));
     }
 
-    @FXML
+
     private void setCreditInfoTable(){
         List<CreditVO> creditVOList;
         creditVOList = creditBLservice.getCustomerCreditInfo(customerVO.getUserName());
@@ -71,28 +59,21 @@ public class CreditInfoController {
         }
         creditInfoTable.setItems(tempViewList);
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
 
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
     private void setLevelField(){
         PromotionBLService salePromotionBLService=new Promotion();
         int level=salePromotionBLService.calculateLevel(creditBLservice.getNumCredit(customerVO.getUserName()));
-        levelField.setEditable(false);
         levelField.setText(String.valueOf(level));
     }
-    @FXML
+
     private void initialize(){
         timeTableColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
         orderIdTableColumn.setCellValueFactory(cellData->cellData.getValue().orderIDProperty());
         modifyTypeTableColumn.setCellValueFactory(cellData->cellData.getValue().creditChangeTypeProperty());
         creditChangeTableColumn.setCellValueFactory(cellData->cellData.getValue().creditChangeTypeProperty());
+        setCreditInfoTable();
+        setNumCreditField();
+        setLevelField();
     }
 
     public void setCustomerVO(CustomerVO customerVO) {

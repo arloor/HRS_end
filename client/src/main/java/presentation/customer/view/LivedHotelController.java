@@ -5,10 +5,8 @@ import businesslogicservice.hotelblservice.HotelBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 
@@ -18,21 +16,15 @@ import java.util.List;
 /**
  * Created by 啊 on 2016/12/8.
  */
-public class livedHotelController {
+public class LivedHotelController {
     private presentation.customer.MainAPP mainAPP;
     private CustomerVO customerVO;
     private HotelBLService hotelBLService;
-    private ViewHotel clickedHotel;
-    @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
+
     @FXML
     private TableView<ViewHotel> livedHotelTable;
     @FXML
-   private TableColumn<ViewHotel,String> hotelNameColumn;
+    private TableColumn<ViewHotel,String> hotelNameColumn;
     @FXML
     private TableColumn<ViewHotel,String> cityColumn;
     @FXML
@@ -45,16 +37,16 @@ public class livedHotelController {
     private TableColumn<ViewHotel,String> scoreColumn;
     @FXML
     private TableColumn<ViewHotel,String> lowestPriceColumn;
-    @FXML
-    private Button hotelOrderButton;
+
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        initialize();
     }
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
     }
-    @FXML
+
     private void initialize(){
         hotelNameColumn.setCellValueFactory(cellData->cellData.getValue().hotelNameProperty());
         levelColumn.setCellValueFactory(cellData->cellData.getValue().hotelLevelProperty());
@@ -64,24 +56,17 @@ public class livedHotelController {
         cityColumn.setCellValueFactory(cellData->cellData.getValue().cityProperty());
         areaColumn.setCellValueFactory(cellData->cellData.getValue().areaProperty());
         hotelBLService=new Hotel();
+        setLivedHotelTable();
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
-    @FXML
+
+
     private void setLivedHotelTable(){
         List<HotelInfoVO>hotelInfoVOList=hotelBLService.getHistoryHotelList(customerVO.getUserName());
+        HotelInfoVO hotelInfoVOs=hotelInfoVOList.get(0);
+        if(hotelInfoVOs==null){
+            //弹出对话框
+        }
+        System.out.print(hotelInfoVOs.getCity()+hotelInfoVOs.getHotelName()+hotelInfoVOs.getBusinessCircle());
         ObservableList<ViewHotel> tempViewList= FXCollections.observableArrayList();
         for(HotelInfoVO hotelInfoVO:hotelInfoVOList){
             tempViewList.add(new ViewHotel(hotelInfoVO.getCity(),hotelInfoVO.getBusinessCircle(),hotelInfoVO.getHotelName(),
@@ -89,21 +74,21 @@ public class livedHotelController {
                     String.valueOf(hotelInfoVO.getLowestPrice()),hotelInfoVO.getAddress()));
         }
         livedHotelTable.setItems(tempViewList);
-        showHotelDetails(null);
-        livedHotelTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showHotelDetails(newValue));
     }
 
-    private void showHotelDetails(ViewHotel newValue) {
-        clickedHotel=newValue;
-    }
     @FXML
     private void setHotelOrderButton(){
-        if(clickedHotel==null){
+        ViewHotel hotel=livedHotelTable.getSelectionModel().getSelectedItem();
+        if(hotel==null){
             //duihuakuang!!！
         }
         else{
-            mainAPP.showOrderInfoView(customerVO,hotelBLService.getHotelInfo(clickedHotel.getHotelName()));
+            mainAPP.showOrderInfoView(customerVO,hotelBLService.getHotelInfo(hotel.getHotelName()));
         }
+    }
+    @FXML
+    private void orderThis(){
+        ViewHotel hotel=livedHotelTable.getSelectionModel().getSelectedItem();
+        mainAPP.showOrderGeneratedView(customerVO,hotel.getHotelName(),null);
     }
 }

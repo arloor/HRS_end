@@ -1,11 +1,14 @@
 package presentation.webmanager.view;
 
+import businesslogic.hotelbl.Hotel;
+import businesslogicservice.hotelblservice.HotelBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import presentation.webmanager.MainAPP;
+import vo.HotelInfoVO;
 import vo.ManagerVO;
 
 
@@ -46,14 +49,14 @@ public class HotelAdditionController {
     @FXML
     private void addHotelWorker(){
         //判断信息是否完整
-        /***
+
         String city=cityChoiceBox.getSelectionModel().getSelectedItem().toString();
         String area=areaChoiceBox.getSelectionModel().getSelectedItem().toString();
         HotelInfoVO hotelInfoVO=new HotelInfoVO(hotelNameField.getText(),city,area,addressField.getText(),introductionArea.getText(),
                 facilityArea.getText(),Integer.parseInt(hotelLevelField.getText()),cooperArea.getText(),3.0,false,0);
         HotelBLService hotelBLService=new Hotel();
         hotelBLService.addHotel(hotelInfoVO);
-         ***/
-        mainAPP.showAddHotelWorkerView(webManagerVO,"hhh");
+
+        mainAPP.showAddHotelWorkerView(webManagerVO,hotelNameField.getText());
     }
 }

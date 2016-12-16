@@ -100,7 +100,7 @@ public class Customer implements CustomerBLService {
                  * 新会员注册赠送100信用值
                  */
                 CreditBLservice credit=new Credit(vo.getUserName());
-                CreditInfoPO cipo=new CreditInfoPO(vo.getCustomerName(),100, Time.getCurrentTIme(),7,-1,100);
+                CreditInfoPO cipo=new CreditInfoPO(vo.getCustomerName(),100, Time.getCurrentTIme(),0,-1,100);
                 CreditVO cvo=new CreditVO(cipo);
                 credit.updateCustomerCreditInfo(vo.getUserName(),cvo,null);
             }

@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import util.SortType;
+import util.SortWay;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 import vo.SearchInfoVO;
@@ -17,20 +19,13 @@ import java.util.ArrayList;
  * Created by 啊 on 2016/11/29.
  */
 //这个是搜索酒店的酒店列表
- //   列表中的标记还没有实现
 public class SearchHotelController {
     private presentation.customer.MainAPP mainAPP;
     private CustomerVO customerVO;
     private SearchInfoVO searchInfoVO;
     private HotelBLService hotelBLService;
     private ArrayList<HotelInfoVO>hotelInfoVOList;
-    private ViewSearchedHotelObjects clickedHotel;
-    @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
+
     @FXML
     private ChoiceBox sortChoiceBox;
     @FXML
@@ -54,12 +49,13 @@ public class SearchHotelController {
 
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        initialize();
     }
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
     }
-    @FXML
+
     private void initialize(){
         hotelNameColumn.setCellValueFactory(cellData->cellData.getValue().hotelNameProperty());
         hotelLevelColumn.setCellValueFactory(cellData->cellData.getValue().hotelLevelProperty());
@@ -67,11 +63,12 @@ public class SearchHotelController {
         lowestPriceColumn.setCellValueFactory(cellData->cellData.getValue().lowestPriceProperty());
         addressColumn.setCellValueFactory(cellData->cellData.getValue().addressProperty());
         hotelBLService=new Hotel();
+        setSortChoiceBox();
     }
     public void setSearchInfoVO(SearchInfoVO searchInfoVO) {
         this.searchInfoVO=searchInfoVO;
     }
-    @FXML
+
     private void setSortChoiceBox(){
         sortChoiceBox=new ChoiceBox(FXCollections.observableArrayList("价格从低到高","价格从高到低","星级从低到高","星级从高到低","评分从低到高","评分从高到低"));
     }
@@ -84,29 +81,20 @@ public class SearchHotelController {
                     String.valueOf(hotelInfoVO.getScore()),String.valueOf(hotelInfoVO.getLowestPrice()),hotelInfoVO.getAddress()));
         }
         searchTable.setItems(tempViewList);
-        showHotelDetails(null);
-        searchTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showHotelDetails(newValue));
     }
 
-    private void showHotelDetails(ViewSearchedHotelObjects newValue) {
-        clickedHotel=newValue;
-    }
-
-    @FXML
-    private void reSort(){
-        /***
+    public void reSort(){
         int i=sortChoiceBox.getSelectionModel().getSelectedIndex();
         switch(i){
-            case 0:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"1","1");break;
-            case 1:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"1","2");break;
-            case 2:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"2","1");break;
-            case 3:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"2","2");break;
-            case 4:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"3","1");break;
-            default:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,"3","2");break;
+            case 0:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList, SortType.Price, SortWay.Ascend);break;
+            case 1:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,SortType.Price,SortWay.Descend);break;
+            case 2:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,SortType.StarLevel,SortWay.Ascend);break;
+            case 3:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,SortType.StarLevel,SortWay.Descend);break;
+            case 4:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,SortType.Score,SortWay.Ascend);break;
+            default:hotelInfoVOList=hotelBLService.sort(hotelInfoVOList,SortType.Score,SortWay.Descend);break;
         }
-       setSearchTable();
-         ***/
+        setSearchTable();
+
     }
     @FXML
     private void setLivedOnlyBox(){
@@ -120,34 +108,21 @@ public class SearchHotelController {
     }
     @FXML
     private void setDetailedInformationButton(){
-        if(clickedHotel==null){
-            //请先选择
-        }
+        ViewSearchedHotelObjects temp=searchTable.getSelectionModel().getSelectedItem();
+        if(temp!=null)
+            mainAPP.showHotelInfoView(customerVO,temp.getHotelName(),searchInfoVO);
         else{
-            mainAPP.showHotelInfoView(customerVO,clickedHotel.getHotelName(),searchInfoVO);
+            //duihuakuang
         }
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
-    @FXML
-    private void setOrderButton(){
-        if(clickedHotel==null){
 
-        }
-        else{
-            mainAPP.showOrderGeneratedView(customerVO,clickedHotel.getHotelName(),searchInfoVO);
+    @FXML
+    private void setOrderButton() {
+        ViewSearchedHotelObjects temp = searchTable.getSelectionModel().getSelectedItem();
+        if (temp != null)
+            mainAPP.showOrderGeneratedView(customerVO, temp.getHotelName(), searchInfoVO);
+        else {
+            //duihuakuang
         }
     }
 }

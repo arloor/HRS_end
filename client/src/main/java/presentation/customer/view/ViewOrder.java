@@ -1,7 +1,6 @@
 package presentation.customer.view;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 /**
  * Created by 啊 on 2016/12/7.

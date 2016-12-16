@@ -1,5 +1,7 @@
 package presentation.customer.view;
 
+import businesslogic.customerbl.Customer;
+import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import vo.CustomerVO;
@@ -20,35 +22,10 @@ public class SignUp_BirthdayController {
     private void SignUp() {
         String time= birthdayPicker.getValue().toString();
         customerVO.setUniqueInformation(time);
-        mainAPP.showHomeView(customerVO);
+        CustomerBLService customerBLService=new Customer();
+        customerBLService.addCustomer(customerVO);
+        mainAPP.showSignInView();
     }
-    /***
-    private void getTime(){
-        StringConverter converter = new StringConverter<LocalDate>() {
-            DateTimeFormatter dateFormatter =
-                    DateTimeFormatter.ofPattern(pattern);
-                @Override
-                public String toString (LocalDate date){
-                if (date != null) {
-                    return dateFormatter.format(date);
-                } else {
-                    return "";
-                }
-            }
-
-                @Override
-                public LocalDate fromString (String string){
-                if (string != null && !string.isEmpty()) {
-                    return LocalDate.parse(string, dateFormatter);
-                } else {
-                    return null;
-                }
-            }
-        };
-        birthdayPicker.setConverter(converter);
-
-    }
-     ***/
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;

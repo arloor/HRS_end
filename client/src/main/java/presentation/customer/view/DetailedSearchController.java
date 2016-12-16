@@ -20,12 +20,6 @@ public class DetailedSearchController {
     private double lowestPrice;
     private double highestPrice;
     @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
-    @FXML
     private TextField addressField;
     @FXML
     private TextField areaField;
@@ -47,43 +41,33 @@ public class DetailedSearchController {
     private DatePicker checkOutPicker;
     @FXML
     private Button searchButton;
-    @FXML
-    private Button cancelButton;
+
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
     }
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        setLevelChoiceBox();
+        setRoomTypeChoiceBox();
+        setOriginPriceBox();
+        setGradeBox();
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
-    @FXML
+
+
     private void setLevelChoiceBox(){
-        levelChoiceBox=new ChoiceBox(FXCollections.observableArrayList("1星","2星","3星","4星","5星"));
+        levelChoiceBox.setItems(FXCollections.observableArrayList("1星","2星","3星","4星","5星"));
     }
-    @FXML
+
     private void setRoomTypeChoiceBox(){
-        roomTypeChoiceBox=new ChoiceBox(FXCollections.observableArrayList("单人间","标准间","豪华间","商务间","大床房"));
+        roomTypeChoiceBox.setItems(FXCollections.observableArrayList("单人间","标准间","豪华间","商务间","大床房"));
     }
-    @FXML
+
     private void setOriginPriceBox(){
-        originPriceBox=new ChoiceBox(FXCollections.observableArrayList("100以下","100至200","200至300","300至500","500至1000","1000以上"));
+        originPriceBox.setItems(FXCollections.observableArrayList("100以下","100至200","200至300","300至500","500至1000","1000以上"));
     }
-   @FXML
+
     private void setGradeBox(){
-        gradeBox=new ChoiceBox(FXCollections.observableArrayList("0-3分","3至4分","4-4.5分","4.5-5分"));
+        gradeBox.setItems(FXCollections.observableArrayList("0-3分","3至4分","4-4.5分","4.5-5分"));
     }
     @FXML
     private void setSearchButton(){

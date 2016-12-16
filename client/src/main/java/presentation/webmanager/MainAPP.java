@@ -36,8 +36,8 @@ public class MainAPP extends Application{
             primaryStage.setScene(scene);
             primaryStage.show();
             RootLayOutController controller = loader.getController();
-            controller.setMainApp(this);
             controller.setManagerVO(managerVO);
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,9 +65,9 @@ public class MainAPP extends Application{
             AnchorPane credit=(AnchorPane) loader.load();
             rootLayout.setCenter(credit);
             CreditInfoController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setCustomerVO(customerVO);
             controller.setWebManagerVO(webManagerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,9 +81,9 @@ public class MainAPP extends Application{
             AnchorPane modify=(AnchorPane)loader.load();
             rootLayout.setCenter(modify);
             CustomerInfoModifyController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
             controller.setCustomerVO(customerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,8 +96,8 @@ public class MainAPP extends Application{
             AnchorPane info=(AnchorPane)loader.load();
             rootLayout.setCenter(info);
             CustomerInfoController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,8 +110,8 @@ public class MainAPP extends Application{
             AnchorPane add=(AnchorPane) loader.load();
             rootLayout.setCenter(add);
             AddWebSalesManController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -124,8 +124,8 @@ public class MainAPP extends Application{
             GridPane addHotel=(GridPane) loader.load();
             rootLayout.setCenter(addHotel);
             HotelAdditionController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -138,9 +138,9 @@ public class MainAPP extends Application{
             AnchorPane addWorker=(AnchorPane)loader.load();
             rootLayout.setCenter(addWorker);
             HotelWorkerAdditionController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
             controller.setHotelName(text);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -156,8 +156,8 @@ public class MainAPP extends Application{
             AnchorPane info=(AnchorPane)loader.load();
             rootLayout.setCenter(info);
             ManagerInfoController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -170,9 +170,9 @@ public class MainAPP extends Application{
             AnchorPane modify=(AnchorPane)loader.load();
             rootLayout.setCenter(modify);
             ManagerInfoModifyController controller=loader.getController();
-            controller.setMainAPP(this);
             controller.setWebManagerVO(webManagerVO);
             controller.setManagerVO(managerVO);
+            controller.setMainAPP(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

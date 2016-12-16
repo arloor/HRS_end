@@ -21,12 +21,7 @@ public class OrderGeneratedController {
     private SearchInfoVO searchInfoVO;
     private HotelInfoVO hotelInfoVO;
     private String hasChildren;
-    @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
+
     @FXML
     private ChoiceBox roomTypeChoiceBox;
     @FXML
@@ -35,10 +30,6 @@ public class OrderGeneratedController {
     private ChoiceBox numPeopleChoiceBox;
     @FXML
     private ChoiceBox latestCheckInBox;
-    @FXML
-    private Button confirmButton;
-    @FXML
-    private Button cancelButton;
     @FXML
     private RadioButton yesButton;
     @FXML
@@ -49,37 +40,26 @@ public class OrderGeneratedController {
     private DatePicker checkOutTime;
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        initialize();
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-        mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
-    @FXML
+
+
+
     private void setRoomTypeChoiceBox(){
-        roomTypeChoiceBox=new ChoiceBox(FXCollections.observableArrayList("单人间","标准间","豪华间","商务间","大床房"));
+        roomTypeChoiceBox.setItems(FXCollections.observableArrayList("单人间","标准间","豪华间","商务间","大床房"));
     }
-    @FXML
+
     private void setNumRoomChoiceBox(){
-        numRoomChoiceBox=new ChoiceBox(FXCollections.observableArrayList("1","2","3","4","5"));
+        numRoomChoiceBox.setItems(FXCollections.observableArrayList("1","2","3","4","5"));
     }
-    @FXML
+
     private void setNumPeopleChoiceBox(){
-        numPeopleChoiceBox=new ChoiceBox((FXCollections.observableArrayList("1人","2人","3人","4人","5人及以上")));
+        numPeopleChoiceBox.setItems((FXCollections.observableArrayList("1人","2人","3人","4人","5人及以上")));
     }
-    @FXML
+
     private void setLatestCheckInBox(){
-        latestCheckInBox=new ChoiceBox((FXCollections.observableArrayList("14:00:00","16:00:00","18:00:00","19:00:00","20:00:00","21;00:00",
-                "22:00:00","23:00:00","24:00:00")));
+        latestCheckInBox.setItems(FXCollections.observableArrayList("14:00:00","16:00:00","18:00:00","19:00:00","20:00:00","21;00:00",
+                "22:00:00","23:00:00","24:00:00"));
     }
     @FXML
     private void setYesButton(){
@@ -94,6 +74,10 @@ public class OrderGeneratedController {
         final ToggleGroup group=new ToggleGroup();
         yesButton.setToggleGroup(group);
         noButton.setToggleGroup(group);
+        setRoomTypeChoiceBox();
+        setNumPeopleChoiceBox();
+        setNumRoomChoiceBox();
+        setLatestCheckInBox();
     }
 
     @FXML

@@ -3,8 +3,8 @@ package presentation.customer.view;
 import businesslogic.creditbl.Credit;
 import businesslogicservice.creditblservice.CreditBLservice;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import util.CustomerType;
 import vo.CustomerVO;
 
 
@@ -15,93 +15,74 @@ public class CustomerInfoController {
     private presentation.customer.MainAPP mainAPP;
     private CustomerVO customerVO;
     @FXML
-    private Button backButton;
+    private Label usernameField;
     @FXML
-    private Button logOutButton;
+    private Label trueNameField;
     @FXML
-    private TextField nameField;
+    private Label customerTypeField;
     @FXML
-    private TextField usernameField;
+    private Label idtentifyField;
     @FXML
-    private TextField trueNameField;
+    private Label idtentifyContextField;
     @FXML
-    private TextField customerTypeField;
+    private Label contactField;
     @FXML
-    private TextField idtentifyField;
-    @FXML
-    private TextField idtentifyContextField;
-    @FXML
-    private TextField contactField;
-    @FXML
-    private TextField numCreditField;
-    @FXML
-    private Button detailedCreditButton;
-    @FXML
-    private Button modifyButton;
+    private Label numCreditField;
+
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        setUsernameField();
+        setTrueNameField();
+        setCustomerTypeField();
+        setIdtentifyContextField();
+        setIdtentifyField();
+        setContactField();
+        setNumCreditField();
+
     }
-    @FXML
-    private void setUserNameField(){
-        usernameField.setEditable(false);
+
+    private void setUsernameField(){
         usernameField.setText(customerVO.getUserName());
     }
-    @FXML
+
     private void setTrueNameField(){
-        trueNameField.setEditable(false);
         trueNameField.setText(customerVO.getCustomerName());
     }
-    @FXML
+
     private void setCustomerTypeField(){
-        customerTypeField.setEditable(false);
         customerTypeField.setText(String.valueOf(customerVO.getCustomerType()));
     }
-    @FXML
+
     private void setIdtentifyField(){
-        idtentifyField.setEditable(false);
-        if(customerVO.getCustomerType().equals("个人用户"))
+        if(customerVO.getCustomerType().equals(CustomerType.PERSONAL))
             idtentifyField.setText("生日");
-        else if(customerVO.getCustomerType().equals("企业用户"))
+        else if(customerVO.getCustomerType().equals(CustomerType.COMPANY))
             idtentifyField.setText("企业名");
     }
-    @FXML
+
     private void setIdtentifyContextField(){
-        idtentifyContextField.setEditable(false);
         idtentifyContextField.setText(customerVO.getUniqueInformation());
     }
-    @FXML
+
     private void setContactField(){
-        contactField.setEditable(false);
         contactField.setText(customerVO.getPhoneNumber());
     }
-    @FXML
+
     private void setNumCreditField(){
-        numCreditField.setEditable(false);
         CreditBLservice creditBLservice=new Credit(customerVO.getUserName());
-        creditBLservice.getNumCredit(customerVO.getUserName());
+        numCreditField.setText(String.valueOf(creditBLservice.getNumCredit(customerVO.getUserName())));
     }
+
     @FXML
     private void setDetailedCreditButton(){
         mainAPP.showDetailedCreditField(customerVO);
     }
-    @FXML
-    private void setBackButton(){
-        mainAPP.showHomeView(customerVO);
-    }
-    @FXML
-    private void setLogOutButton(){
-     mainAPP.showSignInView();
-    }
-    @FXML
-    private void setNameField(){
-        nameField.setEditable(false);
-        String name=customerVO.getUserName();
-        nameField.setText(name);
-    }
+
     @FXML
     private void setModifyButton(){
         mainAPP.showCustomerInfoModifyView(customerVO);
     }
+
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
     }

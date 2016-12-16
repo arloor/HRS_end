@@ -20,8 +20,7 @@ public class ManagerInfoController {
     private ManagerVO webManagerVO;
     private ManagerVO managerVO;
 
-    @FXML
-    private Label userName;
+
     @FXML
     private ChoiceBox managerTypeBox;
     @FXML
@@ -44,15 +43,17 @@ public class ManagerInfoController {
         informationPane.setVisible(false);
     }
     private void setManagerVO(ManagerVO managerVOVO){
-        this.managerVO=managerVO;
+        this.managerVO=managerVOVO;
     }
 
     @FXML
     private void search(){
-        if(userNameField.getText()!=null){
+        System.out.print(userNameField.getText());
+        if(userNameField.getText()!=""){
             String userName=userNameField.getText();
             ManagerBLService managerBLService=new Manager();
-            setManagerVO(managerBLService.getManagerInfo(getManagerType(),userName));
+            setManagerVO(managerBLService.getManagerInfo(getManagerType(),userName));       //有问题！！
+            System.out.print(managerVO.getPhoneNumber());
             setContactField();
             setHotelNameField();
             informationPane.setVisible(true);
@@ -64,6 +65,7 @@ public class ManagerInfoController {
     private void setContactField(){
         contact.setText(managerVO.getPhoneNumber());
     }
+
     private void setHotelNameField(){
         if(getManagerType().equals(ManagerType.HotelWorker))
             hotelNameLabel.setText(managerVO.getHotelName());
@@ -80,7 +82,18 @@ public class ManagerInfoController {
     }
     private ManagerType getManagerType(){
         ManagerType managerType;
-        managerType = (ManagerType) managerTypeBox.getSelectionModel().getSelectedItem();
+        String managertype =  managerTypeBox.getSelectionModel().getSelectedItem().toString();
+        switch(managertype){
+            case"酒店工作人员":
+                managerType=ManagerType.HotelWorker;
+                break;
+            case"网站营销人员":
+                managerType=ManagerType.WebSalesMan;
+                break;
+            default:
+                managerType=ManagerType.WebManager;
+                break;
+        }
         return managerType;
     }
     @FXML

@@ -6,40 +6,21 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#initialize" prefHeight="400.0" prefWidth="600.0" text="CDLL酒店预订系统——搜索酒店" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.SearchHotelController">
-   <content>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <ImageView fx:id="imageView" fitHeight="99.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </top>
-         <bottom>
-            <AnchorPane prefHeight="220.0" prefWidth="444.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="1.0" layoutY="-37.0" prefHeight="34.0" prefWidth="577.0">
-                     <children>
-                        <Label layoutX="14.0" layoutY="4.0" prefHeight="15.0" prefWidth="85.0" text="欢迎您！客户：" />
-                        <TextField fx:id="nameField" layoutX="110.0" layoutY="-1.0" onAction="#setNameField" prefHeight="23.0" prefWidth="56.0" />
-                        <Button fx:id="logOutButton" layoutX="424.0" mnemonicParsing="false" onMouseClicked="#setLogOutButton" prefHeight="11.0" prefWidth="65.0" text="退出登录" />
-                        <Button fx:id="backButton" layoutX="280.0" mnemonicParsing="false" onMouseClicked="#setBackButton" text="返回首页" />
-                     </children>
-                  </AnchorPane>
-                  <Label layoutX="14.0" layoutY="-7.0" text="排序方式" />
-                  <ChoiceBox fx:id="sortChoiceBox" layoutX="76.0" layoutY="-11.0" onDragDetected="#setSortChoiceBox" onMouseClicked="#reSort" prefHeight="23.0" prefWidth="120.0" />
-                  <TableView fx:id="searchTable" layoutX="14.0" layoutY="27.0" onSort="#setSearchTable" prefHeight="192.0" prefWidth="547.0">
-                    <columns>
-                      <TableColumn fx:id="hotelNameColumn" prefWidth="113.0" text="酒店名" />
-                        <TableColumn fx:id="hotelLevelColumn" prefWidth="56.0" text="星级" />
-                      <TableColumn fx:id="gradeColumn" prefWidth="62.0" text="评分" />
-                        <TableColumn fx:id="lowestPriceColumn" prefWidth="107.0" text="最低价格" />
-                        <TableColumn fx:id="addressColumn" prefWidth="208.0" text="地址" />
-                    </columns>
-                  </TableView>
-                  <CheckBox fx:id="livedOnlyBox" layoutX="306.0" mnemonicParsing="false" onMouseClicked="#setLivedOnlyBox" text="只在住过的酒店中搜索" />
-                  <Button fx:id="detailedInformationButton" layoutX="62.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#setDetailedInformationButton" text="查看选中的酒店" />
-                  <Button fx:id="orderButton" layoutX="397.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#setOrderButton" text="预定选中的酒店" />
-               </children>
-            </AnchorPane>
-         </bottom>
-      </BorderPane>
-   </content>
-</TitledPane>
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.SearchHotelController">
+   <children>
+      <Label layoutX="37.0" layoutY="28.0" text="排序方式" />
+      <ChoiceBox fx:id="sortChoiceBox" layoutX="118.0" layoutY="24.0" onMouseClicked="#reSort" prefHeight="23.0" prefWidth="120.0" />
+      <TableView fx:id="searchTable" layoutX="18.0" layoutY="60.0" onSort="#setSearchTable" prefHeight="279.0" prefWidth="486.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <columns>
+            <TableColumn fx:id="hotelNameColumn" prefWidth="91.0" text="酒店名" />
+            <TableColumn fx:id="hotelLevelColumn" prefWidth="55.0" text="星级" />
+            <TableColumn fx:id="gradeColumn" prefWidth="54.0" text="评分" />
+            <TableColumn fx:id="lowestPriceColumn" prefWidth="67.0" text="最低价格" />
+            <TableColumn fx:id="addressColumn" prefWidth="147.0" text="地址" />
+         </columns>
+      </TableView>
+      <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox" prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: white;" text="只在住过的酒店中搜索" />
+      <Button fx:id="detailedInformationButton" layoutX="52.0" layoutY="352.0" mnemonicParsing="false" onAction="#setDetailedInformationButton" text="查看选中的酒店" />
+      <Button fx:id="orderButton" layoutX="327.0" layoutY="352.0" mnemonicParsing="false" onAction="#setOrderButton" text="预定选中的酒店" />
+   </children>
+</AnchorPane>

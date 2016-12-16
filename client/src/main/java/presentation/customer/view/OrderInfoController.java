@@ -7,17 +7,15 @@ import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import presentation.customer.MainAPP;
 import util.OrderType;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,18 +29,9 @@ public class OrderInfoController {
     private HotelInfoVO hotelVO;
     private List<OrderVO> list;
     private OrderBLservice orderBLservice;
-    private ViewOrder viewUnexecutedOrder;
-    private ViewOrder viewExecutedOrder;
+
     @FXML
-    private ImageView imageView;
-    @FXML
-    private Button backButton;
-    @FXML
-    private Button logOutButton;
-    @FXML
-    private TextField nameField;
-   @FXML
-   private TableView<ViewOrder> executedOrderTable;
+    private TableView<ViewOrder> executedOrderTable;
     @FXML
     private TableView<ViewOrder> unexecutedOrderTable;
     @FXML
@@ -113,29 +102,38 @@ public class OrderInfoController {
     private TableColumn<ViewOrder,String> originPrice4;
     @FXML
     private TableColumn<ViewOrder,String> actualPrice4;
-    @FXML
-    private Button cancelOrderButton;
-    @FXML
-    private Button evaluateButton;
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
         orderBLservice=OrderImpl.getMemberOrderInstance(customerVO.getUserName());
-        list= (List<OrderVO>) orderBLservice.getOrderVOList();
-    }   //这里同时实现了获得orderList列表
+    }
     public void setHotelInfoVO(HotelInfoVO hotelInfoVO) {
         this.hotelVO=hotelInfoVO;
-        getOrderList();          //setCustomerVO在setHotelInfoVO之前
     }
+
     public void getOrderList() {
-        if(hotelVO==null)
-            list= (List<OrderVO>) orderBLservice.getOrderVOList();
+        ArrayList<OrderVO> orderList;
+        if(hotelVO==null){
+            //list= (List<OrderVO>) orderBLservice.getOrderVOList();
+            orderList = new ArrayList<OrderVO>(orderBLservice.getOrderVOList().values());list=orderList;
+            System.out.print(list.get(0).getStatus());
+            System.out.print(list.get(1).getStatus());
+
+        }
+
         else {
-            list = (List<OrderVO>) orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName());
+            orderList = new ArrayList<OrderVO>(orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName()).values());
+            list=orderList;    //(List<OrderVO>) orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName());
         }
     }
     public void setMainAPP(MainAPP mainAPP) {
         this.mainAPP=mainAPP;
+        initialize();
+        getOrderList();
+        setExecutedOrderTable();
+        setUnexecutedOrderTable();
+        setUnusualOrderTable();
+        setCancelOrderTable();
     }
 
     private  ObservableList setOrder(OrderType orderType){
@@ -143,43 +141,27 @@ public class OrderInfoController {
         for (OrderVO tempOrderVO : list) {
             if(tempOrderVO.getStatus().equals(orderType))
                 tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(),tempOrderVO.getHotel(),tempOrderVO.getRoomID(),
-                    tempOrderVO.getRoomNum(),tempOrderVO.getPeopleNum(),
-                    tempOrderVO.getHasChild(),tempOrderVO.getPrice(),tempOrderVO.getCharge()));
+                        tempOrderVO.getRoomNum(),tempOrderVO.getPeopleNum(),
+                        tempOrderVO.getHasChild(),tempOrderVO.getPrice(),tempOrderVO.getCharge()));
         }
         return tempViewList;
     }
-    @FXML
+
     private void setExecutedOrderTable(){
         ObservableList observableList=setOrder(OrderType.Executed);
         executedOrderTable.setItems(observableList);
-        viewExecutedOrder=null;
-        executedOrderTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showExecutedChanges(newValue));
     }
 
-    private void showExecutedChanges(ViewOrder newValue) {
-        viewExecutedOrder=newValue;
-    }
-
-    @FXML
     private void setUnexecutedOrderTable(){
         ObservableList observableList=setOrder(OrderType.Unexecuted);
         unexecutedOrderTable.setItems(observableList);
-        viewUnexecutedOrder=null;
-        unexecutedOrderTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showUnexecutedDetails(newValue));
     }
 
-    private void showUnexecutedDetails(ViewOrder newValue) {
-        viewUnexecutedOrder=newValue;
-    }
-
-    @FXML
     private void setUnusualOrderTable(){
         ObservableList observableList=setOrder(OrderType.Abnormol);
         unusualOrderTable.setItems(observableList);
     }
-    @FXML
+
     private void setCancelOrderTable(){
         ObservableList observableList=setOrder(OrderType.Canceled);
         cancelOrderTable.setItems(observableList);
@@ -230,6 +212,7 @@ public class OrderInfoController {
     }
     @FXML
     private void setCancelOrderButton(){
+        ViewOrder viewUnexecutedOrder=unexecutedOrderTable.getSelectionModel().getSelectedItem();
         if(viewUnexecutedOrder!=null){
             orderBLservice.cancelOrder(Integer.parseInt(viewUnexecutedOrder.getOrderID()));
             //提示取消成功
@@ -240,7 +223,8 @@ public class OrderInfoController {
     }
     @FXML
     private void setEvaluateButton(){
-        if(viewUnexecutedOrder!=null){
+        ViewOrder viewExecutedOrder=executedOrderTable.getSelectionModel().getSelectedItem();
+        if(viewExecutedOrder!=null){
             OrderVO orderVO=orderBLservice.getOrderInfo(Integer.parseInt(viewExecutedOrder.getOrderID()));
             HotelBLService hotelBLService=new Hotel();
             HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(viewExecutedOrder.getHotelName());

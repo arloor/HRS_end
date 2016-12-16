@@ -38,6 +38,7 @@ public class AddWebSalesManController {
         managerBLService.addManager(new ManagerVO(ManagerType.WebManager,salesManNameField.getText(),initialPasswordField.getText(),
                 phoneNumber.getText(),null));
         //弹出提示框显示成功
+        System.out.print(phoneNumber.getText());
     }
 
 }

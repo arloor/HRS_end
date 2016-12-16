@@ -42,6 +42,6 @@
       </AnchorPane>
       <Label layoutX="105.0" layoutY="65.0" text="用户名" />
       <ChoiceBox fx:id="managerTypeBox" layoutX="198.0" layoutY="100.0" prefHeight="23.0" prefWidth="132.0" />
-      <TextField layoutX="198.0" layoutY="54.0" prefHeight="23.0" prefWidth="132.0" />
+      <TextField fx:id="userNameField" layoutX="198.0" layoutY="54.0" prefHeight="23.0" prefWidth="132.0" />
    </children>
 </AnchorPane>

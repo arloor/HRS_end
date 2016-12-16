@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 /**
  * Created by 啊 on 2016/12/8.
  */
-public class ViewHotel extends ViewSearchedHotelObjects {
+public class ViewHotel extends ViewSearchedHotelObjects{
     private StringProperty city;
     private StringProperty area;
 

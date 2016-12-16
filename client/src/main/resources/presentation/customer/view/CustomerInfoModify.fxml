@@ -6,60 +6,36 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="CDLL酒店预订系统——修改用户信息" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.CustomerInfoModifyController">
-   <content>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <ImageView fx:id="imageView" fitHeight="99.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </top>
-         <bottom>
-            <AnchorPane prefHeight="258.0" prefWidth="580.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="141.0" fitWidth="140.0" layoutX="210.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="141.0" fitWidth="140.0" layoutX="406.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <AnchorPane layoutX="1.0" layoutY="4.0" prefHeight="21.0" prefWidth="559.0">
-                     <children>
-                        <Label layoutX="14.0" layoutY="3.0" text="欢迎您！客户：" />
-                        <TextField fx:id="nameField" layoutX="109.0" layoutY="-1.0" onAction="#setNameField" prefHeight="23.0" prefWidth="56.0" />
-                        <Button fx:id="logOutButton" layoutX="424.0" mnemonicParsing="false" onMouseClicked="#setLogOutButton" prefHeight="11.0" prefWidth="65.0" text="退出登录" />
-                        <Button fx:id="backButton" layoutX="280.0" mnemonicParsing="false" onMouseClicked="#setBackButton" text="返回首页" />
-                     </children>
-                  </AnchorPane>
-                  <GridPane layoutX="13.0" layoutY="28.0" prefHeight="231.0" prefWidth="560.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="88.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="469.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="用户姓名" />
-                        <Label text="联系方式" GridPane.rowIndex="4" />
-                        <TextField fx:id="idtentifyField" onAction="#setIdtentifyField" GridPane.rowIndex="3" />
-                        <TextField fx:id="trueNameField" GridPane.columnIndex="1" />
-                        <TextField fx:id="idtentifyContextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="contactField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <AnchorPane prefHeight="55.0" prefWidth="569.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
-                           <children>
-                              <Button fx:id="confirmButton" layoutX="120.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#setConfirmButton" text="确认" />
-                              <Button fx:id="cancelButton" layoutX="357.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#setCancelButton" text="取消" />
-                           </children>
-                        </AnchorPane>
-                        <Label text="原始密码" GridPane.rowIndex="1" />
-                        <Label text="新密码" GridPane.rowIndex="2" />
-                        <PasswordField fx:id="oldPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <PasswordField fx:id="newPasswordField" onAction="#setNewPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-         </bottom>
-      </BorderPane>
-   </content>
-</TitledPane>
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.CustomerInfoModifyController">
+   <children>
+      <GridPane layoutX="14.0" layoutY="85.0" prefHeight="231.0" prefWidth="560.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label text="用户姓名" />
+            <Label text="联系方式" GridPane.rowIndex="4" />
+            <TextField fx:id="trueNameField" GridPane.columnIndex="1" />
+            <TextField fx:id="idtentifyContextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="contactField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <AnchorPane prefHeight="55.0" prefWidth="569.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label text="原始密码" GridPane.rowIndex="1" />
+            <Label text="新密码" GridPane.rowIndex="2" />
+            <PasswordField fx:id="oldPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="newPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="idtentifyField" text="Label" GridPane.rowIndex="3" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="72.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="303.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Button layoutX="111.0" layoutY="335.0" mnemonicParsing="false" onAction="#setConfirmButton" onMouseClicked="#setConfirmButton" prefHeight="23.0" prefWidth="72.0" text="确认" />
+      <Button layoutX="312.0" layoutY="335.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="72.0" text="取消" />
+   </children>
+</AnchorPane>

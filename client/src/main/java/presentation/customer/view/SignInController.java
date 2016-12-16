@@ -23,11 +23,12 @@ public class SignInController {
     @FXML
     private void signInAction() {
         CustomerBLService customerBLService=new Customer();
-       ResultMessage resultMessage=customerBLService.login(usernameField.getText(),passwordField.getText());
+        ResultMessage resultMessage=customerBLService.login(usernameField.getText(),passwordField.getText());
         if(resultMessage.equals(ResultMessage.SUCCESS)){
             mainAPP.showRootView(customerBLService.successLog(usernameField.getText()));
+            mainAPP.showSearchView(customerBLService.successLog(usernameField.getText()));
         }
-       else{
+        else{
             //弹出一个对话框
         }
     }
