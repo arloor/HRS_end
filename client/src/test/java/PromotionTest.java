@@ -2,8 +2,8 @@ import businesslogic.promotionbl.Promotion;
 import businesslogicservice.promotionblservice.PromotionBLService;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-import vo.OrderVO;
 
 /** 
 * Promotion Tester. 
@@ -28,7 +28,7 @@ public class PromotionTest {
     /**
      * 测试已通过
      */
-    @Test
+    @Test@Ignore
     public void testGetHotelPromotion() {
         /*
         HotelSpecialTimePromotionVO hotelSpecialTimePromotionVO = (HotelSpecialTimePromotionVO) promotionBLService.getHotelPromotion(HotelPromotionType.SpecialTime, "如家酒店");
