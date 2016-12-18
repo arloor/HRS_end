@@ -3,6 +3,7 @@ import businesslogicservice.promotionblservice.PromotionBLService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import vo.OrderVO;
 
 /** 
 * Promotion Tester. 
@@ -116,11 +117,11 @@ public class PromotionTest {
     @Test
     public void testCalculatePrice() {
         /*
-        OrderVO orderVO = new OrderVO(66, "mytest", "南京中心大酒店", "未执行", "标准间",
-        3, 2, "yes", "2016-12-10 10:00:00", null, "2016-12-12 00:00:00", null,
-        600, -1, null);
+        OrderVO orderVO = new OrderVO(66, "mytest", "南京中心大酒店", "未执行", "单人间",
+        1, 1, "yes", "2016-12-10 10:00:00", null, "2016-12-12 00:00:00", null,
+        128, -1, null);
         OrderVO newOrderVO = promotionBLService.calculatePrice(orderVO);
-        System.out.println(newOrderVO.getPrice());
+        System.out.println(newOrderVO.getPrice() + " " + newOrderVO.getCharge());
         */
     }
 

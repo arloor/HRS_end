@@ -3,6 +3,9 @@ import businesslogicservice.hotelblservice.HotelBLService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import vo.HotelInfoVO;
+
+import java.util.ArrayList;
 
 /** 
 * Hotel Tester. 
@@ -29,7 +32,7 @@ public class HotelTest {
     @Test
     public void testGetHotelInfo() {
         /*
-        HotelInfoVO hivo = hotelBLService.getHotelInfo("如家酒店（仙林）");
+        HotelInfoVO hivo = hotelBLService.getHotelInfo("南京英尊假日酒店");
         System.out.println(hivo.getHotelName() + " " + hivo.getCity() + " " + hivo.getBusinessCircle() + " " + hivo.getAddress() + " " +
                 hivo.getIntroduction() + " " + hivo.getFacility() + " " + hivo.getStarLevel() + " " + hivo.getCooperCompany() + " " + hivo.getScore() + " " +
                 hivo.getReserve() + " " + hivo.getLowestPrice());
@@ -58,7 +61,7 @@ public class HotelTest {
     @Test
     public void testGetHistoryHotelList() {
         /*
-        ArrayList<HotelInfoVO> historyHotelList = hotelBLService.getHistoryHotelList("liuqin");
+        ArrayList<HotelInfoVO> historyHotelList = hotelBLService.getHistoryHotelList("mytest");
         for(int i = 0; i < historyHotelList.size(); i++) {
             HotelInfoVO hivo = historyHotelList.get(i);
             System.out.println(hivo.getHotelName() + " " + hivo.getCity() + " " + hivo.getBusinessCircle() + " " + hivo.getAddress() + " " +

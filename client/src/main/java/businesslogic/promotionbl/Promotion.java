@@ -430,6 +430,9 @@ public class Promotion implements PromotionBLService {
             orderVO = newOrderVO;
         }
 
+        discountPrice = orderVO.getPrice();
+        orderVO.setPrice(originalPrice);
+        orderVO.setCharge(discountPrice);
         return orderVO;
 
     }
