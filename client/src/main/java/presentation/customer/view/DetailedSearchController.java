@@ -74,29 +74,82 @@ public class DetailedSearchController {
         getGradeInformation();
         getPriceInformation();
         SearchInfoVO searchInfoVO=new SearchInfoVO(customerVO.getUserName(),addressField.getText(),areaField.getText(),
-                hotelNameField.getText(),Integer.parseInt(levelChoiceBox.getSelectionModel().getSelectedItem().toString()),
-                lowestScore,highestScore,roomTypeChoiceBox.getSelectionModel().getSelectedItem().toString(),lowestPrice,highestPrice,
-                checkInPicker.getValue().toString(),checkOutPicker.getValue().toString(),Integer.parseInt(roomNumField.getText())) ;
+                exchangeString(hotelNameField.getText()),exchangeInteger(levelChoiceBox.getSelectionModel().getSelectedItem().toString()),
+                lowestScore,highestScore,exchangeString(roomTypeChoiceBox.getSelectionModel().getSelectedItem().toString()),lowestPrice,highestPrice,
+                exchangeString(checkInPicker.getValue().toString()),exchangeString(checkOutPicker.getValue().toString()),exchangeInteger(roomNumField.getText())) ;
         mainAPP.showSearchHotelView(customerVO,searchInfoVO);
     }
+    private String exchangeString(String str){
+        if(str=="")
+            return null;
+        else
+            return str;
+    }
+    private int exchangeInteger(String s){
+        if(s=="")
+            return -1;
+       else
+           return Integer.parseInt(s);
+    }
     private void getGradeInformation(){
-        int i=gradeBox.getSelectionModel().getSelectedIndex();
-        switch(i){
-            case 0:lowestScore=0;highestScore=3;break;
-            case 1:lowestScore=3;highestScore=4;break;
-            case 2:lowestScore=4;highestScore=4.5;break;
-            default:lowestScore=4.5;highestScore=5;break;
+        if(gradeBox.getSelectionModel().getSelectedItem()==null){
+            lowestScore=-1;
+            highestScore=-1;
+        }
+        else {
+            int i = gradeBox.getSelectionModel().getSelectedIndex();
+            switch (i) {
+                case 0:
+                    lowestScore = 0;
+                    highestScore = 3;
+                    break;
+                case 1:
+                    lowestScore = 3;
+                    highestScore = 4;
+                    break;
+                case 2:
+                    lowestScore = 4;
+                    highestScore = 4.5;
+                    break;
+                default:
+                    lowestScore = 4.5;
+                    highestScore = 5;
+                    break;
+            }
         }
     }
-    private void getPriceInformation(){
-        int i=originPriceBox.getSelectionModel().getSelectedIndex();
-        switch (i){
-            case 0:lowestPrice=0;highestPrice=100;break;
-            case 1:lowestPrice=100;highestPrice=200;break;
-            case 2:lowestPrice=200;highestPrice=300;break;
-            case 3:lowestPrice=300;highestPrice=500;break;
-            case 4:lowestPrice=500;highestPrice=1000;break;
-            case 5:lowestPrice=1000;highestPrice=99999;break;                 //默认房价不会超过99999
+    private void getPriceInformation() {
+        if (originPriceBox.getSelectionModel().getSelectedItem()==null) {
+            lowestPrice = -1;
+            highestPrice = -1;
+        } else {
+            int i = originPriceBox.getSelectionModel().getSelectedIndex();
+            switch (i) {
+                case 0:
+                    lowestPrice = 0;
+                    highestPrice = 100;
+                    break;
+                case 1:
+                    lowestPrice = 100;
+                    highestPrice = 200;
+                    break;
+                case 2:
+                    lowestPrice = 200;
+                    highestPrice = 300;
+                    break;
+                case 3:
+                    lowestPrice = 300;
+                    highestPrice = 500;
+                    break;
+                case 4:
+                    lowestPrice = 500;
+                    highestPrice = 1000;
+                    break;
+                case 5:
+                    lowestPrice = 1000;
+                    highestPrice = 99999;
+                    break;                 //默认房价不会超过99999
+            }
         }
     }
 }

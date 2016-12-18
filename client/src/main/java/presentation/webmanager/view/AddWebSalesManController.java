@@ -1,6 +1,6 @@
 package presentation.webmanager.view;
 
-import businesslogic.managerbl.ManagerBLService_Stub;
+import businesslogic.managerbl.Manager;
 import businesslogicservice.managerblservice.ManagerBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,11 +34,10 @@ public class AddWebSalesManController {
 
     @FXML
     private void setConfirmButton(){
-        ManagerBLService managerBLService=new ManagerBLService_Stub();
-        managerBLService.addManager(new ManagerVO(ManagerType.WebManager,salesManNameField.getText(),initialPasswordField.getText(),
+        ManagerBLService managerBLService=new Manager();
+        managerBLService.addManager(new ManagerVO(ManagerType.WebSalesMan,salesManNameField.getText(),initialPasswordField.getText(),
                 phoneNumber.getText(),null));
-        //弹出提示框显示成功
-        System.out.print(phoneNumber.getText());
+       mainAPP.informationAlert("添加成功");
     }
 
 }

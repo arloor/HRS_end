@@ -112,7 +112,12 @@ public class SearchHotelController {
         if(temp!=null)
             mainAPP.showHotelInfoView(customerVO,temp.getHotelName(),searchInfoVO);
         else{
-            //duihuakuang
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先选择酒店");
+            alert.showAndWait();
         }
     }
 
@@ -122,7 +127,12 @@ public class SearchHotelController {
         if (temp != null)
             mainAPP.showOrderGeneratedView(customerVO, temp.getHotelName(), searchInfoVO);
         else {
-            //duihuakuang
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先选择酒店");
+            alert.showAndWait();
         }
     }
 }

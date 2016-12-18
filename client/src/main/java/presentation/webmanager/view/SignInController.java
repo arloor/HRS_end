@@ -28,13 +28,6 @@ public class SignInController {
     }
    @FXML
     private void signInAction(){
-       if(usernameField.getText()=="") {
-           //弹出对话框
-       }
-       else if(passwordField.getText()=="") {
-           //弹出对话框
-       }
-       else{
            ManagerBLService managerBLService=new Manager();
            ResultMessage resultMessage=managerBLService.login(ManagerType.WebManager,usernameField.getText(),passwordField.getText());
            if(resultMessage.equals(ResultMessage.USER_EXIST)) {
@@ -42,7 +35,9 @@ public class SignInController {
                System.out.print(managerVO.getUsername());
                mainAPP.showRootLayout(managerBLService.getManagerInfo(ManagerType.WebManager, usernameField.getText()));
            }
-       }
+           else{
+               mainAPP.errorAlert("用户名或密码错误");
+           }
        }
    }
 

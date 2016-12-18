@@ -42,13 +42,13 @@ public class ManagerInfoModifyController {
     @FXML
     private void confirm(){
         ManagerBLService managerBLService=new Manager();
-        if(contactField.getText()!=null) {
+        if(contactField.getText().length()!=0) {
             managerVO.setPhoneNumber(contactField.getText());
             managerBLService.changeManagerInfo(managerVO);
-            //提示成功
+            mainAPP.informationAlert("修改成功");
         }
         else{
-            //提示失败
+            mainAPP.errorAlert("修改失败");
         }
     }
     @FXML

@@ -2,11 +2,14 @@ package presentation.customer.view;
 
 import businesslogic.orderbl.OrderImpl;
 import businesslogic.orderbl.OrderProcesser;
+import businesslogic.promotionbl.Promotion;
 import businesslogic.roombl.Room;
 import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
+import businesslogicservice.promotionblservice.PromotionBLService;
 import businesslogicservice.roomblservice.RoomBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import util.ResultMessage;
 import vo.*;
 
 import java.util.List;
@@ -20,7 +23,6 @@ public class OrderGenerated2Controller {
     private CustomerVO customerVO;
     private SearchInfoVO searchInfoVO;
     private HotelInfoVO hotelInfoVO;
-    private Boolean hasRoom=false;
 
     @FXML
     private Label roomTypeField;
@@ -66,48 +68,46 @@ public class OrderGenerated2Controller {
     }
 
     private void setCheckInDate(){
-        String checkInTime=orderVO.getCheckInTime().split(" ")[0];       //checkInDate的格式是2016-12-06 08:08:08这样，现在只需要前半部分
+        String checkInTime=orderVO.getLastCheckInTime().split(" ")[0];       //checkInDate的格式是2016-12-06 08:08:08这样，现在只需要前半部分
         checkInDate.setText(checkInTime);
     }
 
     private void setCheckOutDate(){
-        String checkOutTime=orderVO.getCheckOutTime().split(" ")[0];
+        String checkOutTime=orderVO.getLastCheckoutTime().split(" ")[0];
         checkOutDate.setText(checkOutTime);
     }
 
     private void setInitialPrice(){
         RoomBLService roomBLService=new Room();
-        List<AvailableRoomVO>availableRoomVOs=roomBLService.getAvailableRoomList(hotelInfoVO.getHotelName(),checkInDate.getText(),checkOutDate.getText());
+        List<AvailableRoomVO>availableRoomVOs=roomBLService.getAvailableRoomList(hotelInfoVO.getHotelName(),null,null);
         for(AvailableRoomVO tempVO:availableRoomVOs){
             if(tempVO.getRoomType().equals(roomTypeField.getText())){
-                initialPrice.setText(String.valueOf(tempVO.getPrice()));
-                hasRoom=true;
+                orderVO.setPrice(tempVO.getPrice());
                 break;
             }
-        }
-        if(hasRoom==false){
-            //弹出对话框显示今日此房型已满，请重新选择
-            mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
         }
     }
 
     private void setActualPrice(){
-        /***
-         actualPrice.setEditable(false);
-         double price=Double.parseDouble(initialPrice.getText());
          PromotionBLService salePromotionBLService=new Promotion();
-         actualPrice.setText(String.valueOf(salePromotionBLService.getPrice(orderVO)));
-         ***/
+        orderVO=salePromotionBLService.calculatePrice(orderVO);
+         actualPrice.setText(String.valueOf(orderVO.getCharge()));
+        initialPrice.setText(String.valueOf(orderVO.getPrice()));
     }
     @FXML
     public void setConfirmButton() {
         orderVO.setOrderID(OrderProcesser.getOrderID());
         orderVO.setStatus("未执行");
-        orderVO.setPrice(Double.parseDouble(initialPrice.getText()));
-        orderVO.setCharge(Double.parseDouble(actualPrice.getText()));
         OrderBLservice orderBLservice= OrderImpl.getMemberOrderInstance(orderVO.getCustomerID());
-        orderBLservice.newOrder(orderVO);//newOrder不应该返回是否成功么，还有根据信用值那个也在这部分么
-        //弹出对话框确认成功
+        ResultMessage resultMessage=orderBLservice.newOrder(orderVO);
+        String information="";
+        if(resultMessage.equals(ResultMessage.SUCCESS))
+            information="预订成功";
+        else if(resultMessage.equals(ResultMessage.CREDIT_LT_ZERO))
+            information="信用不足";
+        else if(resultMessage.equals(ResultMessage.NO_ENOUGH_ROOM))
+            information="当前类型房屋已满";
+       mainAPP.informationAlert(information);
     }
     @FXML
     public void setCancelButton() {

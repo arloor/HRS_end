@@ -3,6 +3,7 @@ package presentation.customer.view;
 import businesslogic.orderbl.OrderImpl;
 import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -31,6 +32,8 @@ public class CustomerEvaluateController {
 
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        setHotelNameField();
+        setCheckInTimeField();
     }
     public void setCustomerVO(CustomerVO customerVO){
         this.customerVO=customerVO;
@@ -41,11 +44,11 @@ public class CustomerEvaluateController {
     public void setHotelInfoVO(HotelInfoVO hotelInfoVO){
         this.hotelInfoVO=hotelInfoVO;
     }
-    @FXML
+
     private void setHotelNameField(){
         hotelNameField.setText(hotelInfoVO.getHotelName());
     }
-    @FXML
+
     private void setCheckInTimeField(){
         checkInTimeField.setText(orderVO.getCheckInTime());
     }
@@ -56,7 +59,11 @@ public class CustomerEvaluateController {
         OrderEvaluationVO orderEvaluationVO=new OrderEvaluationVO(orderVO.getOrderID(),Double.parseDouble(grade),evaluation);
         OrderBLservice orderBLservice=OrderImpl.getMemberOrderInstance(customerVO.getUserName());
         orderBLservice.evaluateOrder(orderEvaluationVO);
-        //最好能弹出一个对话框显示评价成功
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("评价成功");
+        alert.showAndWait();
     }
     @FXML
     private void setCancelButton(){

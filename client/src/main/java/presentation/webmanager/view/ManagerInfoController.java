@@ -52,14 +52,16 @@ public class ManagerInfoController {
         if(userNameField.getText()!=""){
             String userName=userNameField.getText();
             ManagerBLService managerBLService=new Manager();
+            ManagerVO temp=managerBLService.getManagerInfo(ManagerType.WebManager,"manager");
+            System.out.print(temp.getPhoneNumber());
             setManagerVO(managerBLService.getManagerInfo(getManagerType(),userName));       //有问题！！
-            System.out.print(managerVO.getPhoneNumber());
+            System.out.print(managerVO.getUsername());
             setContactField();
             setHotelNameField();
             informationPane.setVisible(true);
         }
         else{
-            //弹出对话框请先输入用户名
+            mainAPP.errorAlert("请先输入用户名");
         }
     }
     private void setContactField(){
@@ -67,8 +69,11 @@ public class ManagerInfoController {
     }
 
     private void setHotelNameField(){
-        if(getManagerType().equals(ManagerType.HotelWorker))
+        if(getManagerType().equals(ManagerType.HotelWorker)) {
             hotelNameLabel.setText(managerVO.getHotelName());
+            hotelNameLabel.setVisible(true);
+            hotelName.setVisible(true);
+        }
         else{
             hotelName.setVisible(false);
             hotelNameLabel.setVisible(false);

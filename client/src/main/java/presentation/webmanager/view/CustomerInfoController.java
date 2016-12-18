@@ -5,6 +5,7 @@ import businesslogic.customerbl.Customer;
 import businesslogicservice.creditblservice.CreditBLservice;
 import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -66,7 +67,12 @@ public class CustomerInfoController {
             informationPane.setVisible(true);
         }
         else{
-            //弹出对话框请先输入用户名
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先输入用户名");
+            alert.showAndWait();
         }
     }
     private void setActualNameField(){

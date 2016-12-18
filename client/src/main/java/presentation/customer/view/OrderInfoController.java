@@ -7,10 +7,10 @@ import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import presentation.customer.MainAPP;
-import util.OrderType;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by 啊 on 2016/11/29.
  */
-//还没有写查询在特定酒店下的订单
+
 public class OrderInfoController {
     private MainAPP mainAPP;
     private CustomerVO customerVO;
@@ -114,15 +114,13 @@ public class OrderInfoController {
     public void getOrderList() {
         ArrayList<OrderVO> orderList;
         if(hotelVO==null){
-            //list= (List<OrderVO>) orderBLservice.getOrderVOList();
-            orderList = new ArrayList<OrderVO>(orderBLservice.getOrderVOList().values());list=orderList;
-            System.out.print(list.get(0).getStatus());
-            System.out.print(list.get(1).getStatus());
+            orderList = new ArrayList<OrderVO>(orderBLservice.getOrderVOList().values());
+            list=orderList;
 
         }
 
         else {
-            orderList = new ArrayList<OrderVO>(orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName()).values());
+            orderList = new ArrayList<OrderVO>(orderBLservice.getSpecificHotelOrderList(hotelVO.getHotelName()).values());
             list=orderList;    //(List<OrderVO>) orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName());
         }
     }
@@ -136,34 +134,36 @@ public class OrderInfoController {
         setCancelOrderTable();
     }
 
-    private  ObservableList setOrder(OrderType orderType){
+    private  ObservableList setOrder(String orderType){
         ObservableList<ViewOrder> tempViewList= FXCollections.observableArrayList();
         for (OrderVO tempOrderVO : list) {
-            if(tempOrderVO.getStatus().equals(orderType))
-                tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(),tempOrderVO.getHotel(),tempOrderVO.getRoomID(),
-                        tempOrderVO.getRoomNum(),tempOrderVO.getPeopleNum(),
-                        tempOrderVO.getHasChild(),tempOrderVO.getPrice(),tempOrderVO.getCharge()));
+            if(tempOrderVO.getStatus().equals(orderType)) {
+                tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(), tempOrderVO.getHotel(), tempOrderVO.getRoomID(),
+                        tempOrderVO.getRoomNum(), tempOrderVO.getPeopleNum(),
+                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge()));
+            }
         }
         return tempViewList;
     }
 
     private void setExecutedOrderTable(){
-        ObservableList observableList=setOrder(OrderType.Executed);
+        ObservableList observableList=setOrder("已执行");
         executedOrderTable.setItems(observableList);
     }
 
     private void setUnexecutedOrderTable(){
-        ObservableList observableList=setOrder(OrderType.Unexecuted);
+        ObservableList observableList=setOrder("未执行");
         unexecutedOrderTable.setItems(observableList);
     }
 
     private void setUnusualOrderTable(){
-        ObservableList observableList=setOrder(OrderType.Abnormol);
+        System.out.print("aaaa");
+        ObservableList observableList=setOrder("异常");
         unusualOrderTable.setItems(observableList);
     }
 
     private void setCancelOrderTable(){
-        ObservableList observableList=setOrder(OrderType.Canceled);
+        ObservableList observableList=setOrder("已撤销");
         cancelOrderTable.setItems(observableList);
     }
 
@@ -215,23 +215,37 @@ public class OrderInfoController {
         ViewOrder viewUnexecutedOrder=unexecutedOrderTable.getSelectionModel().getSelectedItem();
         if(viewUnexecutedOrder!=null){
             orderBLservice.cancelOrder(Integer.parseInt(viewUnexecutedOrder.getOrderID()));
-            //提示取消成功
+            Alert alert;
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("成功");
+            alert.setHeaderText(null);
+            alert.setContentText("取消成功");
+            alert.showAndWait();
         }
         else{
-            //提示请先选择
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先选择订单");
+            alert.showAndWait();
         }
     }
     @FXML
-    private void setEvaluateButton(){
-        ViewOrder viewExecutedOrder=executedOrderTable.getSelectionModel().getSelectedItem();
-        if(viewExecutedOrder!=null){
-            OrderVO orderVO=orderBLservice.getOrderInfo(Integer.parseInt(viewExecutedOrder.getOrderID()));
-            HotelBLService hotelBLService=new Hotel();
-            HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(viewExecutedOrder.getHotelName());
-            mainAPP.showCustomerEvaluateView(customerVO,orderVO,hotelInfoVO);
-            //弹出
+    private void setEvaluateButton() {
+        ViewOrder viewExecutedOrder = executedOrderTable.getSelectionModel().getSelectedItem();
+        if (viewExecutedOrder != null) {
+            OrderVO orderVO = orderBLservice.getOrderInfo(Integer.parseInt(viewExecutedOrder.getOrderID()));
+            HotelBLService hotelBLService = new Hotel();
+            HotelInfoVO hotelInfoVO = hotelBLService.getHotelInfo(viewExecutedOrder.getHotelName());
+            mainAPP.showCustomerEvaluateView(customerVO, orderVO, hotelInfoVO);
+        } else {
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先选择订单");
+            alert.showAndWait();
         }
-        //弹出
     }
-
 }

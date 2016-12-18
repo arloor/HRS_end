@@ -52,6 +52,6 @@ public class CustomerInfoModifyController {
             customerVO.setUniqueInformation(idtentifyContextField.getText());
         if(contactField.getText()!=null)
             customerVO.setPhoneNumber(contactField.getText());
-        //弹出对话框显示修改成功
+        mainAPP.informationAlert("修改成功");
     }
 }

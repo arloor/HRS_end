@@ -5,6 +5,7 @@ import businesslogicservice.hotelblservice.HotelBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import vo.CustomerVO;
@@ -64,7 +65,13 @@ public class LivedHotelController {
         List<HotelInfoVO>hotelInfoVOList=hotelBLService.getHistoryHotelList(customerVO.getUserName());
         HotelInfoVO hotelInfoVOs=hotelInfoVOList.get(0);
         if(hotelInfoVOs==null){
-            //弹出对话框
+            Alert alert;
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("您还没有住过的酒店");
+            alert.showAndWait();
+            return;
         }
         System.out.print(hotelInfoVOs.getCity()+hotelInfoVOs.getHotelName()+hotelInfoVOs.getBusinessCircle());
         ObservableList<ViewHotel> tempViewList= FXCollections.observableArrayList();
@@ -80,7 +87,12 @@ public class LivedHotelController {
     private void setHotelOrderButton(){
         ViewHotel hotel=livedHotelTable.getSelectionModel().getSelectedItem();
         if(hotel==null){
-            //duihuakuang!!！
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请先选择");
+            alert.showAndWait();
         }
         else{
             mainAPP.showOrderInfoView(customerVO,hotelBLService.getHotelInfo(hotel.getHotelName()));

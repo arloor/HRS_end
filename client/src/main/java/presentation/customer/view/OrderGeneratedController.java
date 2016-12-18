@@ -54,7 +54,7 @@ public class OrderGeneratedController {
     }
 
     private void setNumPeopleChoiceBox(){
-        numPeopleChoiceBox.setItems((FXCollections.observableArrayList("1人","2人","3人","4人","5人及以上")));
+        numPeopleChoiceBox.setItems((FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10")));
     }
 
     private void setLatestCheckInBox(){

@@ -40,7 +40,7 @@ public class HotelWorkerAdditionController {
                 passwordField.getText(),phoneNumber.getText(),hotelName);
         ManagerBLService managerBLService=new Manager();
         managerBLService.addManager(hotelWorkerVO);
-        //弹出对话框显示成功
+        mainAPP.informationAlert("添加成功");
     }
 
 }

@@ -16,11 +16,11 @@
       <Button layoutX="325.0" layoutY="353.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="61.0" text="取消" />
       <Label layoutX="10.0" layoutY="86.0" text="入住时间" />
       <TextField fx:id="gradeField" layoutX="62.0" layoutY="123.0" prefHeight="23.0" prefWidth="118.0" />
-      <Label fx:id="hotelNameField" layoutX="24.0" layoutY="31.0" onDragDetected="#setHotelNameField" text="Label">
+      <Label fx:id="hotelNameField" layoutX="24.0" layoutY="31.0" text="Label">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="checkInTimeField" layoutX="84.0" layoutY="86.0" onDragDetected="#setCheckInTimeField" prefHeight="15.0" prefWidth="126.0" text="Label" />
+      <Label fx:id="checkInTimeField" layoutX="84.0" layoutY="86.0" prefHeight="15.0" prefWidth="126.0" text="Label" />
    </children>
 </AnchorPane>

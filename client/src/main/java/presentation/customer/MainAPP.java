@@ -3,6 +3,7 @@ package presentation.customer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -300,4 +301,12 @@ public class MainAPP extends Application{
         }
     }
 
+    public void informationAlert(String information) {
+        Alert alert;
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(information);
+        alert.showAndWait();
+    }
 }
