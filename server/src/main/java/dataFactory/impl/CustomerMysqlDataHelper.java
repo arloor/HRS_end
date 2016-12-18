@@ -11,6 +11,7 @@ import java.sql.*;
  * Created by njulgh on 16-12-5.
  */
 public class CustomerMysqlDataHelper implements CustomerDatahelper{
+    DeEnCode deEnCode=new DeEnCode();
     static String url= "jdbc:mysql://123.206.213.148:3306/hotelSystem?"
             + "user=root&password=root&useUnicode=true&characterEncoding=UTF8";
 
@@ -34,8 +35,9 @@ public class CustomerMysqlDataHelper implements CustomerDatahelper{
 
     @Override
     public ResultMessage insert(CustomerPO po) {
+
         String username=po.getUserName();
-        String password=po.getPassword();
+        String password=deEnCode.encode(po.getPassword());
         String phone=po.getPhoneNumber();
         String customerName=po.getCustomerName();
         String type=po.getCustomerType().toString();
@@ -72,7 +74,7 @@ public class CustomerMysqlDataHelper implements CustomerDatahelper{
     public ResultMessage update(CustomerPO po) {
         String sql="UPDATE member " +
                 "SET " +
-                "password='"+po.getPassword()+
+                "password='"+deEnCode.encode(po.getPassword())+
                 "',phone='"+po.getPhoneNumber()+
                 "',customerName='"+po.getCustomerName()+
                 "',uniqueInfo='"+po.getUniqueInformation()+
@@ -96,7 +98,7 @@ public class CustomerMysqlDataHelper implements CustomerDatahelper{
             Statement statement = conn.createStatement();
             ResultSet resultSet=statement.executeQuery("SELECT * FROM member WHERE userName='"+userName+"'");
             if(resultSet.next()){
-                String password=resultSet.getString(2);
+                String password=deEnCode.decode(resultSet.getString(2));
                 String phone=resultSet.getString(3);
                 String type=resultSet.getString(4);
                 CustomerType customerType;

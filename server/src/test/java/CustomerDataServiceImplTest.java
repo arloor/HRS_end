@@ -42,7 +42,11 @@ public void testFind() throws Exception {
 * 
 */ 
 @Test
-public void testInsert() throws Exception { 
+@Ignore
+public void testInsert() throws Exception {
+    CustomerPO cpo=customerDataservice.getCustomer("arloor");
+    cpo.setUserName("arloor1");
+    customerDataservice.insert(cpo);
 //TODO: Test goes here... 
 } 
 
@@ -53,7 +57,12 @@ public void testInsert() throws Exception {
 */ 
 @Test
 public void testUpdate() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    CustomerPO cpo=customerDataservice.getCustomer("123456");
+    cpo.setPassword("123456");
+    customerDataservice.update(cpo);
+    cpo=customerDataservice.getCustomer("123456");
+    System.out.println("密码是"+cpo.getPassword());
 } 
 
 /** 
