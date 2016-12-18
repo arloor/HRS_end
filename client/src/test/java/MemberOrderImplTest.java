@@ -125,7 +125,7 @@ public void testNewOrder() throws Exception {
 @Test
 public void testEvaluateOrder() throws Exception { 
 //TODO: Test goes here...
-    OrderEvaluationVO oevo =new OrderEvaluationVO(5,5,"bucuo");
+    OrderEvaluationVO oevo =new OrderEvaluationVO(9,5,"buaaaaaacuo");
     order.evaluateOrder(oevo);
 
 } 

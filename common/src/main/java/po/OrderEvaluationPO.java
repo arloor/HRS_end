@@ -24,9 +24,7 @@ public class OrderEvaluationPO implements Serializable {
     }
 
     public OrderEvaluationPO(OrderEvaluationVO oevo){
-        int orderID=oevo.getOrderID();
-        double pingfen=oevo.getPingfen();
-        String pingjia=oevo.getPingjia();
+        this(oevo.getOrderID(),oevo.getPingfen(),oevo.getPingjia());
     }
 
     public int getOrderID() {
