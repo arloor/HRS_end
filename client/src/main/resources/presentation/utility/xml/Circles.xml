@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Circles>
+    <Circle City="南京">新街口地区</Circle>
+    <Circle City="南京">夫子庙地区</Circle>
+    <Circle City="南京">仙林学府区</Circle>
+    <Circle City="南京">江宁开发区</Circle>
+    <Circle City="上海">虹桥地区</Circle>
+    <Circle City="上海">外滩地区</Circle>
+    <Circle City="上海">人民广场地区</Circle>
+    <Circle City="上海">浦东新国际博览中心</Circle>
+    <Circle City="北京">天安门地区</Circle>
+    <Circle City="北京">中关村</Circle>
+    <Circle City="北京">国贸地区</Circle>
+    <Circle City="北京">三里屯商业区</Circle>
+</Circles>

@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.SearchHotelController">
    <children>
       <Label layoutX="37.0" layoutY="28.0" text="排序方式" />
-      <ChoiceBox fx:id="sortChoiceBox" layoutX="118.0" layoutY="24.0" onMouseClicked="#reSort" prefHeight="23.0" prefWidth="120.0" />
+      <ChoiceBox fx:id="sortChoiceBox" layoutX="118.0" layoutY="24.0" onContextMenuRequested="#reSort" prefHeight="23.0" prefWidth="120.0" />
       <TableView fx:id="searchTable" layoutX="18.0" layoutY="60.0" onSort="#setSearchTable" prefHeight="279.0" prefWidth="486.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
          <columns>
             <TableColumn fx:id="hotelNameColumn" prefWidth="91.0" text="酒店名" />
@@ -20,7 +20,7 @@
          </columns>
       </TableView>
       <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox" prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: white;" text="只在住过的酒店中搜索" />
-      <Button fx:id="detailedInformationButton" layoutX="52.0" layoutY="352.0" mnemonicParsing="false" onAction="#setDetailedInformationButton" text="查看选中的酒店" />
-      <Button fx:id="orderButton" layoutX="327.0" layoutY="352.0" mnemonicParsing="false" onAction="#setOrderButton" text="预定选中的酒店" />
+      <Button layoutX="52.0" layoutY="352.0" mnemonicParsing="false" onAction="#setDetailedInformationButton" text="查看选中的酒店" />
+      <Button layoutX="327.0" layoutY="352.0" mnemonicParsing="false" onAction="#setOrderButton" text="预定选中的酒店" />
    </children>
 </AnchorPane>

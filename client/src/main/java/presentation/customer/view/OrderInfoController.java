@@ -53,6 +53,8 @@ public class OrderInfoController {
     private TableColumn<ViewOrder,String> originPrice1;
     @FXML
     private TableColumn<ViewOrder,String> actualPrice1;
+   @FXML
+   private TableColumn<ViewOrder,String> lastestCheckInTime;
     @FXML
     private TableColumn<ViewOrder,String> orderId2;
     @FXML
@@ -69,6 +71,8 @@ public class OrderInfoController {
     private TableColumn<ViewOrder,String> originPrice2;
     @FXML
     private TableColumn<ViewOrder,String> actualPrice2;
+    @FXML
+    private TableColumn<ViewOrder,String> startTime;
     @FXML
     private TableColumn<ViewOrder,String> orderId3;
     @FXML
@@ -101,6 +105,8 @@ public class OrderInfoController {
     private TableColumn<ViewOrder,String> originPrice4;
     @FXML
     private TableColumn<ViewOrder,String> actualPrice4;
+    @FXML
+    private TableColumn<ViewOrder,String> cancelTime;
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
@@ -115,12 +121,10 @@ public class OrderInfoController {
         if(hotelVO==null){
             orderList = new ArrayList<OrderVO>(orderBLservice.getOrderVOList().values());
             list=orderList;
-
         }
-
         else {
             orderList = new ArrayList<OrderVO>(orderBLservice.getSpecificHotelOrderList(hotelVO.getHotelName()).values());
-            list=orderList;    //(List<OrderVO>) orderBLservice.getSpecificHotelOrderList(customerVO.getCustomerName());
+            list=orderList;
         }
     }
     public void setMainAPP(MainAPP mainAPP) {
@@ -133,37 +137,53 @@ public class OrderInfoController {
         setCancelOrderTable();
     }
 
-    private  ObservableList setOrder(String orderType){
+    private void setExecutedOrderTable(){
         ObservableList<ViewOrder> tempViewList= FXCollections.observableArrayList();
         for (OrderVO tempOrderVO : list) {
-            if(tempOrderVO.getStatus().equals(orderType)) {
+            if(tempOrderVO.getStatus().equals("已执行")) {
                 tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(), tempOrderVO.getHotel(), tempOrderVO.getRoomID(),
                         tempOrderVO.getRoomNum(), tempOrderVO.getPeopleNum(),
-                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge()));
+                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge(),tempOrderVO.getCheckInTime()));
+                System.out.print(tempOrderVO.getCheckInTime());
             }
         }
-        return tempViewList;
-    }
-
-    private void setExecutedOrderTable(){
-        ObservableList observableList=setOrder("已执行");
-        executedOrderTable.setItems(observableList);
+        executedOrderTable.setItems(tempViewList);
     }
 
     private void setUnexecutedOrderTable(){
-        ObservableList observableList=setOrder("未执行");
-        unexecutedOrderTable.setItems(observableList);
+        ObservableList<ViewOrder> tempViewList= FXCollections.observableArrayList();
+        for (OrderVO tempOrderVO : list) {
+            if(tempOrderVO.getStatus().equals("未执行")) {
+                tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(), tempOrderVO.getHotel(), tempOrderVO.getRoomID(),
+                        tempOrderVO.getRoomNum(), tempOrderVO.getPeopleNum(),
+                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge(),tempOrderVO.getLastCheckInTime()));
+            }
+        }
+        unexecutedOrderTable.setItems(tempViewList);
     }
 
     private void setUnusualOrderTable(){
-        //System.out.print("aaaa");
-        ObservableList observableList=setOrder("异常");
-        unusualOrderTable.setItems(observableList);
+        ObservableList<ViewOrder> tempViewList= FXCollections.observableArrayList();
+        for (OrderVO tempOrderVO : list) {
+            if(tempOrderVO.getStatus().equals("异常")) {
+                tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(), tempOrderVO.getHotel(), tempOrderVO.getRoomID(),
+                        tempOrderVO.getRoomNum(), tempOrderVO.getPeopleNum(),
+                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge(),null));
+            }
+        }
+        unusualOrderTable.setItems(tempViewList);
     }
 
     private void setCancelOrderTable(){
-        ObservableList observableList=setOrder("已撤销");
-        cancelOrderTable.setItems(observableList);
+        ObservableList<ViewOrder> tempViewList= FXCollections.observableArrayList();
+        for (OrderVO tempOrderVO : list) {
+            if(tempOrderVO.getStatus().equals("已撤销")) {
+                tempViewList.add(new ViewOrder(tempOrderVO.getOrderID(), tempOrderVO.getHotel(), tempOrderVO.getRoomID(),
+                        tempOrderVO.getRoomNum(), tempOrderVO.getPeopleNum(),
+                        tempOrderVO.getHasChild(), tempOrderVO.getPrice(), tempOrderVO.getCharge(),tempOrderVO.getCancelTime()));
+            }
+        }
+        cancelOrderTable.setItems(tempViewList);
     }
 
     @FXML
@@ -176,6 +196,7 @@ public class OrderInfoController {
         whetherChild1.setCellValueFactory(cellData->cellData.getValue().hasChildProperty());
         originPrice1.setCellValueFactory(cellData->cellData.getValue().originPriceProperty());
         actualPrice1.setCellValueFactory(cellData->cellData.getValue().actualPriceProperty());
+        lastestCheckInTime.setCellValueFactory(cellData->cellData.getValue().uniqueProperty());
         orderId2.setCellValueFactory(cellData->cellData.getValue().orderIDProperty());
         hotelName2.setCellValueFactory(cellData->cellData.getValue().hotelNameProperty());
         roomType2.setCellValueFactory(cellData->cellData.getValue().roomTypeProperty());
@@ -192,6 +213,7 @@ public class OrderInfoController {
         whetherChild2.setCellValueFactory(cellData->cellData.getValue().hasChildProperty());
         originPrice2.setCellValueFactory(cellData->cellData.getValue().originPriceProperty());
         actualPrice2.setCellValueFactory(cellData->cellData.getValue().actualPriceProperty());
+        startTime.setCellValueFactory(cellData->cellData.getValue().uniqueProperty());
         orderId3.setCellValueFactory(cellData->cellData.getValue().orderIDProperty());
         hotelName3.setCellValueFactory(cellData->cellData.getValue().hotelNameProperty());
         roomType3.setCellValueFactory(cellData->cellData.getValue().roomTypeProperty());
@@ -208,6 +230,7 @@ public class OrderInfoController {
         whetherChild4.setCellValueFactory(cellData->cellData.getValue().hasChildProperty());
         originPrice4.setCellValueFactory(cellData->cellData.getValue().originPriceProperty());
         actualPrice4.setCellValueFactory(cellData->cellData.getValue().actualPriceProperty());
+        cancelTime.setCellValueFactory(cellData->cellData.getValue().uniqueProperty());
     }
     @FXML
     private void setCancelOrderButton(){

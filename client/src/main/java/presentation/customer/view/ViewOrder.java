@@ -14,7 +14,8 @@ public class ViewOrder {
     private StringProperty hasChild;
     private StringProperty originPrice;
     private StringProperty actualPrice;
-    public ViewOrder(int orderID,String hotelName,String roomType,int roomNum,int peopleNum,String hasChild,double originPrice,double actualPrice){
+    private StringProperty unique;
+    public ViewOrder(int orderID,String hotelName,String roomType,int roomNum,int peopleNum,String hasChild,double originPrice,double actualPrice,String time){
         this.orderID=new SimpleStringProperty(String.valueOf(orderID));
         this.hotelName=new SimpleStringProperty(hotelName);
         this.roomType=new SimpleStringProperty(roomType);
@@ -23,6 +24,7 @@ public class ViewOrder {
         this.hasChild=new SimpleStringProperty(hasChild);
         this.originPrice=new SimpleStringProperty(String.valueOf(originPrice));
         this.actualPrice=new SimpleStringProperty(String.valueOf(actualPrice));
+        this.unique=new SimpleStringProperty(String.valueOf(time));
     }
 
     public StringProperty orderIDProperty() {
@@ -48,12 +50,17 @@ public class ViewOrder {
     public StringProperty hasChildProperty() {
         return hasChild;
     }
+
     public StringProperty originPriceProperty() {
         return originPrice;
     }
 
     public StringProperty actualPriceProperty() {
         return actualPrice;
+    }
+
+    public StringProperty uniqueProperty() {
+        return unique;
     }
 
     public String getRoomType() {
@@ -86,5 +93,9 @@ public class ViewOrder {
 
     public String getRoomNum() {
         return roomNum.get();
+    }
+
+    public String getUnique() {
+        return unique.get();
     }
 }

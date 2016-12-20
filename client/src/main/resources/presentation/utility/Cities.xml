@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cities>
+    <city>
+        <circles>新街口地区</circles>
+        <circles>夫子庙地区</circles>
+        <circles>仙林学府区</circles>
+        <circles>江宁开发区</circles>
+        <name>南京</name>
+    </city>
+    <city>
+        <circles>虹桥地区</circles>
+        <circles>外滩地区</circles>
+        <circles>人民广场地区</circles>
+        <circles>浦东新国际博览中心</circles>
+        <name>上海</name>
+    </city>
+    <city>
+        <circles>天安门地区</circles>
+        <circles>中关村</circles>
+        <circles>国贸地区</circles>
+        <circles>三里屯商业区</circles>
+        <name>北京</name>
+    </city>
+</cities>

@@ -46,53 +46,63 @@ public class HotelInfoController {
 
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
         this.mainAPP=mainAPP;
+        initialize();
     }
     public void setHotelInfoVO(String hotelName){
+        System.out.print(hotelName);
         HotelBLService hotelBLService=new Hotel();
         hotelInfoVO=hotelBLService.getHotelInfo(hotelName);
     }
 
-    @FXML
+
     private void setHotelNameField(){
         hotelNameField.setText(hotelInfoVO.getHotelName());
     }
-    @FXML
+
     private void setHotelAddressField(){
         hotelAddressField.setText(hotelInfoVO.getAddress());
     }
-    @FXML
+
     private  void setServiceField(){
         serviceField.setText(hotelInfoVO.getFacility());
     }
-    @FXML
+
     private void setHotelLevelField(){
         hotelLevelField.setText(String.valueOf(hotelInfoVO.getStarLevel()));
     }
-    @FXML
+
     private void setHotelGradeField(){
         hotelGradeField.setText(String.valueOf(hotelInfoVO.getScore()));
     }
-    @FXML
+
     private void setBriefInformationArea(){
         briefInformationArea.setEditable(false);
         briefInformationArea.setText(hotelInfoVO.getIntroduction());
     }
-    @FXML
+
     private void setPriceTable(){
         RoomBLService roomBLService=new Room();
         List<AvailableRoomVO>roomList;
-        roomList=roomBLService.getAvailableRoomList(String.valueOf(hotelInfoVO.getHotelName()),"","");
+        roomList=roomBLService.getAvailableRoomList(String.valueOf(hotelInfoVO.getHotelName()),null,null);
         ObservableList<ViewRoomAndPriceObjects> tempViewList= FXCollections.observableArrayList();
         for (AvailableRoomVO availableRoomVO : roomList) {
             tempViewList.add(new ViewRoomAndPriceObjects(availableRoomVO.getRoomType(),String.valueOf(availableRoomVO.getPrice())));
         }
         priceTable.setItems(tempViewList);
     }
-    @FXML
+
     private void initialize(){
         roomTypeColumn.setCellValueFactory(cellData->cellData.getValue().roomTypeProperty());
         originPriceColumn.setCellValueFactory(cellData->cellData.getValue().originPriceProperty());
+        setHotelNameField();
+        setHotelAddressField();
+        setHotelGradeField();
+        setHotelLevelField();
+        setPriceTable();
+        setServiceField();
+        setBriefInformationArea();
     }
+
     @FXML
     private void setOrderGeneratedButton(){
         mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);

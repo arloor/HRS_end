@@ -17,7 +17,7 @@
          <content>
             <TableView fx:id="creditInfoTable" prefHeight="306.0" prefWidth="406.0">
                <columns>
-                  <TableColumn fx:id="timeTableColumn" prefWidth="75.0" text="时间" />
+                  <TableColumn fx:id="timeTableColumn" prefWidth="125.0" text="时间" />
                   <TableColumn fx:id="orderIdTableColumn" prefWidth="170.0" text="订单号" />
                   <TableColumn fx:id="modifyTypeTableColumn" prefWidth="189.0" text="修改类型" />
                   <TableColumn fx:id="creditChangeTableColumn" prefWidth="130.0" text="信用值变化" />

@@ -7,32 +7,31 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane onDragDetected="#initialize" prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.HotelInfoController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.HotelInfoController">
    <children>
-      <Button layoutX="290.0" layoutY="363.0" mnemonicParsing="false" onAction="#setOrderGeneratedButton" prefHeight="23.0" prefWidth="92.0" text="生成订单" />
-      <Button layoutX="532.0" layoutY="363.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="75.0" text="取消" />
-      <TableView fx:id="priceTable" layoutX="54.0" layoutY="184.0" onSort="#setPriceTable" prefHeight="165.0" prefWidth="557.0">
+      <Button layoutX="203.0" layoutY="363.0" mnemonicParsing="false" onAction="#setOrderGeneratedButton" prefHeight="23.0" prefWidth="92.0" text="生成订单" />
+      <Button layoutX="381.0" layoutY="363.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="75.0" text="取消" />
+      <TableView fx:id="priceTable" layoutX="28.0" layoutY="184.0" prefHeight="165.0" prefWidth="432.0">
          <columns>
-            <TableColumn fx:id="roomTypeColumn" prefWidth="251.0" text="房间类型" />
-            <TableColumn fx:id="originPriceColumn" prefWidth="235.0" text="原始价格" />
+            <TableColumn fx:id="roomTypeColumn" prefWidth="172.0" text="房间类型" />
+            <TableColumn fx:id="originPriceColumn" prefWidth="255.0" text="原始价格" />
          </columns>
       </TableView>
-      <Button layoutX="48.0" layoutY="363.0" mnemonicParsing="false" onAction="#setSearchOrderButton" text="查看该酒店下订单" />
-      <Label fx:id="hotelNameField" layoutX="53.0" layoutY="14.0" onDragDetected="#setHotelNameField" prefHeight="15.0" prefWidth="287.0" text="Label">
+      <Button layoutX="23.0" layoutY="363.0" mnemonicParsing="false" onAction="#setSearchOrderButton" text="查看该酒店下订单" />
+      <Label fx:id="hotelNameField" layoutX="23.0" layoutY="14.0" prefHeight="35.0" prefWidth="425.0" text="Label">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="hotelAddressField" layoutX="94.0" layoutY="61.0" onDragDetected="#setHotelAddressField" prefHeight="15.0" prefWidth="205.0" text="Label" />
-      <Label layoutX="55.0" layoutY="111.0" text="设施服务" />
-      <Label fx:id="serviceField" layoutX="122.0" layoutY="111.0" onDragDetected="#setServiceField" prefHeight="15.0" prefWidth="299.0" text="Label" />
-      <Label layoutX="55.0" layoutY="85.0" text="星级" />
-      <Label fx:id="hotelGradeField" layoutX="392.0" layoutY="85.0" onDragDetected="#setHotelGradeField" prefHeight="15.0" prefWidth="279.0" text="Label" />
-      <Label layoutX="349.0" layoutY="85.0" text="评分" />
-      <Label fx:id="hotelLevelField" layoutX="94.0" layoutY="85.0" onDragDetected="#setHotelLevelField" prefHeight="15.0" prefWidth="194.0" text="Label" />
-      <Label layoutX="55.0" layoutY="134.0" text="简介" />
-      <TextArea fx:id="briefInformationArea" layoutX="122.0" layoutY="126.0" onDragDetected="#setBriefInformationArea" prefHeight="46.0" prefWidth="477.0" />
-      <ScrollBar fx:id="introductionField" layoutX="586.0" layoutY="126.0" orientation="VERTICAL" prefHeight="46.0" prefWidth="0.0" />
-      <Label layoutX="55.0" layoutY="61.0" text="地址" />
+      <Label fx:id="hotelAddressField" layoutX="96.0" layoutY="61.0" prefHeight="15.0" prefWidth="205.0" text="Label" />
+      <Label layoutX="23.0" layoutY="111.0" text="设施服务" />
+      <Label fx:id="serviceField" layoutX="95.0" layoutY="111.0" prefHeight="15.0" prefWidth="299.0" text="Label" />
+      <Label layoutX="23.0" layoutY="85.0" text="星级" />
+      <Label fx:id="hotelGradeField" layoutX="299.0" layoutY="85.0" prefHeight="15.0" prefWidth="119.0" text="Label" />
+      <Label layoutX="263.0" layoutY="85.0" text="评分" />
+      <Label fx:id="hotelLevelField" layoutX="95.0" layoutY="85.0" prefHeight="15.0" prefWidth="154.0" text="Label" />
+      <Label layoutX="28.0" layoutY="142.0" text="简介" />
+      <TextArea fx:id="briefInformationArea" layoutX="85.0" layoutY="127.0" prefHeight="46.0" prefWidth="356.0" />
+      <Label layoutX="23.0" layoutY="61.0" text="地址" />
    </children>
 </AnchorPane>
