@@ -50,13 +50,13 @@ public class LevelPromotionController {
 
     @FXML
     private void confirmAction() {
-        int level = Integer.valueOf(levelField.getText());
-        double credit = Double.valueOf(creditField.getText());
-        double discount = Double.valueOf(discountField.getText());
 
         if (levelField.getText() != null && levelField.getText().length() > 0
                 && creditField.getText() != null && creditField.getText().length() > 0
                 && discountField.getText() != null && discountField.getText().length() > 0) {
+            int level = Integer.valueOf(levelField.getText());
+            double credit = Double.valueOf(creditField.getText());
+            double discount = Double.valueOf(discountField.getText());
             if (levelPromotion != null) {
                 levelPromotion.setLevel(String.format("%02d", level));
                 levelPromotion.setCredit(String.format("%.2f", credit));
@@ -64,6 +64,7 @@ public class LevelPromotionController {
             } else {
                 levelPromotion = new LevelPromotion(new LevelVO(level, credit, discount));
             }
+            stage.close();
         } else {
             Alert alert;
             alert = new Alert(Alert.AlertType.WARNING);
@@ -72,7 +73,5 @@ public class LevelPromotionController {
             alert.setContentText("请输入完整信息！");
             alert.showAndWait();
         }
-
-        stage.close();
     }
 }
