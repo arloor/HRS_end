@@ -64,9 +64,10 @@ public class SearchHotelController {
         addressColumn.setCellValueFactory(cellData->cellData.getValue().addressProperty());
         hotelBLService=new Hotel();
         setSortChoiceBox();
+        setSearchTable();
     }
     public void setSearchInfoVO(SearchInfoVO searchInfoVO) {
-        this.searchInfoVO=searchInfoVO;
+   //     System.out.print(searchInfoVO.getCity());
     }
 
     private void setSortChoiceBox(){
@@ -75,6 +76,9 @@ public class SearchHotelController {
     @FXML
     private void setSearchTable(){
         hotelInfoVOList=hotelBLService.getHotelList(searchInfoVO);
+  //     System.out.print(searchInfoVO.getCity());
+ //       System.out.print(searchInfoVO.getBusinessCircle());
+   //     System.out.println(hotelInfoVOList.size());
         ObservableList<ViewSearchedHotelObjects>tempViewList= FXCollections.observableArrayList();
         for(HotelInfoVO hotelInfoVO:hotelInfoVOList){
             tempViewList.add(new ViewSearchedHotelObjects(hotelInfoVO.getHotelName(),String.valueOf(hotelInfoVO.getStarLevel()),
@@ -104,7 +108,6 @@ public class SearchHotelController {
                 tempHotelList.add(hotelInfoVO);
         }
         hotelInfoVOList=tempHotelList;
-        setSearchTable();
     }
     @FXML
     private void setDetailedInformationButton(){

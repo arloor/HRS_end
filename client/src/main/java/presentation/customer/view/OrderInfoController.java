@@ -7,7 +7,6 @@ import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import presentation.customer.MainAPP;
@@ -215,20 +214,10 @@ public class OrderInfoController {
         ViewOrder viewUnexecutedOrder=unexecutedOrderTable.getSelectionModel().getSelectedItem();
         if(viewUnexecutedOrder!=null){
             orderBLservice.cancelOrder(Integer.parseInt(viewUnexecutedOrder.getOrderID()));
-            Alert alert;
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("成功");
-            alert.setHeaderText(null);
-            alert.setContentText("取消成功");
-            alert.showAndWait();
+            mainAPP.informationAlert("取消成功");
         }
         else{
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("请先选择订单");
-            alert.showAndWait();
+           mainAPP.errorAlert("请先选择");
         }
     }
     @FXML
@@ -240,12 +229,7 @@ public class OrderInfoController {
             HotelInfoVO hotelInfoVO = hotelBLService.getHotelInfo(viewExecutedOrder.getHotelName());
             mainAPP.showCustomerEvaluateView(customerVO, orderVO, hotelInfoVO);
         } else {
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("请先选择订单");
-            alert.showAndWait();
+            mainAPP.errorAlert("请先选择");
         }
     }
 }

@@ -61,12 +61,7 @@ public class SignUpController {
             }
         }
         else{
-             Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("两次输入密码不一致，请重新输入");
-            alert.showAndWait();
+            mainAPP.errorAlert("输入密码不一致");
         }
     }
 }

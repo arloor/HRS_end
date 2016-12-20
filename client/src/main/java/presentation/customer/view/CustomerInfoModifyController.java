@@ -1,9 +1,6 @@
 package presentation.customer.view;
 
-import businesslogic.customerbl.Customer;
-import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -59,31 +56,15 @@ public class CustomerInfoModifyController {
                 customerVO.setPassword(newPasswordField.getText());
             }
             else{
-                Alert alert;
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("错误");
-                alert.setHeaderText("修改失败");
-                alert.setContentText("旧密码输入错误");
-                alert.showAndWait();
+               mainAPP.errorAlert("原始密码错误");
                 return;
             }
         }
         if(hasModified==true) {
-            CustomerBLService customerBLService = new Customer();
-            customerBLService.changeCustomerInfo(customerVO);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("修改成功");
-            alert.showAndWait();
+          mainAPP.informationAlert("修改成功");
         }
         else{
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("未进行修改");
-            alert.showAndWait();
+           mainAPP.errorAlert("未进行修改");
         }
     }
     @FXML

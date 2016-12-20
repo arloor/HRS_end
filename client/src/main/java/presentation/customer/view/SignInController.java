@@ -3,7 +3,6 @@ package presentation.customer.view;
 import businesslogic.customerbl.Customer;
 import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import util.ResultMessage;
@@ -30,12 +29,7 @@ public class SignInController {
             mainAPP.showSearchView(customerBLService.successLog(usernameField.getText()));
         }
         else{
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText("登录失败");
-            alert.setContentText("用户名或密码错误");
-            alert.showAndWait();
+           mainAPP.errorAlert("用户名或密码错误");
         }
     }
     @FXML

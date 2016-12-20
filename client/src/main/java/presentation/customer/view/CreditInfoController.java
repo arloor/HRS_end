@@ -55,7 +55,7 @@ public class CreditInfoController {
         creditVOList = creditBLservice.getCustomerCreditInfo(customerVO.getUserName());
         ObservableList<ViewCreditObjects> tempViewList= FXCollections.observableArrayList();
         for (CreditVO tempCreditVO : creditVOList) {
-            tempViewList.add(new ViewCreditObjects(tempCreditVO.getTime(), tempCreditVO.getOrderID(), tempCreditVO.getCreditChangeType(), tempCreditVO.getChange()));
+            tempViewList.add(new ViewCreditObjects(tempCreditVO.getTime(), tempCreditVO.getOrderID(), tempCreditVO.getCreditChangeType(),tempCreditVO.getChange()));
         }
         creditInfoTable.setItems(tempViewList);
     }
@@ -70,7 +70,7 @@ public class CreditInfoController {
         timeTableColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
         orderIdTableColumn.setCellValueFactory(cellData->cellData.getValue().orderIDProperty());
         modifyTypeTableColumn.setCellValueFactory(cellData->cellData.getValue().creditChangeTypeProperty());
-        creditChangeTableColumn.setCellValueFactory(cellData->cellData.getValue().creditChangeTypeProperty());
+        creditChangeTableColumn.setCellValueFactory(cellData->cellData.getValue().creditChangeProperty());
         setCreditInfoTable();
         setNumCreditField();
         setLevelField();

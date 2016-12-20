@@ -4,6 +4,7 @@ import businesslogic.customerbl.Customer;
 import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import util.ResultMessage;
 import vo.CustomerVO;
 
 /**
@@ -23,8 +24,11 @@ public class SignUp_BirthdayController {
         String time= birthdayPicker.getValue().toString();
         customerVO.setUniqueInformation(time);
         CustomerBLService customerBLService=new Customer();
-        customerBLService.addCustomer(customerVO);
-        mainAPP.showSignInView();
+        ResultMessage resultMessage=customerBLService.addCustomer(customerVO);
+        if(resultMessage.equals(ResultMessage.USER_NOT_EXIST))
+            mainAPP.showSignInView();
+        else if(resultMessage.equals(ResultMessage.USER_EXIST))
+            mainAPP.errorAlert("该用户名已存在");
     }
 
     public void setCustomerVO(CustomerVO customerVO) {

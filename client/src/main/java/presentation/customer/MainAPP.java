@@ -309,4 +309,12 @@ public class MainAPP extends Application{
         alert.setContentText(information);
         alert.showAndWait();
     }
+    public void errorAlert(String information){
+        Alert alert;
+        alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("错误");
+        alert.setHeaderText(null);
+        alert.setContentText(information);
+        alert.showAndWait();
+    }
 }

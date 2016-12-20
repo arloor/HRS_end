@@ -3,7 +3,6 @@ package presentation.customer.view;
 import businesslogic.orderbl.OrderImpl;
 import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -59,11 +58,7 @@ public class CustomerEvaluateController {
         OrderEvaluationVO orderEvaluationVO=new OrderEvaluationVO(orderVO.getOrderID(),Double.parseDouble(grade),evaluation);
         OrderBLservice orderBLservice=OrderImpl.getMemberOrderInstance(customerVO.getUserName());
         orderBLservice.evaluateOrder(orderEvaluationVO);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
-        alert.setContentText("评价成功");
-        alert.showAndWait();
+        mainAPP.informationAlert("评价成功");
     }
     @FXML
     private void setCancelButton(){

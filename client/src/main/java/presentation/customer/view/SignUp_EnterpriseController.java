@@ -4,6 +4,7 @@ import businesslogic.customerbl.Customer;
 import businesslogicservice.customerblservice.CustomerBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import util.ResultMessage;
 import vo.CustomerVO;
 
 /**
@@ -22,9 +23,12 @@ public class SignUp_EnterpriseController {
     @FXML
     private void SignUp() {
         customerVO.setUniqueInformation(enterpriseNameField.getText());
-        CustomerBLService customerBLService=new Customer();
-        customerBLService.addCustomer(customerVO);
-        mainAPP.showSignInView();
+        CustomerBLService customerBLService = new Customer();
+        ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
+        if (resultMessage.equals(ResultMessage.USER_NOT_EXIST))
+            mainAPP.showSignInView();
+        else if (resultMessage.equals(ResultMessage.USER_EXIST))
+            mainAPP.errorAlert("该用户名已存在");
     }
 
     public void setCustomerVO(CustomerVO customerVO) {

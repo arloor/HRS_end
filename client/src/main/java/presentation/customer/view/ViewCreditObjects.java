@@ -14,8 +14,8 @@ public class ViewCreditObjects {
     public ViewCreditObjects(String time,int orderID,String creditChangeType,double creditChange){
         this.time=new SimpleStringProperty(time);
         this.orderID=new SimpleStringProperty(String.valueOf(orderID));
-        this.time=new SimpleStringProperty(creditChangeType);
-        this.time=new SimpleStringProperty(String.valueOf(creditChange));
+        this.creditChangeType=new SimpleStringProperty(creditChangeType);
+        this.creditChange=new SimpleStringProperty(String.valueOf(creditChange));
     }
 
     public StringProperty creditChangeProperty() {

@@ -74,19 +74,60 @@ public class DetailedSearchController {
         getGradeInformation();
         getPriceInformation();
         SearchInfoVO searchInfoVO=new SearchInfoVO(customerVO.getUserName(),addressField.getText(),areaField.getText(),
-                exchangeString(hotelNameField.getText()),exchangeInteger(levelChoiceBox.getSelectionModel().getSelectedItem().toString()),
-                lowestScore,highestScore,exchangeString(roomTypeChoiceBox.getSelectionModel().getSelectedItem().toString()),lowestPrice,highestPrice,
-                exchangeString(checkInPicker.getValue().toString()),exchangeString(checkOutPicker.getValue().toString()),exchangeInteger(roomNumField.getText())) ;
-        mainAPP.showSearchHotelView(customerVO,searchInfoVO);
+                exchangeString(hotelNameField.getText()),
+                getLevelInformation(),
+               -1,-1,
+                getRoomTypeInformation(),
+                -1,-1,
+                getCheckInInformation(),getCheckOutInformation(),
+                exchangeInteger(roomNumField.getText())) ;
+        System.out.println(customerVO.getUserName());
+        System.out.println(searchInfoVO.getCity());
+        System.out.println(searchInfoVO.getBusinessCircle());
+        System.out.println(searchInfoVO.getHotelName());
+        System.out.println(searchInfoVO.getStarLevel());
+        System.out.println(searchInfoVO.getLowerScore());
+        System.out.println(searchInfoVO.getUpperScore());
+        System.out.println(searchInfoVO.getRoomType());
+        System.out.println(searchInfoVO.getLowerPrice());
+        System.out.println(searchInfoVO.getUpperPrice());
+        System.out.println(searchInfoVO.getCheckInDate());
+        System.out.println(searchInfoVO.getCheckOutDate());
+        System.out.println(searchInfoVO.getRoomNum());
+       mainAPP.showSearchHotelView(customerVO,searchInfoVO);
     }
-    private String exchangeString(String str){
-        if(str=="")
+    private int getLevelInformation(){
+        if(levelChoiceBox.getSelectionModel().getSelectedItem()==null)
+            return -1;
+        else
+            return exchangeInteger(levelChoiceBox.getSelectionModel().getSelectedItem().toString());
+    }
+    private String getRoomTypeInformation(){
+        if(roomTypeChoiceBox.getSelectionModel().getSelectedItem()==null)
+            return null;
+        else
+            return exchangeString(roomTypeChoiceBox.getSelectionModel().getSelectedItem().toString());
+    }
+    private String getCheckInInformation(){
+        if(checkInPicker.getValue()==null)
+            return null;
+        else
+            return exchangeString(checkInPicker.getValue().toString());
+    }
+    private String getCheckOutInformation(){
+        if(checkOutPicker.getValue()==null)
+            return null;
+        else
+            return exchangeString(checkOutPicker.getValue().toString());
+    }
+    private String exchangeString(String str){;
+        if(str.equals(""))
             return null;
         else
             return str;
     }
     private int exchangeInteger(String s){
-        if(s=="")
+        if(s.equals(""))
             return -1;
        else
            return Integer.parseInt(s);
