@@ -76,31 +76,26 @@ public class DetailedSearchController {
         SearchInfoVO searchInfoVO=new SearchInfoVO(customerVO.getUserName(),addressField.getText(),areaField.getText(),
                 exchangeString(hotelNameField.getText()),
                 getLevelInformation(),
-               -1,-1,
+               lowestScore,highestScore,
                 getRoomTypeInformation(),
-                -1,-1,
+                lowestPrice,highestPrice,
                 getCheckInInformation(),getCheckOutInformation(),
                 exchangeInteger(roomNumField.getText())) ;
-        System.out.println(customerVO.getUserName());
-        System.out.println(searchInfoVO.getCity());
-        System.out.println(searchInfoVO.getBusinessCircle());
-        System.out.println(searchInfoVO.getHotelName());
-        System.out.println(searchInfoVO.getStarLevel());
-        System.out.println(searchInfoVO.getLowerScore());
-        System.out.println(searchInfoVO.getUpperScore());
-        System.out.println(searchInfoVO.getRoomType());
-        System.out.println(searchInfoVO.getLowerPrice());
-        System.out.println(searchInfoVO.getUpperPrice());
-        System.out.println(searchInfoVO.getCheckInDate());
-        System.out.println(searchInfoVO.getCheckOutDate());
-        System.out.println(searchInfoVO.getRoomNum());
        mainAPP.showSearchHotelView(customerVO,searchInfoVO);
     }
     private int getLevelInformation(){
         if(levelChoiceBox.getSelectionModel().getSelectedItem()==null)
             return -1;
-        else
-            return exchangeInteger(levelChoiceBox.getSelectionModel().getSelectedItem().toString());
+        else {
+            int i = levelChoiceBox.getSelectionModel().getSelectedIndex();
+            switch (i){
+                case 0:return 1;
+                case 1:return 2;
+                case 2:return 3;
+                case 3:return 4;
+                default:return 5;
+            }
+        }
     }
     private String getRoomTypeInformation(){
         if(roomTypeChoiceBox.getSelectionModel().getSelectedItem()==null)

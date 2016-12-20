@@ -10,13 +10,13 @@
    <children>
       <TableView fx:id="livedHotelTable" layoutX="3.0" layoutY="23.0" prefHeight="332.0" prefWidth="415.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
          <columns>
-            <TableColumn fx:id="hotelNameColumn" prefWidth="75.0" text="酒店名称" />
+            <TableColumn fx:id="hotelNameColumn" prefWidth="125.0" text="酒店名称" />
             <TableColumn fx:id="cityColumn" prefWidth="39.0" text="城市" />
-            <TableColumn fx:id="areaColumn" prefWidth="56.0" text="商圈" />
+            <TableColumn fx:id="areaColumn" prefWidth="125.0" text="商圈" />
             <TableColumn fx:id="levelColumn" prefWidth="41.0" text="星级" />
             <TableColumn fx:id="scoreColumn" prefWidth="39.0" text="评分" />
             <TableColumn fx:id="lowestPriceColumn" prefWidth="70.0" text="最低价格" />
-            <TableColumn fx:id="addressColumn" minWidth="3.0" prefWidth="90.0" text="地址" />
+            <TableColumn fx:id="addressColumn" minWidth="3.0" prefWidth="125.0" text="地址" />
          </columns>
       </TableView>
       <Button layoutX="57.0" layoutY="363.0" mnemonicParsing="false" onAction="#setHotelOrderButton" onMouseClicked="#setHotelOrderButton" text="查看该酒店下的订单" />

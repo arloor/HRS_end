@@ -5,7 +5,10 @@ import businesslogicservice.hotelblservice.HotelBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import util.SortType;
 import util.SortWay;
 import vo.CustomerVO;
@@ -41,10 +44,6 @@ public class SearchHotelController {
     @FXML
     private TableColumn<ViewSearchedHotelObjects,String> addressColumn;
     @FXML
-    private Button detailedInformationButton;
-    @FXML
-    private Button orderButton;
-    @FXML
     private CheckBox livedOnlyBox;
 
     public void setMainAPP(presentation.customer.MainAPP mainAPP){
@@ -62,23 +61,23 @@ public class SearchHotelController {
         gradeColumn.setCellValueFactory(cellData->cellData.getValue().gradesProperty());
         lowestPriceColumn.setCellValueFactory(cellData->cellData.getValue().lowestPriceProperty());
         addressColumn.setCellValueFactory(cellData->cellData.getValue().addressProperty());
-        hotelBLService=new Hotel();
         setSortChoiceBox();
         setSearchTable();
     }
     public void setSearchInfoVO(SearchInfoVO searchInfoVO) {
-   //     System.out.print(searchInfoVO.getCity());
+        this.searchInfoVO=searchInfoVO;
+        setHotelList();
+    }
+    private void setHotelList(){
+        hotelBLService=new Hotel();
+        hotelInfoVOList=hotelBLService.getHotelList(searchInfoVO);
     }
 
     private void setSortChoiceBox(){
-        sortChoiceBox=new ChoiceBox(FXCollections.observableArrayList("价格从低到高","价格从高到低","星级从低到高","星级从高到低","评分从低到高","评分从高到低"));
+        sortChoiceBox.setItems(FXCollections.observableArrayList("价格从低到高","价格从高到低","星级从低到高","星级从高到低","评分从低到高","评分从高到低"));
     }
     @FXML
     private void setSearchTable(){
-        hotelInfoVOList=hotelBLService.getHotelList(searchInfoVO);
-  //     System.out.print(searchInfoVO.getCity());
- //       System.out.print(searchInfoVO.getBusinessCircle());
-   //     System.out.println(hotelInfoVOList.size());
         ObservableList<ViewSearchedHotelObjects>tempViewList= FXCollections.observableArrayList();
         for(HotelInfoVO hotelInfoVO:hotelInfoVOList){
             tempViewList.add(new ViewSearchedHotelObjects(hotelInfoVO.getHotelName(),String.valueOf(hotelInfoVO.getStarLevel()),
@@ -87,6 +86,7 @@ public class SearchHotelController {
         searchTable.setItems(tempViewList);
     }
 
+    @FXML
     public void reSort(){
         int i=sortChoiceBox.getSelectionModel().getSelectedIndex();
         switch(i){
@@ -102,12 +102,19 @@ public class SearchHotelController {
     }
     @FXML
     private void setLivedOnlyBox(){
-        ArrayList<HotelInfoVO>tempHotelList=new ArrayList<>();
-        for(HotelInfoVO hotelInfoVO:hotelInfoVOList){
-            if(hotelInfoVO.getReserve()==true)
-                tempHotelList.add(hotelInfoVO);
+        if(livedOnlyBox.isSelected()) {
+            ArrayList<HotelInfoVO> tempHotelList = new ArrayList<>();
+            for (HotelInfoVO hotelInfoVO : hotelInfoVOList) {
+                if (hotelInfoVO.getReserve() == true)
+                    tempHotelList.add(hotelInfoVO);
+            }
+            hotelInfoVOList = tempHotelList;
+            setSearchTable();
         }
-        hotelInfoVOList=tempHotelList;
+        else{
+            setHotelList();
+            setSearchTable();
+        }
     }
     @FXML
     private void setDetailedInformationButton(){
@@ -115,12 +122,7 @@ public class SearchHotelController {
         if(temp!=null)
             mainAPP.showHotelInfoView(customerVO,temp.getHotelName(),searchInfoVO);
         else{
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("请先选择酒店");
-            alert.showAndWait();
+            mainAPP.errorAlert("请先选择酒店");
         }
     }
 
@@ -130,12 +132,7 @@ public class SearchHotelController {
         if (temp != null)
             mainAPP.showOrderGeneratedView(customerVO, temp.getHotelName(), searchInfoVO);
         else {
-            Alert alert;
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText(null);
-            alert.setContentText("请先选择酒店");
-            alert.showAndWait();
+            mainAPP.errorAlert("请先选择酒店");
         }
     }
 }
