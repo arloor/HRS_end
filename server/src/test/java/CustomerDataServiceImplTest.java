@@ -56,6 +56,7 @@ public void testInsert() throws Exception {
 * 
 */ 
 @Test
+@Ignore
 public void testUpdate() throws Exception { 
 //TODO: Test goes here...
     CustomerPO cpo=customerDataservice.getCustomer("123456");
@@ -71,6 +72,7 @@ public void testUpdate() throws Exception {
 * 
 */ 
 @Test
+@Ignore
 public void testGetCustomer() throws Exception { 
 //TODO: Test goes here...
     CustomerPO cpo=customerDataservice.getCustomer("123456");

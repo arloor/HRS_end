@@ -4,6 +4,7 @@ import dataFactory.impl.DataFactoryImpl;
 import dataServiceImpl.HotelDataServiceImpl;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import po.HotelInfoPO;
 
@@ -41,6 +42,7 @@ public class HotelDataServiceImplTest {
      * 测试已通过
      */
     @Test
+    @Ignore
     public void testFindHotelInfo() {
         /*
         HotelInfoPO hipo = hotelDao.findHotelInfo("如家酒店（仙林）");
@@ -60,6 +62,7 @@ public class HotelDataServiceImplTest {
      * 测试已通过
      */
     @Test
+    @Ignore
     public void testUpdateHotelInfo() {
         /*
         HotelInfoPO hipo = new HotelInfoPO("如家酒店（新街口）", null, null, "南京市新街口123号",
@@ -86,6 +89,7 @@ public class HotelDataServiceImplTest {
      * 测试已通过
      */
     @Test
+    @Ignore
     public void testFindHotels() {
         /*
         ArrayList<HotelInfoPO> hotelList = new ArrayList<HotelInfoPO>();
@@ -103,6 +107,7 @@ public class HotelDataServiceImplTest {
      * 测试已通过
      */
     @Test
+    @Ignore
     public void testInsertHotel() {
         /*
         HotelInfoPO hipo = new HotelInfoPO("和东酒店（仙林）", "南京", "仙林", "南京市新街口123号",
@@ -129,6 +134,7 @@ public class HotelDataServiceImplTest {
      * 测试已通过
      */
     @Test
+    @Ignore
     public void testUpdateHotelScore() {
         /*
         boolean result = hotelDao.updateHotelScore("如家酒店（新街口）", 2);

@@ -1,6 +1,7 @@
 import dataFactory.impl.OrderMysqlDataHelper;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import po.OrderEvaluationPO;
 import po.OrderPO;
@@ -42,7 +43,7 @@ public void after() throws Exception {
 * Method: updateOrderEvaluation(OrderEvaluationPO oepo) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testUpdateOrderEvaluation() throws Exception { 
 //TODO: Test goes here...
     OrderEvaluationPO oepo=new OrderEvaluationPO(2,4.0,"天啦");
@@ -63,7 +64,7 @@ public void testUpdateOrderEvaluation() throws Exception {
 * Method: insertOrder(OrderPO opo) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testInsertOrder() throws Exception { 
 //TODO: Test goes here...
     int OrderID= MockOrderProcesser.getOrderID();
@@ -94,7 +95,7 @@ public void testInsertOrder() throws Exception {
 * Method: deleteOrderByID(int OrderID) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testDeleteOrderByID() throws Exception {
 //TODO: Test goes here...
     OrderPO oldopo=map.get(2);
@@ -112,7 +113,7 @@ public void testDeleteOrderByID() throws Exception {
 * 
 */
 
-@Test
+@Test@Ignore
 public void testUpdateOrder() throws Exception { 
 //TODO: Test goes here...
     OrderPO oldpo=map.get(3);

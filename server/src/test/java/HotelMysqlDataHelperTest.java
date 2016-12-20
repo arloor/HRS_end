@@ -1,6 +1,7 @@
 import dataFactory.impl.HotelMysqlDataHelper;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import po.HotelInfoPO;
 
@@ -33,6 +34,7 @@ public class HotelMysqlDataHelperTest {
      * @throws Exception
      */
     @Test
+    @Ignore
     public void testInsertHotel() throws Exception {
         /*
         SimpleDateFormat df = new SimpleDateFormat("ddHHmmss");
@@ -65,6 +67,7 @@ public class HotelMysqlDataHelperTest {
      * @throws Exception
      */
     @Test
+    @Ignore
     public void testUpdateHotelInfoData() throws Exception {
         /*
         HotelInfoPO hipo = new HotelInfoPO("如家酒店（仙林）", null, null, "仙林大道163号",
@@ -85,6 +88,7 @@ public class HotelMysqlDataHelperTest {
      * @throws Exception
      */
     @Test
+    @Ignore
     public void testUpdateHotelScore() throws Exception {
         /*
         hotelMysqlDataHelper.updateHotelScore("如家酒店（新街口）", 4.2);

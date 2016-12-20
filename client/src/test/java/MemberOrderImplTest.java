@@ -32,7 +32,7 @@ public void after() throws Exception {
 * Method: getOrderVOList() 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetOrderVOList() throws Exception {
     Map<Integer, OrderVO> map=order.getOrderVOList();
     Assert.assertNull(map.get(2));
@@ -44,7 +44,7 @@ public void testGetOrderVOList() throws Exception {
 * Method: getOrderEvaluationVOList() 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetOrderEvaluationVOList() throws Exception {
     Map<Integer, OrderVO> map=order.getOrderVOList();
 
@@ -60,7 +60,7 @@ public void testGetOrderEvaluationVOList() throws Exception {
 * Method: getOrderEvaluationByID(int OrderID) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetOrderEvaluationByID() throws Exception {
 
     OrderEvaluationVO oevo = order.getOrderEvaluationByID(2);
@@ -74,7 +74,7 @@ public void testGetOrderEvaluationByID() throws Exception {
 * Method: getSpecificHotelOrderList(String hotelName) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetSpecificHotelOrderList() throws Exception { 
 
     Map<Integer, OrderVO> map=order.getSpecificHotelOrderList("如家");
@@ -87,7 +87,7 @@ public void testGetSpecificHotelOrderList() throws Exception {
 * Method: getOrderInfo(int orderID) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetOrderInfo() throws Exception { 
 
     OrderVO ovo=order.getOrderInfo(1);
@@ -99,7 +99,7 @@ public void testGetOrderInfo() throws Exception {
      * Method: cancelOrder(int orderID)
      *
      */
-    @Test
+    @Test@Ignore
     public void testCancelOrder() throws Exception {
 //TODO: Test goes here...
         order.cancelOrder(3);
@@ -110,7 +110,7 @@ public void testGetOrderInfo() throws Exception {
 * Method: newOrder(OrderVO ovo) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testNewOrder() throws Exception { 
     order.newOrder(new OrderVO(OrderProcesser.getOrderID(),"aser","汉廷","未执行","大床房",1,1,"yes","2016-12-12 12:12:12",
             "546","2016-12-13 13:13:13","4564",250,200,200));
@@ -122,7 +122,7 @@ public void testNewOrder() throws Exception {
 * Method: evaluateOrder(OrderEvaluationVO oevo) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testEvaluateOrder() throws Exception { 
 //TODO: Test goes here...
     OrderEvaluationVO oevo =new OrderEvaluationVO(9,5,"buaaaaaacuo");
@@ -135,7 +135,7 @@ public void testEvaluateOrder() throws Exception {
 * Method: updateCheckinInfo(int orderID, String time) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testUpdateCheckinInfo() throws Exception { 
 //TODO: Test goes here...
     order.updateCheckinInfo(4, "2100-04-21 12:00:00");
@@ -146,7 +146,7 @@ public void testUpdateCheckinInfo() throws Exception {
 * Method: updateCheckoutInfo(int orderID, String time) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testUpdateCheckoutInfo() throws Exception { 
 //TODO: Test goes here...
     order.updateCheckoutInfo(4, "2000-04-21 12:00:00");
@@ -157,7 +157,7 @@ public void testUpdateCheckoutInfo() throws Exception {
 * Method: getOrderListByType(OrderType type) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetOrderListByType() throws Exception { 
 //TODO: Test goes here... 
 } 
@@ -167,7 +167,7 @@ public void testGetOrderListByType() throws Exception {
 * Method: getSpecificOrderListByType(OrderType type) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetSpecificOrderListByType() throws Exception { 
 //TODO: Test goes here... 
 } 

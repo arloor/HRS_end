@@ -32,7 +32,7 @@ public void after() throws Exception {
 * Method: getCustomerCreditInfo(String userName) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetCustomerCreditInfo() throws Exception { 
 //TODO: Test goes here...
     List<CreditVO> list=credit.getCustomerCreditInfo("arloor");
@@ -58,7 +58,7 @@ public void testGetCustomerLevel() throws Exception {
 * Method: getNumCredit(String userName) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetNumCredit() throws Exception { 
 //TODO: Test goes here...
     System.out.println("用户arloor的信用值是"+credit.getNumCredit("arloor"));
