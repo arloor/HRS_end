@@ -2,6 +2,7 @@ import businesslogic.orderbl.WebManagerOrderImpl;
 import businesslogicservice.orderbusinesslogicservice.WebManagerOrderBLService;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import util.RecoveryType;
 import vo.OrderVO;
@@ -31,7 +32,7 @@ public void after() throws Exception {
 * Method: getUnexcutedOrderList() 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetUnexcutedOrderList() throws Exception { 
 //TODO: Test goes here...
     ArrayList<OrderVO> list=order.getUnexcutedOrderList();
@@ -46,7 +47,7 @@ public void testGetUnexcutedOrderList() throws Exception {
 * Method: getAbnormalOrderList() 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testGetAbnormalOrderList() throws Exception { 
 //TODO: Test goes here...
     ArrayList<OrderVO> list=order.getAbnormalOrderList();
@@ -61,7 +62,7 @@ public void testGetAbnormalOrderList() throws Exception {
 * Method: cancelAbnormalOrder(int orderID, RecoveryType recoveryType) 
 * 
 */ 
-@Test
+@Test@Ignore
 public void testCancelAbnormalOrder() throws Exception {
     order.cancelAbnormalOrder(6, RecoveryType.HALF);
 } 

@@ -18,6 +18,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -93,6 +94,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("CDLL酒店预订系统 - 酒店工作人员");
+        this.primaryStage.getIcons().add(new Image("/presentation/icon_title.png"));
 
         showSignInView();
 
@@ -221,6 +223,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage roomNumEditDialog = new Stage();
+            roomNumEditDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             roomNumEditDialog.setTitle("修改房间数量");
             roomNumEditDialog.initModality(Modality.WINDOW_MODAL);
             roomNumEditDialog.initOwner(primaryStage);
@@ -251,6 +254,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage newRoomTypeDialog = new Stage();
+            newRoomTypeDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             newRoomTypeDialog.setTitle("新增房间类型");
             newRoomTypeDialog.initModality(Modality.WINDOW_MODAL);
             newRoomTypeDialog.initOwner(primaryStage);
@@ -281,6 +285,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage orderExecuteDialog = new Stage();
+            orderExecuteDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             orderExecuteDialog.setTitle("执行订单");
             orderExecuteDialog.initModality(Modality.WINDOW_MODAL);
             orderExecuteDialog.initOwner(primaryStage);
@@ -311,6 +316,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage checkOutDialog = new Stage();
+            checkOutDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             checkOutDialog.setTitle("退房");
             checkOutDialog.initModality(Modality.WINDOW_MODAL);
             checkOutDialog.initOwner(primaryStage);

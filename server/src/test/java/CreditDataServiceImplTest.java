@@ -36,8 +36,10 @@ public void after() throws Exception {
 * 
 */ 
 @Test
+@Ignore
 public void testGetCustomerCredits() throws Exception { 
 //TODO: Test goes here...
+
     ArrayList<CreditInfoPO> list=creditDao.getCustomerCredits("arloor");
     for (CreditInfoPO cell:list
          ) {
@@ -54,10 +56,12 @@ public void testGetCustomerCredits() throws Exception {
 @Ignore
 public void testInsert() throws Exception { 
 //TODO: Test goes here...
+
     ArrayList<CreditInfoPO> list=creditDao.getCustomerCredits("arloor");
     CreditInfoPO creditInfoPO=list.get(0);
     creditInfoPO.setTime("1997-04-21 12:00:00");
     creditDao.insert(creditInfoPO);
+
 } 
 
 

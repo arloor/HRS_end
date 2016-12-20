@@ -41,7 +41,11 @@ public class JavaMail {
 // 设置消息体
             message.setText(content);
 // 发送消息
-            Transport.send(message);
+            try {
+                Transport.send(message);
+            }catch (Exception e){
+                System.out.println(userEmail+"是不正确的邮件格式");
+            }
             System.out.println("邮件发送成功");
         } catch (MessagingException mex) {
             mex.printStackTrace();

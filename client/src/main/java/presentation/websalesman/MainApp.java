@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -86,6 +87,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("CDLL酒店预订系统 - 网站营销人员");
+        this.primaryStage.getIcons().add(new Image("/presentation/icon_title.png"));
 
         showSignInView();
     }
@@ -116,6 +118,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage levelPromotionDialog = new Stage();
+            levelPromotionDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             levelPromotionDialog.setTitle("VIP会员专属折扣");
             levelPromotionDialog.initModality(Modality.WINDOW_MODAL);
             levelPromotionDialog.initOwner(primaryStage);
@@ -151,6 +154,7 @@ public class MainApp extends Application {
 
             // Create the dialog stage.
             Stage circlePromotionDialog = new Stage();
+            circlePromotionDialog.getIcons().add(new Image("/presentation/icon_title.png"));
             circlePromotionDialog.setTitle("特定商圈折扣");
             circlePromotionDialog.initModality(Modality.WINDOW_MODAL);
             circlePromotionDialog.initOwner(primaryStage);
