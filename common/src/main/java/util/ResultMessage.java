@@ -15,6 +15,8 @@ public enum ResultMessage {
 
     //比较时间使用到的枚举
     FIRST_LATER,
+    CREDIT_DECRESE,
+    ORDER_ABNORMAL,
     SECOND_LATER
 
 }

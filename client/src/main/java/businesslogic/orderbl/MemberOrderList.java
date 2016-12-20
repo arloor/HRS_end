@@ -3,6 +3,7 @@ package businesslogic.orderbl;
 import po.OrderEvaluationPO;
 import po.OrderPO;
 import util.OrderType;
+import util.ResultMessage;
 import vo.OrderEvaluationVO;
 import vo.OrderVO;
 
@@ -118,14 +119,14 @@ public class MemberOrderList extends OrderList {
     }
 
     @Override
-    public boolean cancelOrder(int orderID) {
+    public ResultMessage cancelOrder(int orderID) {
         oListItem=getOrder(orderID);
         if(oListItem.ovo.getStatus().equals("异常"))
-            return false;
+            return ResultMessage.ORDER_ABNORMAL;
         else{
-            oListItem.cancelOrder(oListItem.ovo);
+           ResultMessage resultMessage=oListItem.cancelOrder(oListItem.ovo);
             setOrderVOlist(customerID);
-            return true;
+            return resultMessage;
         }
     }
 

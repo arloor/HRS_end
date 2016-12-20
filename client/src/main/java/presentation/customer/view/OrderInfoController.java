@@ -156,7 +156,7 @@ public class OrderInfoController {
     }
 
     private void setUnusualOrderTable(){
-        System.out.print("aaaa");
+        //System.out.print("aaaa");
         ObservableList observableList=setOrder("异常");
         unusualOrderTable.setItems(observableList);
     }

@@ -65,7 +65,7 @@ public class OrderLineItem {
         //System.out.println("成功");
     }
 
-    public void cancelOrder(OrderVO ovo) {
+    public ResultMessage cancelOrder(OrderVO ovo) {
         try {
             orderDao.deleteOrder(new OrderPO(ovo));
         } catch (RemoteException e) {
@@ -81,7 +81,9 @@ public class OrderLineItem {
            CreditInfoPO cipo=new CreditInfoPO(ovo.getCustomerID(),0-ovo.getCharge()/2,currentTime,6,ovo.getOrderID(),
                    credit.getNumCredit(ovo.getCustomerID())-ovo.getCharge()/2);
            credit.updateCustomerCreditInfo(ovo.getCustomerID(),new CreditVO(cipo),ovo);
+           return ResultMessage.CREDIT_DECRESE;
        }
+       return ResultMessage.SUCCESS;
     }
 
     public OrderEvaluationVO getOevo(){

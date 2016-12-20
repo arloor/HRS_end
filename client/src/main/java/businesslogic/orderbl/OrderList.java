@@ -5,6 +5,7 @@ import po.OrderEvaluationPO;
 import po.OrderPO;
 import util.OrderType;
 import util.RMIcontroller;
+import util.ResultMessage;
 import vo.OrderEvaluationVO;
 import vo.OrderVO;
 
@@ -91,7 +92,7 @@ public abstract class OrderList {
         oListItem.updateCheckinInfo(time);
     }
 
-    public abstract boolean cancelOrder(int orderID);
+    public abstract ResultMessage cancelOrder(int orderID);
 
     public void evaluateOrder(OrderEvaluationPO oepo) {
         oListItem=getOrder(oepo.getOrderID());

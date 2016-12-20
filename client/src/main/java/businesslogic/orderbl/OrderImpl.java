@@ -177,7 +177,7 @@ public class OrderImpl implements OrderBLservice {
     }
 
     @Override
-    public boolean cancelOrder(int orderID) {
+    public ResultMessage cancelOrder(int orderID) {
         return orderList.cancelOrder(orderID);
     }
 

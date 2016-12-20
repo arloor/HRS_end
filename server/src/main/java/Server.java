@@ -20,7 +20,9 @@ public class Server {
 
 
     public static void main(String[] args){
-        String hostIP= RMIcontroller.getHostIP();
+        System.setProperty("java.rmi.server.hostname",RMIcontroller.getHostIP());
+        //String hostIP= RMIcontroller.getHostIP();
+        String hostIP="127.0.0.1";
         int port=RMIcontroller.getPort();
         try {
             LocateRegistry.createRegistry(port);

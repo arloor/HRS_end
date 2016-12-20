@@ -86,9 +86,11 @@ public interface OrderBLservice {
      * 可以取消未执行的异常订单，返回true
      * 当要取消的订单为异常订单时，返回false
      * @param orderID
-     * @return
+     * @return ResultMessage.CREDIT_DECRESE(信用值被扣出的情况)
+     *          ORDER_ABNORMAL(订单异常，不能被用户取消的情况，按理说这种情况是不可能出现的@段梦洋可以忽略这种)
+     *          SUCCESS（不扣出信用值的情况）
      */
-    public boolean cancelOrder(int orderID);
+    public ResultMessage cancelOrder(int orderID);
 
     /**
      * 更新入住信息
