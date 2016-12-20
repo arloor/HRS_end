@@ -4,12 +4,15 @@ import businesslogic.orderbl.OrderImpl;
 import businesslogicservice.orderbusinesslogicservice.OrderBLservice;
 import businesslogicservice.roomblservice.RoomBLService;
 import dataService.roomdataservice.RoomDataService;
-import dataServiceImpl.RoomDataServiceImpl;
 import po.AvailableRoomPO;
+import util.RMIcontroller;
 import util.ResultMessage;
 import vo.AvailableRoomVO;
 import vo.OrderVO;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +29,15 @@ public class Room implements RoomBLService {
     private OrderBLservice orderBLservice;
 
     public Room() {
-        roomDao = RoomDataServiceImpl.getInstance();
+        try {
+            roomDao = (RoomDataService) Naming.lookup("rmi://" + RMIcontroller.getHostIP() + ":" + RMIcontroller.getPort() + "/RoomDataService");
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

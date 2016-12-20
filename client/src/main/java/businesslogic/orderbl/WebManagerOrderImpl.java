@@ -3,8 +3,8 @@ package businesslogic.orderbl;
 import businesslogic.creditbl.Credit;
 import businesslogicservice.creditblservice.CreditBLservice;
 import businesslogicservice.orderbusinesslogicservice.WebManagerOrderBLService;
+import dataService.customerdataservice.CustomerDataservice;
 import dataService.orderdataservice.OrderDataService;
-import dataServiceImpl.CustomerDataServiceImpl;
 import po.CreditInfoPO;
 import po.CustomerPO;
 import po.OrderPO;
@@ -105,13 +105,18 @@ public class WebManagerOrderImpl implements WebManagerOrderBLService {
         creditBLservice.updateCustomerCreditInfo(opo.getCustomerID(),cvo,new OrderVO(opo));
 
         try {
-            CustomerPO cpo= CustomerDataServiceImpl.getInstance().getCustomer(opo.getCustomerID());
+            CustomerDataservice customerDao=(CustomerDataservice) Naming.lookup("rmi://" + RMIcontroller.getHostIP() + ":" + RMIcontroller.getPort() + "/CustomerDataservice");
+            CustomerPO cpo= customerDao.getCustomer(opo.getCustomerID());
             if(opo==null)
                 System.out.println("opo null");
             if(cpo==null)
                 System.out.println("cpo null");
             JavaMail.sendEmail(cpo.getEmail(),"订单撤销成功","订单号： "+opo.getOrderID()+"  撤销时间: "
                     +opo.getCancelTime());
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
