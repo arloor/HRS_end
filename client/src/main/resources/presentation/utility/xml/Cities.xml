@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cities>
+    <City ID="1" CityName="南京">南京</City>
+    <City ID="2" CityName="上海">上海</City>
+    <City ID="3" CityName="北京">北京</City>
+</Cities>
