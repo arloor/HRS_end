@@ -47,17 +47,18 @@ public class CirclePromotionController {
 
     @FXML
     private void confirmAction() {
-        String circle = circleField.getText();
-        double discount = Double.valueOf(discountField.getText());
 
         if (circleField.getText() != null && circleField.getText().length() > 0
                 && discountField.getText() != null && discountField.getText().length() > 0) {
+            String circle = circleField.getText();
+            double discount = Double.valueOf(discountField.getText());
             if (circlePromotion != null) {
                 circlePromotion.setCircle(circle);
                 circlePromotion.setDiscount(String.format("%.2f", discount));
             } else {
                 circlePromotion = new CirclePromotion(new CircleVO(circle, discount));
             }
+            stage.close();
         } else {
             Alert alert;
             alert = new Alert(Alert.AlertType.WARNING);
@@ -66,7 +67,5 @@ public class CirclePromotionController {
             alert.setContentText("请输入完整的信息！");
             alert.showAndWait();
         }
-
-        stage.close();
     }
 }
