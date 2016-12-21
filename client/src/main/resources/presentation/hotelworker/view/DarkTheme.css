@@ -63,6 +63,11 @@
 
 .choice-box .label {
     -fx-background-color: transparent;
+    -fx-text-fill: #eeeeee;
+}
+
+.choice-box:focused .label {
+    -fx-background-color: transparent;
     -fx-text-fill: #1d1d1d;
 }
 
