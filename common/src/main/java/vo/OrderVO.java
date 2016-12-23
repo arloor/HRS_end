@@ -25,10 +25,14 @@ import java.util.Vector;
  * creditChange     12信用值变化
  * checkInTime      13实际入住时间
  * lastCheckOutTime 14预计退房时间
+ * promotionType    15促销策略类型
  * @author arloor
  */
 
 public class OrderVO extends Vector<String> {
+
+    String promotionType = null;
+
     /**
      * 构造函数：从一个个参数中构造order
      * @param orderID   0
@@ -177,4 +181,13 @@ public class OrderVO extends Vector<String> {
      public void setPrice(double price){
          this.set(10,String.valueOf(price));
      }
+
+     public String getPromotionType() {
+         return promotionType;
+     }
+
+    public void setPromotionType(String promotionType) {
+        this.promotionType = promotionType;
+    }
+
 }

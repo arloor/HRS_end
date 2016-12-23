@@ -1,5 +1,7 @@
 package vo.WebPromotionVO;
 
+import util.WebPromotionType;
+
 import java.util.ArrayList;
 
 /**
@@ -11,6 +13,8 @@ import java.util.ArrayList;
  * @author Qin Liu
  */
 public class WebLevelPromotionVO extends WebPromotionVO {
+
+    public WebPromotionType webPromotionType = WebPromotionType.Level;
 
     ArrayList<LevelVO> levelList;
 

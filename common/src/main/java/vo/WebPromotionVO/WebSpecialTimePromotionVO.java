@@ -4,6 +4,8 @@ package vo.WebPromotionVO;
  * Created by Qin Liu on 2016/12/8.
  */
 
+import util.WebPromotionType;
+
 /**
  * startDate   0开始时间
  * endDate     1结束时间
@@ -11,6 +13,8 @@ package vo.WebPromotionVO;
  * @author Qin Liu
  */
 public class WebSpecialTimePromotionVO extends WebPromotionVO {
+
+    public WebPromotionType webPromotionType = WebPromotionType.SpecialTime;
 
     public WebSpecialTimePromotionVO(String startDate, String endDate, double discount) {
         this.add(startDate);

@@ -4,6 +4,8 @@ package vo.HotelPromotionVO;
  * Created by Qin Liu on 2016/12/8.
  */
 
+import util.HotelPromotionType;
+
 /**
  * hotelName   0酒店名称
  * roomNum     1最少房间数量
@@ -11,6 +13,8 @@ package vo.HotelPromotionVO;
  * @author Qin Liu
  */
 public class HotelMultiRoomsPromotionVO extends HotelPromotionVO {
+
+    public HotelPromotionType hotelPromotionType = HotelPromotionType.MultiRooms;
 
     public HotelMultiRoomsPromotionVO(String hotelName, int roomNum, double discount) {
         this.add(hotelName);

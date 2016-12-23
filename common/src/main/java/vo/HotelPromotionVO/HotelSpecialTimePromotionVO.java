@@ -4,6 +4,8 @@ package vo.HotelPromotionVO;
  * Created by Qin Liu on 2016/12/8.
  */
 
+import util.HotelPromotionType;
+
 /**
  * hotelName   0酒店名称
  * startDate   1开始时间
@@ -12,6 +14,8 @@ package vo.HotelPromotionVO;
  * @author Qin Liu
  */
 public class HotelSpecialTimePromotionVO extends HotelPromotionVO {
+
+    public HotelPromotionType hotelPromotionType = HotelPromotionType.SpecialTime;
 
     public HotelSpecialTimePromotionVO(String hotelName, String startDate, String endDate, double discount) {
         this.add(hotelName);

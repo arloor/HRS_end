@@ -1,5 +1,7 @@
 package vo.HotelPromotionVO;
 
+import util.HotelPromotionType;
+
 import java.util.Vector;
 
 /**
@@ -7,5 +9,6 @@ import java.util.Vector;
  */
 public class HotelPromotionVO extends Vector<String>{
 
+    public HotelPromotionType hotelPromotionType = null;
 
 }
