@@ -1,5 +1,6 @@
 package businesslogic.promotionbl.HotelPromotion;
 
+import util.HotelPromotionType;
 import vo.HotelPromotionVO.HotelMultiRoomsPromotionVO;
 import vo.OrderVO;
 
@@ -12,6 +13,8 @@ public class HotelMultiRoomsPromotion extends HotelPromotion {
 
     private HotelMultiRoomsPromotionVO hotelMultiRoomsPromotionVO;
 
+    private HotelPromotionType hotelPromotionType = HotelPromotionType.MultiRooms;
+
     public HotelMultiRoomsPromotion(OrderVO orderVO, HotelMultiRoomsPromotionVO hotelMultiRoomsPromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
         this.hotelMultiRoomsPromotionVO = hotelMultiRoomsPromotionVO;
@@ -21,9 +24,15 @@ public class HotelMultiRoomsPromotion extends HotelPromotion {
     public OrderVO calculatePrice() {
         int roomNum = orderVO.getRoomNum();
         int leastRoomNum = hotelMultiRoomsPromotionVO.getRoomNum();
-        if(roomNum > leastRoomNum) {
+        if(roomNum >= leastRoomNum) {
             orderVO.setPrice(orderVO.getPrice() * hotelMultiRoomsPromotionVO.getDiscount());
         }
         return this.orderVO;
     }
+
+    @Override
+    public HotelPromotionType getHotelPromotionType() {
+        return this.hotelPromotionType;
+    }
+
 }

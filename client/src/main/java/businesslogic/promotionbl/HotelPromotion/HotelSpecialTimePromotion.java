@@ -1,5 +1,6 @@
 package businesslogic.promotionbl.HotelPromotion;
 
+import util.HotelPromotionType;
 import vo.HotelPromotionVO.HotelSpecialTimePromotionVO;
 import vo.OrderVO;
 
@@ -15,6 +16,8 @@ public class HotelSpecialTimePromotion extends HotelPromotion {
     private OrderVO orderVO;
 
     private HotelSpecialTimePromotionVO hotelSpecialTimePromotionVO;
+
+    private HotelPromotionType hotelPromotionType = HotelPromotionType.SpecialTime;
 
     public HotelSpecialTimePromotion(OrderVO orderVO, HotelSpecialTimePromotionVO hotelSpecialTimePromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -41,4 +44,10 @@ public class HotelSpecialTimePromotion extends HotelPromotion {
 
         return this.orderVO;
     }
+
+    @Override
+    public HotelPromotionType getHotelPromotionType() {
+        return this.hotelPromotionType;
+    }
+
 }

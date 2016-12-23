@@ -1,5 +1,6 @@
 package businesslogic.promotionbl.WebPromotion;
 
+import util.WebPromotionType;
 import vo.OrderVO;
 
 /**
@@ -9,8 +10,13 @@ public class WebPromotion {
 
     public OrderVO orderVO;
 
+    private WebPromotionType webPromotionType = null;
+
     public OrderVO calculatePrice() {
         return orderVO;
     }
 
+    public WebPromotionType getWebPromotionType() {
+        return webPromotionType;
+    }
 }

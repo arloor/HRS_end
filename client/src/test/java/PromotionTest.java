@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import vo.OrderVO;
 
 /** 
 * Promotion Tester. 
@@ -116,13 +117,18 @@ public class PromotionTest {
      */
     @Test
     public void testCalculatePrice() {
-        /*
+
         OrderVO orderVO = new OrderVO(66, "mytest", "南京中心大酒店", "未执行", "单人间",
-        1, 1, "yes", "2016-12-10 10:00:00", null, "2016-12-12 00:00:00", null,
+        1, 1, "yes", "2015-12-23 10:00:00", null, "2015-12-24 00:00:00", null,
         128, -1, null);
         OrderVO newOrderVO = promotionBLService.calculatePrice(orderVO);
+        if(newOrderVO.getPromotionType() != null) {
+            System.out.println(newOrderVO.getPromotionType());
+        }else {
+            System.out.println("无可用促销策略！");
+        }
         System.out.println(newOrderVO.getPrice() + " " + newOrderVO.getCharge());
-        */
+
     }
 
 } 

@@ -3,6 +3,7 @@ package businesslogic.promotionbl.HotelPromotion;
 import businesslogic.customerbl.Customer;
 import businesslogicservice.customerblservice.CustomerBLService;
 import util.CustomerType;
+import util.HotelPromotionType;
 import vo.CustomerVO;
 import vo.HotelPromotionVO.HotelBirthdayPromotionVO;
 import vo.OrderVO;
@@ -15,6 +16,8 @@ public class HotelBirthdayPromotion extends HotelPromotion {
     private OrderVO orderVO;
 
     private HotelBirthdayPromotionVO hotelBirthdayPromotionVO;
+
+    private HotelPromotionType hotelPromotionType = HotelPromotionType.Birthday;
 
     public HotelBirthdayPromotion(OrderVO orderVO, HotelBirthdayPromotionVO hotelBirthdayPromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -33,6 +36,11 @@ public class HotelBirthdayPromotion extends HotelPromotion {
             }
         }
         return this.orderVO;
+    }
+
+    @Override
+    public HotelPromotionType getHotelPromotionType() {
+        return this.hotelPromotionType;
     }
 
 }

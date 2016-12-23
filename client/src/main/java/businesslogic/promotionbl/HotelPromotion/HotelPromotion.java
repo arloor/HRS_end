@@ -1,5 +1,6 @@
 package businesslogic.promotionbl.HotelPromotion;
 
+import util.HotelPromotionType;
 import vo.OrderVO;
 
 /**
@@ -9,8 +10,14 @@ public class HotelPromotion {
 
     public OrderVO orderVO;
 
+    private HotelPromotionType hotelPromotionType = null;
+
     public OrderVO calculatePrice() {
         return orderVO;
+    }
+
+    public HotelPromotionType getHotelPromotionType() {
+        return hotelPromotionType;
     }
 
 }

@@ -1,6 +1,7 @@
 package businesslogic.promotionbl.WebPromotion;
 
 
+import util.WebPromotionType;
 import vo.OrderVO;
 import vo.WebPromotionVO.WebSpecialTimePromotionVO;
 
@@ -16,6 +17,8 @@ public class WebSpecialTimePromotion extends WebPromotion {
     private OrderVO orderVO;
 
     private WebSpecialTimePromotionVO webSpecialTimePromotionVO;
+
+    private WebPromotionType webPromotionType = WebPromotionType.SpecialTime;
 
     public WebSpecialTimePromotion(OrderVO orderVO, WebSpecialTimePromotionVO webSpecialTimePromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -42,4 +45,10 @@ public class WebSpecialTimePromotion extends WebPromotion {
 
         return this.orderVO;
     }
+
+    @Override
+    public WebPromotionType getWebPromotionType() {
+        return this.webPromotionType;
+    }
+
 }

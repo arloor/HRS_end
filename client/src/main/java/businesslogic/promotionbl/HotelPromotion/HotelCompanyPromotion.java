@@ -5,6 +5,7 @@ import businesslogic.hotelbl.Hotel;
 import businesslogicservice.customerblservice.CustomerBLService;
 import businesslogicservice.hotelblservice.HotelBLService;
 import util.CustomerType;
+import util.HotelPromotionType;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 import vo.HotelPromotionVO.HotelCompanyPromotionVO;
@@ -18,6 +19,8 @@ public class HotelCompanyPromotion extends HotelPromotion {
     private OrderVO orderVO;
 
     private HotelCompanyPromotionVO hotelCompanyPromotionVO;
+
+    private HotelPromotionType hotelPromotionType = HotelPromotionType.Company;
 
     public HotelCompanyPromotion(OrderVO orderVO, HotelCompanyPromotionVO hotelCompanyPromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -44,4 +47,10 @@ public class HotelCompanyPromotion extends HotelPromotion {
 
         return orderVO;
     }
+
+    @Override
+    public HotelPromotionType getHotelPromotionType() {
+        return this.hotelPromotionType;
+    }
+
 }

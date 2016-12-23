@@ -2,6 +2,7 @@ package businesslogic.promotionbl.WebPromotion;
 
 import businesslogic.hotelbl.Hotel;
 import businesslogicservice.hotelblservice.HotelBLService;
+import util.WebPromotionType;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.WebPromotionVO.CircleVO;
@@ -17,6 +18,8 @@ public class WebCirclePromotion extends WebPromotion {
     private OrderVO orderVO;
 
     private WebCirclePromotionVO webCirclePromotionVO;
+
+    private WebPromotionType webPromotionType = WebPromotionType.Circle;
 
     public WebCirclePromotion(OrderVO orderVO, WebCirclePromotionVO webCirclePromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -38,4 +41,10 @@ public class WebCirclePromotion extends WebPromotion {
 
         return orderVO;
     }
+
+    @Override
+    public WebPromotionType getWebPromotionType() {
+        return this.webPromotionType;
+    }
+
 }

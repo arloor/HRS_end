@@ -4,6 +4,7 @@ import businesslogic.creditbl.Credit;
 import businesslogic.promotionbl.Promotion;
 import businesslogicservice.creditblservice.CreditBLservice;
 import businesslogicservice.promotionblservice.PromotionBLService;
+import util.WebPromotionType;
 import vo.OrderVO;
 import vo.WebPromotionVO.LevelVO;
 import vo.WebPromotionVO.WebLevelPromotionVO;
@@ -18,6 +19,8 @@ public class WebLevelPromotion extends WebPromotion {
     private OrderVO orderVO;
 
     private WebLevelPromotionVO webLevelPromotionVO;
+
+    private WebPromotionType webPromotionType = WebPromotionType.Level;
 
     public WebLevelPromotion(OrderVO orderVO, WebLevelPromotionVO webLevelPromotionVO) {
         this.orderVO = (OrderVO) orderVO.clone();
@@ -40,4 +43,10 @@ public class WebLevelPromotion extends WebPromotion {
         }
         return orderVO;
     }
+
+    @Override
+    public WebPromotionType getWebPromotionType() {
+        return this.webPromotionType;
+    }
+
 }

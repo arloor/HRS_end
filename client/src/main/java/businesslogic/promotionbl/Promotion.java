@@ -412,6 +412,7 @@ public class Promotion implements PromotionBLService {
             OrderVO newOrderVO = hotelPromotionList.get(i).calculatePrice();
             if(newOrderVO.getPrice() < discountPrice) {
                 discountPrice = newOrderVO.getPrice();
+                orderVO.setPromotionType(hotelPromotionList.get(i).getHotelPromotionType().toString());
             }
         }
 
@@ -419,6 +420,7 @@ public class Promotion implements PromotionBLService {
             OrderVO newOrderVO = webPromotionList.get(i).calculatePrice();
             if(newOrderVO.getPrice() < discountPrice) {
                 discountPrice = newOrderVO.getPrice();
+                orderVO.setPromotionType(webPromotionList.get(i).getWebPromotionType().toString());
             }
         }
         orderVO.setPrice(discountPrice);
