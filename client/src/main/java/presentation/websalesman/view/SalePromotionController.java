@@ -159,7 +159,9 @@ public class SalePromotionController {
     @FXML
     private void levelAddAction() {
         LevelPromotion levelPromotion = mainApp.showLevelPromotionDialog(null);
-        levelTable.getItems().add(levelPromotion);
+        if (levelPromotion != null) {
+            levelTable.getItems().add(levelPromotion);
+        }
     }
 
     @FXML
@@ -222,7 +224,9 @@ public class SalePromotionController {
     @FXML
     private void circleAddAction() {
         CirclePromotion circlePromotion = mainApp.showCirclePromotionDialog(null);
-        circleTable.getItems().add(circlePromotion);
+        if (circlePromotion != null) {
+            circleTable.getItems().add(circlePromotion);
+        }
     }
 
     @FXML
