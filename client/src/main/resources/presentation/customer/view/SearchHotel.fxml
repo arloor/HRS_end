@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.media.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.SearchHotelController">
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8.0.71" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.customer.view.SearchHotelController">
    <children>
       <Label layoutX="37.0" layoutY="28.0" text="排序方式" />
       <ChoiceBox fx:id="sortChoiceBox" layoutX="118.0" layoutY="24.0" onContextMenuRequested="#reSort" prefHeight="23.0" prefWidth="120.0" />
@@ -19,11 +23,11 @@
             <TableColumn fx:id="addressColumn" prefWidth="147.0" text="地址" />
          </columns>
       </TableView>
-       <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox"
-                 prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: orange;" text="只在住过的酒店中搜索"/>
-       <Button layoutX="250.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDetailedInformationButton"
-               prefWidth="75.0" styleClass="button-default" text="详情"/>
-       <Button layoutX="350.0" layoutY="360.0" mnemonicParsing="false" onAction="#setOrderButton" prefWidth="75.0"
-               styleClass="button-default" text="预定"/>
+      <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox"
+                prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: orange;" text="只显示住过的酒店"/>
+      <Button layoutX="250.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDetailedInformationButton"
+              prefWidth="75.0" styleClass="button-default" text="详情"/>
+      <Button layoutX="350.0" layoutY="360.0" mnemonicParsing="false" onAction="#setOrderButton" prefWidth="75.0"
+              styleClass="button-default" text="预定"/>
    </children>
 </AnchorPane>
