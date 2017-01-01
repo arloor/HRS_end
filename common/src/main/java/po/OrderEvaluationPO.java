@@ -7,6 +7,13 @@ import java.io.Serializable;
 /**
  * Created by 曹利航 on 2016/10/16 17:17.
  */
+
+
+/**
+ * orderID 订单编号
+ * pingfen 评分
+ * pingjia 评价
+ */
 public class OrderEvaluationPO implements Serializable {
     private int orderID;
     private double pingfen;
