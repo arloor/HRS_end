@@ -8,8 +8,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.71"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.websalesman.view.RootLayoutController">
+            prefWidth="600.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8.0.71" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.websalesman.view.RootLayoutController">
     <left>
         <GridPane prefHeight="400.0" prefWidth="125.0" styleClass="background-navigation" BorderPane.alignment="CENTER">
             <columnConstraints>
@@ -32,12 +33,10 @@
                         GridPane.rowIndex="1" GridPane.valignment="BOTTOM"/>
                 <Button fx:id="creditIncreaseButton" mnemonicParsing="false" onAction="#creditIncreaseAction"
                         prefHeight="50" prefWidth="125.0" styleClass="button-navigation" text="信用充值"
-                        GridPane.halignment="CENTER"
-                        GridPane.rowIndex="2" GridPane.valignment="BOTTOM"/>
+                        GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM"/>
                 <Button fx:id="salePromotionButton" mnemonicParsing="false" onAction="#salePromotionAction"
                         prefHeight="50" prefWidth="125.0" styleClass="button-navigation" text="促销策略"
-                        GridPane.halignment="CENTER"
-                        GridPane.rowIndex="3" GridPane.valignment="BOTTOM"/>
+                        GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM"/>
                 <Button mnemonicParsing="false" onAction="#signOutAction" prefHeight="25.0" prefWidth="75.0"
                         styleClass="button-sign-out" text="登出" GridPane.halignment="CENTER" GridPane.rowIndex="7"
                         GridPane.valignment="TOP"/>
