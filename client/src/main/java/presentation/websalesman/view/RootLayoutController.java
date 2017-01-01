@@ -32,6 +32,7 @@ public class RootLayoutController {
 
     @FXML
     public void orderManageAction() {
+        // 更换样式
         this.orderManageButton.getStyleClass().set(1, "button-navigation-selected");
         this.creditIncreaseButton.getStyleClass().set(1, "button-navigation");
         this.salePromotionButton.getStyleClass().set(1, "button-navigation");
@@ -41,6 +42,7 @@ public class RootLayoutController {
 
     @FXML
     public void creditIncreaseAction() {
+        // 更换样式
         this.orderManageButton.getStyleClass().set(1, "button-navigation");
         this.creditIncreaseButton.getStyleClass().set(1, "button-navigation-selected");
         this.salePromotionButton.getStyleClass().set(1, "button-navigation");
@@ -50,6 +52,7 @@ public class RootLayoutController {
 
     @FXML
     public void salePromotionAction() {
+        // 更换样式
         this.orderManageButton.getStyleClass().set(1, "button-navigation");
         this.creditIncreaseButton.getStyleClass().set(1, "button-navigation");
         this.salePromotionButton.getStyleClass().set(1, "button-navigation-selected");

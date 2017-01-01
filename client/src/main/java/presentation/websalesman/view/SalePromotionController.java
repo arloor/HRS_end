@@ -80,10 +80,12 @@ public class SalePromotionController {
 
     @FXML
     private void initialize() {
+        // 初始化等级策略列表
         levelColumn.setCellValueFactory(cellData -> cellData.getValue().levelProperty());
         creditColumn.setCellValueFactory(cellData -> cellData.getValue().creditProperty());
         levelDiscountColumn.setCellValueFactory(cellData -> cellData.getValue().discountProperty());
 
+        // 初始化商圈促销列表
         circleColumn.setCellValueFactory(cellData -> cellData.getValue().circleProperty());
         circleDiscountColumn.setCellValueFactory(cellData -> cellData.getValue().discountProperty());
     }
@@ -95,6 +97,7 @@ public class SalePromotionController {
     }
 
     private void setLevelTable() {
+        // 初始化等级促销列表
         webLevelPromotionVO = (WebLevelPromotionVO) mainApp.getPromotionService().getWebPromotion(WebPromotionType.Level);
         ArrayList<LevelVO> levelList = webLevelPromotionVO.getLevelList();
         for (int i = 0; i < levelList.size(); i++) {
@@ -104,6 +107,7 @@ public class SalePromotionController {
     }
 
     private void setCircleTable() {
+        // 初始化商圈促销列表
         webCirclePromotionVO = (WebCirclePromotionVO) mainApp.getPromotionService().getWebPromotion(WebPromotionType.Circle);
         ArrayList<CircleVO> circleList = webCirclePromotionVO.getCircleList();
         for (int i = 0; i < circleList.size(); i++) {
@@ -113,6 +117,7 @@ public class SalePromotionController {
     }
 
     private void setSpecialTimeTable() {
+        // 初始化节日促销列表
         webSpecialTimePromotionVO = (WebSpecialTimePromotionVO) mainApp.getPromotionService().getWebPromotion(WebPromotionType.SpecialTime);
         if (webSpecialTimePromotionVO != null) {
             startDateField.setText(webSpecialTimePromotionVO.getStartDate());
@@ -130,24 +135,24 @@ public class SalePromotionController {
 
         if (startDateField.getText() != null && startDateField.getText().length() > 0
                 && endDateField.getText() != null && endDateField.getText().length() > 0
-                && discountField.getText() != null && discountField.getText().length() > 0) {
+                && discountField.getText() != null && discountField.getText().length() > 0) {   // 检查输入完整性
             WebSpecialTimePromotionVO webSpecialTimePromotionVO = new WebSpecialTimePromotionVO(startDate, endDate, discount);
 
             ResultMessage rm = mainApp.getPromotionService().updateWebPromotion(WebPromotionType.SpecialTime, webSpecialTimePromotionVO);
 
-            if (rm.equals(ResultMessage.SUCCESS)) {
+            if (rm.equals(ResultMessage.SUCCESS)) { // 更新成功
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("成功");
                 alert.setHeaderText("特定期间预订折扣更新成功");
                 alert.showAndWait();
-            } else {
+            } else { // 更新失败
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("失败");
                 alert.setHeaderText("更新特定期间预订折扣失败");
                 alert.showAndWait();
             }
 
-        } else {
+        } else {    // 输入不完整
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("警告");
             alert.setHeaderText("缺少输入");
@@ -197,6 +202,7 @@ public class SalePromotionController {
 
     @FXML
     private void levelSaveAction() {
+        // 创建WebLevelPromotionVO对象
         Object[] objects = levelTable.getItems().toArray();
         ArrayList<LevelVO> levelVOList = new ArrayList<>();
         for (int i = 0; i < objects.length; i++) {
@@ -262,6 +268,7 @@ public class SalePromotionController {
 
     @FXML
     private void circleSaveAction() {
+        // 创建WebCirclePromotionVO对象
         Object[] objects = circleTable.getItems().toArray();
         ArrayList<CircleVO> circleVOList = new ArrayList<>();
         for (int i = 0; i < objects.length; i++) {

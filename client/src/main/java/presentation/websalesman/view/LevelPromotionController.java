@@ -53,15 +53,15 @@ public class LevelPromotionController {
 
         if (levelField.getText() != null && levelField.getText().length() > 0
                 && creditField.getText() != null && creditField.getText().length() > 0
-                && discountField.getText() != null && discountField.getText().length() > 0) {
+                && discountField.getText() != null && discountField.getText().length() > 0) {   // 检查输入完整性
             int level = Integer.valueOf(levelField.getText());
             double credit = Double.valueOf(creditField.getText());
             double discount = Double.valueOf(discountField.getText());
-            if (levelPromotion != null) {
+            if (levelPromotion != null) {   // 修改原有策略
                 levelPromotion.setLevel(String.format("%02d", level));
                 levelPromotion.setCredit(String.format("%.2f", credit));
                 levelPromotion.setDiscount(String.format("%.2f", discount));
-            } else {
+            } else {    // 添加新策略
                 levelPromotion = new LevelPromotion(new LevelVO(level, credit, discount));
             }
             stage.close();

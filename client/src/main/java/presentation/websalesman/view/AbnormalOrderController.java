@@ -50,7 +50,7 @@ public class AbnormalOrderController {
 
     @FXML
     public void confirmAction() {
-        if (halfRecoverRadioButton.isSelected()) {
+        if (halfRecoverRadioButton.isSelected()) {  // 选中恢复一半
             mainApp.getOrderService().cancelAbnormalOrder(orderVO.getOrderID(), RecoveryType.HALF);
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("成功");
@@ -58,7 +58,7 @@ public class AbnormalOrderController {
             alert.setContentText("已恢复一半信用值");
             alert.showAndWait();
             confirmButton.setDisable(true);
-        } else if (allRecoverRadioButton.isSelected()) {
+        } else if (allRecoverRadioButton.isSelected()) {    // 选中恢复全部
             mainApp.getOrderService().cancelAbnormalOrder(orderVO.getOrderID(), RecoveryType.WHOLE);
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("成功");
@@ -66,7 +66,7 @@ public class AbnormalOrderController {
             alert.setContentText("已恢复全部信用值");
             alert.showAndWait();
             confirmButton.setDisable(true);
-        } else {
+        } else {    // 没选中
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("警告");
             alert.setHeaderText("未选中");

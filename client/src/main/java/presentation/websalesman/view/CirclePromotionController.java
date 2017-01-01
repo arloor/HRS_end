@@ -49,13 +49,13 @@ public class CirclePromotionController {
     private void confirmAction() {
 
         if (circleField.getText() != null && circleField.getText().length() > 0
-                && discountField.getText() != null && discountField.getText().length() > 0) {
+                && discountField.getText() != null && discountField.getText().length() > 0) {   // 检查是否完整填写
             String circle = circleField.getText();
             double discount = Double.valueOf(discountField.getText());
-            if (circlePromotion != null) {
+            if (circlePromotion != null) {  // 修改原有策略
                 circlePromotion.setCircle(circle);
                 circlePromotion.setDiscount(String.format("%.2f", discount));
-            } else {
+            } else {    // 添加新策略
                 circlePromotion = new CirclePromotion(new CircleVO(circle, discount));
             }
             stage.close();

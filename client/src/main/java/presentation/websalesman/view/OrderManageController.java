@@ -72,6 +72,7 @@ public class OrderManageController {
 
     @FXML
     private void initialize() {
+        // 初始化列表
         unexecutedOrderIDColumn.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
         unexecutedCustomerIDColumn.setCellValueFactory(cellData -> cellData.getValue().customerIDProperty());
         unexecutedRoomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().roomTypeProperty());
