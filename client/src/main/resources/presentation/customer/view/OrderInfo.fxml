@@ -24,7 +24,7 @@
                               <TableColumn fx:id="whetherChild1" prefWidth="60.0" text="有无儿童" />
                               <TableColumn fx:id="originPrice1" prefWidth="40.0" text="原价" />
                               <TableColumn fx:id="actualPrice1" prefWidth="63.0" text="最终价格" />
-                              <TableColumn fx:id="lastestCheckInTime" prefWidth="100.0" text="最晚执行时间" />
+                              <TableColumn fx:id="lastestCheckInTime" prefWidth="150.0" text="最晚执行时间" />
                            </columns>
                         </TableView>
                         <Button layoutX="357.0" layoutY="327.0" mnemonicParsing="false" onAction="#setCancelOrderButton" text="取消订单" />

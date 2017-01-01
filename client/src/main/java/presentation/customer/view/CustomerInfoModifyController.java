@@ -47,8 +47,10 @@ public class CustomerInfoModifyController {
             customerVO.setUniqueInformation(idtentifyContextField.getText());
         }
         if (contactField.getText().length()!=0) {
-            hasModified=true;
-            customerVO.setPhoneNumber(contactField.getText());
+            if(mainAPP.check(contactField.getText())) {
+                hasModified = true;
+                customerVO.setPhoneNumber(contactField.getText());
+            }
         }
         if (newPasswordField.getText().length()!=0) {
             if(oldPasswordField.getText().equals(customerVO.getPassword())) {
