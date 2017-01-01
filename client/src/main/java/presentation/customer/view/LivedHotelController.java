@@ -92,4 +92,11 @@ public class LivedHotelController {
         HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(hotel.getHotelName());
         mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO,null);
     }
+    @FXML
+    private void hotelInfo(){
+        ViewHotel hotel=livedHotelTable.getSelectionModel().getSelectedItem();
+        HotelBLService hotelBLService=new Hotel();
+        HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(hotel.getHotelName());
+        mainAPP.showHotelInfoView(customerVO,hotelInfoVO.getHotelName(),null);
+    }
 }

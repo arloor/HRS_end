@@ -71,6 +71,10 @@ public class DetailedSearchController {
     }
     @FXML
     private void setSearchButton(){
+        if(addressField.getText().equals("")||areaField.getText().equals("")){
+            mainAPP.errorAlert(" 请先选择城市商圈");
+            return;
+        }
         getGradeInformation();
         getPriceInformation();
         SearchInfoVO searchInfoVO=new SearchInfoVO(customerVO.getUserName(),addressField.getText(),areaField.getText(),

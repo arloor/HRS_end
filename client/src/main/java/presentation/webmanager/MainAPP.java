@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -25,6 +26,7 @@ public class MainAPP extends Application{
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("CDLL酒店预订系统—网站管理人员");
+        this.primaryStage.getIcons().add(new Image("/presentation/icon_title.png"));
         showSignInView();
     }
     public void showRootLayout(ManagerVO managerVO) {
