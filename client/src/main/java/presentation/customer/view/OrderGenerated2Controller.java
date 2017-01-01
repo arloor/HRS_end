@@ -91,7 +91,11 @@ public class OrderGenerated2Controller {
     private void setActualPrice(){
          PromotionBLService salePromotionBLService=new Promotion();
         orderVO=salePromotionBLService.calculatePrice(orderVO);
-         actualPrice.setText(String.valueOf(orderVO.getCharge()));
+        String promotionType=orderVO.getPromotionType();
+        if(promotionType!=null)
+            actualPrice.setText(String.valueOf(orderVO.getCharge())+" "+promotionType);
+        else
+            actualPrice.setText(String.valueOf(orderVO.getCharge()));
         initialPrice.setText(String.valueOf(orderVO.getPrice()));
     }
     @FXML
@@ -111,7 +115,7 @@ public class OrderGenerated2Controller {
     }
     @FXML
     public void setCancelButton() {
-        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
+        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO,searchInfoVO);
     }
 
 }

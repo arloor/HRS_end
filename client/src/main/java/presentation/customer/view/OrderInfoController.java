@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import presentation.customer.MainAPP;
+import util.ResultMessage;
 import vo.CustomerVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -236,8 +237,11 @@ public class OrderInfoController {
     private void setCancelOrderButton(){
         ViewOrder viewUnexecutedOrder=unexecutedOrderTable.getSelectionModel().getSelectedItem();
         if(viewUnexecutedOrder!=null){
-            orderBLservice.cancelOrder(Integer.parseInt(viewUnexecutedOrder.getOrderID()));
-            mainAPP.informationAlert("取消成功");
+            ResultMessage resultMessage=orderBLservice.cancelOrder(Integer.parseInt(viewUnexecutedOrder.getOrderID()));
+            if(resultMessage.equals(ResultMessage.SUCCESS))
+                mainAPP.informationAlert("取消成功");
+            else if(resultMessage.equals(ResultMessage.CREDIT_DECRESE))
+                mainAPP.informationAlert("距最晚订单执行时间小于6小时，扣除本次订单的一半信用值");
         }
         else{
            mainAPP.errorAlert("请先选择");

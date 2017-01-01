@@ -1,15 +1,20 @@
 package presentation.customer.view;
 
-import businesslogic.hotelbl.Hotel;
 import businesslogic.orderbl.OrderProcesser;
-import businesslogicservice.hotelblservice.HotelBLService;
+import businesslogic.roombl.Room;
+import businesslogicservice.roomblservice.RoomBLService;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import vo.CustomerVO;
-import vo.HotelInfoVO;
-import vo.OrderVO;
-import vo.SearchInfoVO;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import util.RoomType;
+import vo.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -46,7 +51,29 @@ public class OrderGeneratedController {
 
 
     private void setRoomTypeChoiceBox(){
-        roomTypeChoiceBox.setItems(FXCollections.observableArrayList("单人间","标准间","豪华间","商务间","大床房"));
+        System.out.print(hotelInfoVO.getHotelName());
+        RoomBLService roomBLService=new Room();
+        List<AvailableRoomVO> availableRoomList;
+        availableRoomList=roomBLService.getAvailableRoomList(String.valueOf(hotelInfoVO.getHotelName()),null,null);
+        System.out.print(availableRoomList.size());
+        ArrayList<String> existTypeList = new ArrayList<>();
+        for (int i = 0; i < availableRoomList.size(); i++) {
+            existTypeList.add(availableRoomList.get(i).getRoomType());
+        }
+        ObservableList<RoomType> typeList = FXCollections.observableArrayList();
+        for (RoomType type : RoomType.values()) {
+            boolean isExist = false;
+            for (int i = 0; i < existTypeList.size(); i++) {
+                if (type.toString().equals(existTypeList.get(i))) {
+                    isExist = true;
+                    break;
+                }
+            }
+            if (isExist) {
+                typeList.add(type);
+            }
+        }
+        roomTypeChoiceBox.setItems(typeList);
     }
 
     private void setNumRoomChoiceBox(){
@@ -97,9 +124,8 @@ public class OrderGeneratedController {
         mainAPP.showHotelInfoView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
     }
 
-    public void setHotelVO(String hotelName) {
-        HotelBLService hotelBLService=new Hotel();
-        this.hotelInfoVO=hotelBLService.getHotelInfo(hotelName);
+    public void setHotelVO(HotelInfoVO hotelInfoVO) {
+        this.hotelInfoVO=hotelInfoVO;
     }
 
     public void setCustomerVO(CustomerVO customerVO){
