@@ -33,7 +33,9 @@ public class CustomerEvaluateController {
         this.mainAPP=mainAPP;
         setHotelNameField();
         setCheckInTimeField();
+        judge();
     }
+
     public void setCustomerVO(CustomerVO customerVO){
         this.customerVO=customerVO;
     }
@@ -50,6 +52,16 @@ public class CustomerEvaluateController {
 
     private void setCheckInTimeField(){
         checkInTimeField.setText(orderVO.getCheckInTime());
+    }
+
+    private void judge(){
+        OrderBLservice orderBLservice=OrderImpl.getMemberOrderInstance(customerVO.getUserName());
+        OrderEvaluationVO orderEvaluationVO=orderBLservice.getOrderEvaluationByID(orderVO.getOrderID());
+        if(orderEvaluationVO!=null){
+            mainAPP.informationAlert("您已评价过该订单");
+            gradeField.setText(String.valueOf(orderEvaluationVO.getPingfen()));
+            evaluateTextArea.setText(orderEvaluationVO.getPingjia());
+        }
     }
     @FXML
     private void setConfirmButton(){

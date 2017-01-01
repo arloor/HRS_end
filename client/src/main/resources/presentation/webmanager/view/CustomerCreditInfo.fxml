@@ -8,14 +8,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webmanager.view.CreditInfoController">
    <children>
-      <Label layoutX="50.0" layoutY="355.0" text="总信用值" />
+      <Label layoutX="50.0" layoutY="358.0" text="总信用值"/>
       <Label layoutX="287.0" layoutY="355.0" />
-      <Label layoutX="199.0" layoutY="355.0" text="信用等级" />
-      <Label fx:id="levelLabel" layoutX="272.0" layoutY="355.0" text="Label" />
-      <Label fx:id="creditLabel" layoutX="120.0" layoutY="355.0" text="Label" />
-      <ScrollPane layoutX="36.0" layoutY="28.0" prefHeight="306.0" prefWidth="421.0">
-         <content>
-            <TableView fx:id="creditInfoTable" prefHeight="306.0" prefWidth="406.0">
+      <Label layoutX="199.0" layoutY="358.0" text="信用等级"/>
+      <Label fx:id="levelLabel" layoutX="272.0" layoutY="358.0" text="Label"/>
+      <Label fx:id="creditLabel" layoutX="120.0" layoutY="358.0" text="Label"/>
+      <TableView fx:id="creditInfoTable" layoutX="38.0" layoutY="28.0" prefHeight="300.0" prefWidth="400.0">
                <columns>
                   <TableColumn fx:id="timeTableColumn" prefWidth="125.0" text="时间" />
                   <TableColumn fx:id="orderIdTableColumn" prefWidth="170.0" text="订单号" />
@@ -26,8 +24,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-         </content>
-      </ScrollPane>
-      <Button layoutX="390.0" layoutY="359.0" mnemonicParsing="false" onAction="#back" prefHeight="23.0" prefWidth="59.0" text="返回" />
+      <Button layoutX="350.0" layoutY="354.0" mnemonicParsing="false" onAction="#back" prefWidth="75.0"
+              styleClass="button-default" text="返回"/>
    </children>
 </AnchorPane>

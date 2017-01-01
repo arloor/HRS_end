@@ -88,6 +88,8 @@ public class LivedHotelController {
     @FXML
     private void orderThis(){
         ViewHotel hotel=livedHotelTable.getSelectionModel().getSelectedItem();
-        mainAPP.showOrderGeneratedView(customerVO,hotel.getHotelName(),null);
+        HotelBLService hotelBLService=new Hotel();
+        HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(hotel.getHotelName());
+        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO,null);
     }
 }

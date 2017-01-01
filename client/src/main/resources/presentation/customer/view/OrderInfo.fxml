@@ -6,7 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.OrderInfoController">
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.customer.view.OrderInfoController">
    <children>
       <TabPane layoutX="15.0" layoutY="10.0" prefHeight="381.0" prefWidth="549.0" styleClass="background-navigation" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <tabs>
@@ -14,42 +16,44 @@
                <content>
                   <AnchorPane prefHeight="324.0" prefWidth="493.0">
                      <children>
-                        <TableView fx:id="unexecutedOrderTable" prefHeight="324.0" prefWidth="435.0">
+                        <TableView fx:id="unexecutedOrderTable" prefHeight="320.0" prefWidth="435.0">
                            <columns>
                               <TableColumn fx:id="orderId1" prefWidth="125.0" text="订单号" />
                               <TableColumn fx:id="hotelName1" prefWidth="125.0" text="酒店名" />
-                              <TableColumn fx:id="roomType1" prefWidth="66.0" text="房间类型" />
-                              <TableColumn fx:id="roomNum1" prefWidth="41.0" text="数目" />
+                              <TableColumn fx:id="roomType1" prefWidth="65.0" text="房间类型"/>
+                              <TableColumn fx:id="roomNum1" prefWidth="40.0" text="数目"/>
                               <TableColumn fx:id="peopleNum1" prefWidth="40.0" text="人数" />
-                              <TableColumn fx:id="whetherChild1" prefWidth="60.0" text="有无儿童" />
+                              <TableColumn fx:id="whetherChild1" prefWidth="65.0" text="有无儿童"/>
                               <TableColumn fx:id="originPrice1" prefWidth="40.0" text="原价" />
-                              <TableColumn fx:id="actualPrice1" prefWidth="63.0" text="最终价格" />
-                              <TableColumn fx:id="lastestCheckInTime" prefWidth="100.0" text="最晚执行时间" />
+                              <TableColumn fx:id="actualPrice1" prefWidth="65.0" text="最终价格"/>
+                              <TableColumn fx:id="lastestCheckInTime" prefWidth="125.0" text="最晚执行时间"/>
                            </columns>
                         </TableView>
-                        <Button layoutX="357.0" layoutY="327.0" mnemonicParsing="false" onAction="#setCancelOrderButton" text="取消订单" />
+                        <Button layoutX="350.0" layoutY="330.0" mnemonicParsing="false" onAction="#setCancelOrderButton"
+                                prefWidth="75.0" styleClass="button-default" text="取消订单"/>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
             <Tab text="已执行订单">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background-default">
                      <children>
-                        <TableView fx:id="executedOrderTable" prefHeight="324.0" prefWidth="435.0">
+                        <TableView fx:id="executedOrderTable" prefHeight="320.0" prefWidth="435.0">
                            <columns>
                               <TableColumn fx:id="orderId2" prefWidth="125.0" text="订单号" />
                               <TableColumn fx:id="hotelName2" prefWidth="125.0" text="酒店名" />
-                              <TableColumn fx:id="roomType2" prefWidth="63.0" text="房间类型" />
+                              <TableColumn fx:id="roomType2" prefWidth="65.0" text="房间类型"/>
                               <TableColumn fx:id="roomNum2" prefWidth="40.0" text="数目" />
-                              <TableColumn fx:id="peopleNum2" prefWidth="41.0" text="人数" />
-                              <TableColumn fx:id="whetherChild2" prefWidth="66.0" text="有无儿童" />
-                              <TableColumn fx:id="originPrice2" prefWidth="39.0" text="原价" />
-                              <TableColumn fx:id="actualPrice2" prefWidth="63.0" text="最终价格" />
+                              <TableColumn fx:id="peopleNum2" prefWidth="40.0" text="人数"/>
+                              <TableColumn fx:id="whetherChild2" prefWidth="65.0" text="有无儿童"/>
+                              <TableColumn fx:id="originPrice2" prefWidth="40.0" text="原价"/>
+                              <TableColumn fx:id="actualPrice2" prefWidth="65.0" text="最终价格"/>
                               <TableColumn fx:id="startTime" prefWidth="125.0" text="入住时间" />
                            </columns>
                         </TableView>
-                        <Button layoutX="364.0" layoutY="330.0" mnemonicParsing="false" onAction="#setEvaluateButton" prefHeight="23.0" prefWidth="57.0" text="评价" />
+                        <Button layoutX="350.0" layoutY="330.0" mnemonicParsing="false" onAction="#setEvaluateButton"
+                                prefWidth="75.0" styleClass="button-default" text="评价"/>
                      </children>
                   </AnchorPane>
                </content>
@@ -58,16 +62,16 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="unusualOrderTable" layoutX="-3.0" prefHeight="351.0" prefWidth="446.0">
+                        <TableView fx:id="unusualOrderTable" prefHeight="320.0" prefWidth="435.0">
                            <columns>
                               <TableColumn fx:id="orderId3" prefWidth="125.0" text="订单号" />
                               <TableColumn fx:id="hotelName3" prefWidth="125.0" text="酒店名" />
-                              <TableColumn fx:id="roomType3" prefWidth="62.0" text="房间类型" />
-                              <TableColumn fx:id="roomNum3" prefWidth="44.0" text="数目" />
-                              <TableColumn fx:id="peopleNum3" prefWidth="38.0" text="人数" />
+                              <TableColumn fx:id="roomType3" prefWidth="65.0" text="房间类型"/>
+                              <TableColumn fx:id="roomNum3" prefWidth="40.0" text="数目"/>
+                              <TableColumn fx:id="peopleNum3" prefWidth="40.0" text="人数"/>
                               <TableColumn fx:id="whetherChild3" prefWidth="65.0" text="有无儿童" />
-                              <TableColumn fx:id="originPrice3" prefWidth="48.0" text="原价" />
-                              <TableColumn fx:id="actualPrice3" prefWidth="64.0" text="最终价格" />
+                              <TableColumn fx:id="originPrice3" prefWidth="40.0" text="原价"/>
+                              <TableColumn fx:id="actualPrice3" prefWidth="65.0" text="最终价格"/>
                            </columns>
                         </TableView>
                      </children>
@@ -78,16 +82,16 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="cancelOrderTable" prefHeight="352.0" prefWidth="435.0">
+                        <TableView fx:id="cancelOrderTable" prefHeight="320.0" prefWidth="435.0">
                            <columns>
                               <TableColumn fx:id="orderId4" prefWidth="125.0" text="订单号" />
                               <TableColumn fx:id="hotelName4" prefWidth="125.0" text="酒店名" />
-                              <TableColumn fx:id="roomType4" prefWidth="62.0" text="房间类型" />
-                              <TableColumn fx:id="roomNum4" prefWidth="41.0" text="数目" />
-                              <TableColumn fx:id="peopleNum4" prefWidth="38.0" text="人数" />
-                              <TableColumn fx:id="whetherChild4" prefWidth="62.0" text="有无儿童" />
-                              <TableColumn fx:id="originPrice4" prefWidth="39.0" text="原价" />
-                              <TableColumn fx:id="actualPrice4" prefWidth="73.0" text="最终价格" />
+                              <TableColumn fx:id="roomType4" prefWidth="65.0" text="房间类型"/>
+                              <TableColumn fx:id="roomNum4" prefWidth="40.0" text="数目"/>
+                              <TableColumn fx:id="peopleNum4" prefWidth="40.0" text="人数"/>
+                              <TableColumn fx:id="whetherChild4" prefWidth="65.0" text="有无儿童"/>
+                              <TableColumn fx:id="originPrice4" prefWidth="40.0" text="原价"/>
+                              <TableColumn fx:id="actualPrice4" prefWidth="65.0" text="最终价格"/>
                               <TableColumn fx:id="cancelTime" prefWidth="125.0" text="撤销时间" />
                            </columns>
                         </TableView>

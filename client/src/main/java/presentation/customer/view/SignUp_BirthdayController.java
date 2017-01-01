@@ -25,7 +25,8 @@ public class SignUp_BirthdayController {
         customerVO.setUniqueInformation(time);
         CustomerBLService customerBLService=new Customer();
         ResultMessage resultMessage=customerBLService.addCustomer(customerVO);
-        if(resultMessage.equals(ResultMessage.USER_NOT_EXIST))
+        System.out.print(resultMessage);
+        if(resultMessage.equals(ResultMessage.SUCCESS))
             mainAPP.showSignInView();
         else if(resultMessage.equals(ResultMessage.USER_EXIST))
             mainAPP.errorAlert("该用户名已存在");

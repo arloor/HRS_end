@@ -7,17 +7,22 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.HotelInfoController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="475.0"
+            styleClass="background-default" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.HotelInfoController">
    <children>
-      <Button layoutX="203.0" layoutY="363.0" mnemonicParsing="false" onAction="#setOrderGeneratedButton" prefHeight="23.0" prefWidth="92.0" text="生成订单" />
-      <Button layoutX="381.0" layoutY="363.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="75.0" text="取消" />
+       <Button layoutX="375.0" layoutY="363.0" mnemonicParsing="false" onAction="#setOrderGeneratedButton"
+               prefHeight="23.0" prefWidth="75.0" styleClass="button-default" text="生成订单"/>
+       <Button layoutX="175.0" layoutY="363.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0"
+               prefWidth="75.0" styleClass="button-default" text="取消"/>
       <TableView fx:id="priceTable" layoutX="28.0" layoutY="184.0" prefHeight="165.0" prefWidth="432.0">
          <columns>
             <TableColumn fx:id="roomTypeColumn" prefWidth="172.0" text="房间类型" />
             <TableColumn fx:id="originPriceColumn" prefWidth="255.0" text="原始价格" />
          </columns>
       </TableView>
-      <Button layoutX="23.0" layoutY="363.0" mnemonicParsing="false" onAction="#setSearchOrderButton" text="查看该酒店下订单" />
+       <Button layoutX="275.0" layoutY="363.0" mnemonicParsing="false" onAction="#setSearchOrderButton" prefWidth="75.0"
+               styleClass="button-default" text="查看订单"/>
       <Label fx:id="hotelNameField" layoutX="23.0" layoutY="14.0" prefHeight="35.0" prefWidth="425.0" text="Label">
          <font>
             <Font size="27.0" />

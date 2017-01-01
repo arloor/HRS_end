@@ -6,7 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.OrderGenerated2Controller">
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.customer.view.OrderGenerated2Controller">
    <children>
       <Label layoutX="50.0" layoutY="55.0" text="房间类型" />
       <GridPane layoutX="16.0" layoutY="81.0" prefHeight="237.0" prefWidth="557.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
@@ -34,8 +36,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="70.0" layoutY="344.0" mnemonicParsing="false" onAction="#setConfirmButton" prefHeight="23.0" prefWidth="95.0" text="确认" />
-      <Button layoutX="301.0" layoutY="344.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="89.0" text="取消" />
+      <Button layoutX="250.0" layoutY="337.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0"
+              prefWidth="75.0" styleClass="button-default" text="取消"/>
+      <Button layoutX="350.0" layoutY="337.0" mnemonicParsing="false" onAction="#setConfirmButton" prefHeight="23.0"
+              prefWidth="75.0" styleClass="button-default" text="确认"/>
       <Label fx:id="roomTypeField" layoutX="150.0" layoutY="55.0" text="Label" />
    </children>
 </AnchorPane>

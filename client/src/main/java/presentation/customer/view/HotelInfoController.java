@@ -105,7 +105,7 @@ public class HotelInfoController {
 
     @FXML
     private void setOrderGeneratedButton(){
-        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO.getHotelName(),searchInfoVO);
+        mainAPP.showOrderGeneratedView(customerVO,hotelInfoVO,searchInfoVO);
     }
     @FXML
     private void setSearchOrderButton(){

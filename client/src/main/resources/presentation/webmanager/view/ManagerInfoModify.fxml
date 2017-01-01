@@ -9,25 +9,27 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webmanager.view.ManagerInfoModifyController">
    <children>
-      <Label layoutX="14.0" layoutY="58.0" text="用户名" />
-      <Label layoutX="193.0" layoutY="58.0" text="管理员类型" />
-      <Button layoutX="104.0" layoutY="324.0" mnemonicParsing="false" onAction="#cancel"  prefHeight="28.0" prefWidth="60.0" text="取消">
+       <Label layoutX="58.0" layoutY="85.0" text="用户名"/>
+       <Label layoutX="237.0" layoutY="85.0" text="管理员类型"/>
+       <Button layoutX="108.0" layoutY="305.0" mnemonicParsing="false" onAction="#cancel" prefWidth="75.0"
+               styleClass="button-default" text="取消">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="287.0" layoutY="324.0" mnemonicParsing="false" onAction="#confirm"  prefHeight="28.0" prefWidth="60.0" text="确认">
+       <Button layoutX="291.0" layoutY="305.0" mnemonicParsing="false" onAction="#confirm" prefWidth="75.0"
+               styleClass="button-default" text="确认">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="contactField" layoutX="173.0" layoutY="206.0" />
-      <Label layoutX="94.0" layoutY="210.0" text="联系方式">
+       <TextField fx:id="contactField" layoutX="196.0" layoutY="179.0"/>
+       <Label layoutX="117.0" layoutY="183.0" text="联系方式">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="managerNameLabel" layoutX="63.0" layoutY="58.0" text="Label" />
-      <Label fx:id="typeLabel" layoutX="272.0" layoutY="58.0" text="Label" />
+       <Label fx:id="managerNameLabel" layoutX="107.0" layoutY="85.0" text="Label"/>
+       <Label fx:id="typeLabel" layoutX="316.0" layoutY="85.0" text="Label"/>
    </children>
 </AnchorPane>

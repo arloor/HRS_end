@@ -204,14 +204,14 @@ public class MainAPP extends Application{
         }
     }
 
-    public void showOrderGeneratedView(CustomerVO customerVO,String hotelName, SearchInfoVO searchInfoVO) {
+    public void showOrderGeneratedView(CustomerVO customerVO,HotelInfoVO hotelInfoVO, SearchInfoVO searchInfoVO) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainAPP.class.getResource("view/CustomerOrderGenerated1.fxml"));
             AnchorPane generate=(AnchorPane)loader.load();
             rootLayout.setCenter(generate);
             OrderGeneratedController controller=loader.getController();
-            controller.setHotelVO(hotelName);
+            controller.setHotelVO(hotelInfoVO);
             controller.setCustomerVO(customerVO);
             controller.setSearchInfoVO(searchInfoVO);
             controller.setMainAPP(this);
@@ -316,5 +316,12 @@ public class MainAPP extends Application{
         alert.setHeaderText(null);
         alert.setContentText(information);
         alert.showAndWait();
+    }
+    public Boolean check(String str){
+        if(str.length()!=11) {
+            errorAlert("联系方式位数不正确");
+            return false;
+        }
+        return true;
     }
 }

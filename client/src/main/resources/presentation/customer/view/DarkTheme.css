@@ -1,4 +1,4 @@
-background-default {
+.background-default {
     -fx-background-color: #555555;
 }
 
@@ -14,6 +14,21 @@ background-default {
     -fx-background-color: #555555;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
+}
+
+.split-pane {
+    -fx-background-color: #555555;
+    -fx-border-width: 1px;
+    -fx-border-radius: 0;
+    -fx-border-color: transparent transparent #cec62f transparent;
+}
+
+.split-pane:vertical > .split-pane-divider {
+    -fx-border-width: 5.5px;
+    -fx-border-color: #555555 transparent #555555 transparent;
+    -fx-background-color: #888888;
+    -fx-arc-width: 0px;
+    -fx-max-width: 0px;
 }
 
 .label {
@@ -34,22 +49,135 @@ background-default {
     -fx-text-fill: #eeeeee;
 }
 
+.choice-box {
+    -fx-text-fill: #eeeeee;
+    -fx-background-color: #666666;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.choice-box:focused {
+    -fx-text-fill: #1d1d1d;
+    -fx-background-color: #cccccc;
+}
+
+.choice-box .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #eeeeee;
+}
+
+.choice-box:focused .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1d1d1d;
+}
+
 .text-field {
+    -fx-text-fill: #eeeeee;
+    -fx-background-color: #666666;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.text-field:focused {
+    -fx-text-fill: #1d1d1d;
+    -fx-background-color: #cccccc;
+}
+
+.text-area {
+    -fx-text-fill: #eeeeee;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.text-area:focused {
+    -fx-text-fill: #1d1d1d;
+}
+
+.text-area .content {
+    -fx-text-fill: #eeeeee;
+    -fx-background-color: #666666;
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: #666666;
+}
+
+.text-area:focused .content {
+    -fx-text-fill: #1d1d1d;
+    -fx-background-color: #cccccc;
+}
+
+.text-area .scroll-pane {
+    -fx-border-radius: 0;
+    -fx-border-color: #666666;
+    -fx-border-width: 0;
+}
+
+.text-area .scroll-bar:horizontal .track, .text-area .scroll-bar:vertical .track {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius: 0em;
+}
+
+.text-area .scroll-bar:horizontal .increment-button, .text-area .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 0 13 0;
+}
+
+.text-area .scroll-bar:vertical .increment-button, .text-area .scroll-bar:vertical .decrement-button {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 13 0 0;
+}
+
+.text-area .scroll-bar .increment-arrow, .text-area .scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+.text-area .scroll-bar:horizontal .thumb, .text-area .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(black, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 0;
+}
+
+.text-field-default {
+    -fx-background-color: #666666;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.text-field-default:focused {
+    -fx-background-color: #cccccc;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.data-picker {
+    -fx-opacity: 75%;
+    -fx-background-color: #666666;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.data-picker:focused {
+    -fx-opacity: 100%;
     -fx-background-color: #eeeeee;
     -fx-border-width: 0;
     -fx-background-radius: 0;
 }
 
-.text-area {
-    -fx-border-width: 0;
-    -fx-background-radius: 0;
-}
-
-.button {
+.button-default {
     -fx-border-width: 0;
     -fx-background-radius: 0;
     -fx-border-color: #222222;
     -fx-background-color: #ffd92f;
+    -fx-text-fill: #1d1d1d;
+}
+
+.button-default:hover {
+    -fx-text-fill: blueviolet;
 }
 
 .button-navigation {
@@ -62,6 +190,7 @@ background-default {
 
 .button-navigation:hover {
     -fx-background-color: #424242;
+    -fx-text-fill: #eeeeee;
 }
 
 .button-navigation-selected {
@@ -154,4 +283,3 @@ background-default {
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 0;
 }
-

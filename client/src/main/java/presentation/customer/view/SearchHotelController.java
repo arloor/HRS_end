@@ -129,8 +129,10 @@ public class SearchHotelController {
     @FXML
     private void setOrderButton() {
         ViewSearchedHotelObjects temp = searchTable.getSelectionModel().getSelectedItem();
+        HotelBLService hotelBLService=new Hotel();
+        HotelInfoVO hotelInfoVO=hotelBLService.getHotelInfo(temp.getHotelName());
         if (temp != null)
-            mainAPP.showOrderGeneratedView(customerVO, temp.getHotelName(), searchInfoVO);
+            mainAPP.showOrderGeneratedView(customerVO, hotelInfoVO, searchInfoVO);
         else {
             mainAPP.errorAlert("请先选择酒店");
         }
