@@ -8,36 +8,42 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.DetailedSearchController">
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.customer.view.DetailedSearchController">
    <children>
-      <Label layoutX="22.0" layoutY="66.0" prefHeight="35.0" prefWidth="58.0" text="地址(*)" textFill="#0f0f0f">
+      <Label layoutX="20.0" layoutY="73.0" text="城市(*)" textFill="#0f0f0f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="addressField" layoutX="78.0" layoutY="72.0" prefHeight="23.0" prefWidth="139.0" />
-      <Label layoutX="250.0" layoutY="65.0" prefHeight="38.0" prefWidth="62.0" text="商圈(*)">
+      <TextField fx:id="addressField" layoutX="80.0" layoutY="70.0" prefHeight="23.0" prefWidth="125.0"
+                 styleClass="text-field-default"/>
+      <Label layoutX="250.0" layoutY="73.0" text="商圈(*)">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="areaField" layoutX="317.0" layoutY="73.0" prefHeight="23.0" prefWidth="129.0" />
-      <Label layoutX="22.0" layoutY="132.0" prefHeight="29.0" prefWidth="72.0" text="酒店名称" />
-      <Label layoutX="257.0" layoutY="199.0" text="房间类型" />
-      <Label layoutX="22.0" layoutY="199.0" text="房间数量" />
-      <Label layoutX="269.0" layoutY="139.0" text="星级" />
-      <Label layoutX="15.0" layoutY="251.0" text="原始价格区间" />
-      <Label layoutX="257.0" layoutY="251.0" text="评分区间" />
-      <Label layoutX="22.0" layoutY="308.0" text="入住日期" />
-      <Label layoutX="257.0" layoutY="308.0" text="退房日期" />
-      <Button fx:id="searchButton" layoutX="205.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setSearchButton" prefHeight="23.0" prefWidth="91.0" text="搜索" />
-      <TextField fx:id="hotelNameField" layoutX="82.0" layoutY="135.0" prefHeight="23.0" prefWidth="140.0" />
-      <ChoiceBox fx:id="levelChoiceBox" layoutX="317.0" layoutY="135.0" prefHeight="23.0" prefWidth="129.0" />
-      <TextField fx:id="roomNumField" layoutX="82.0" layoutY="195.0" prefHeight="23.0" prefWidth="140.0" />
-      <ChoiceBox fx:id="roomTypeChoiceBox" layoutX="317.0" layoutY="195.0" prefHeight="23.0" prefWidth="129.0" />
-      <DatePicker fx:id="checkInPicker" layoutX="79.0" layoutY="304.0" prefHeight="23.0" prefWidth="140.0" />
-      <DatePicker fx:id="checkOutPicker" layoutX="317.0" layoutY="304.0" prefHeight="23.0" prefWidth="129.0" />
-      <ChoiceBox fx:id="originPriceBox" layoutX="92.0" layoutY="247.0" prefHeight="23.0" prefWidth="129.0" />
-      <ChoiceBox fx:id="gradeBox" layoutX="316.0" layoutY="247.0" prefHeight="23.0" prefWidth="131.0" />
+      <TextField fx:id="areaField" layoutX="310.0" layoutY="70.0" prefWidth="125.0" styleClass="text-field-default"/>
+      <Label layoutX="20.0" layoutY="134.0" text="酒店名称"/>
+      <TextField fx:id="hotelNameField" layoutX="80.0" layoutY="130.0" prefWidth="125.0"
+                 styleClass="text-field-default"/>
+      <Label layoutX="250.0" layoutY="134.0" text="酒店星级"/>
+      <ChoiceBox fx:id="levelChoiceBox" layoutX="310.0" layoutY="130.0" prefWidth="125.0"/>
+      <Label layoutX="250.0" layoutY="194.0" text="房间类型"/>
+      <TextField fx:id="roomNumField" layoutX="80.0" layoutY="190.0" prefWidth="125.0" styleClass="text-field-default"/>
+      <Label layoutX="20.0" layoutY="194.0" text="房间数量"/>
+      <ChoiceBox fx:id="roomTypeChoiceBox" layoutX="310.0" layoutY="190.0" prefWidth="125.0"/>
+      <Label layoutX="20.0" layoutY="254.0" text="价格区间"/>
+      <ChoiceBox fx:id="originPriceBox" layoutX="80.0" layoutY="250.0" prefWidth="125.0"/>
+      <Label layoutX="250.0" layoutY="254.0" text="评分区间"/>
+      <ChoiceBox fx:id="gradeBox" layoutX="310.0" layoutY="250.0" prefWidth="125.0"/>
+      <Label layoutX="20.0" layoutY="316.0" text="入住日期"/>
+      <DatePicker fx:id="checkInPicker" layoutX="80.0" layoutY="310.0" prefWidth="125.0"/>
+      <Label layoutX="250.0" layoutY="316.0" text="退房日期"/>
+      <DatePicker fx:id="checkOutPicker" layoutX="310.0" layoutY="310.0" prefWidth="125.0"/>
+      <Button fx:id="searchButton" layoutX="350.0" layoutY="355.0" mnemonicParsing="false"
+              onMouseClicked="#setSearchButton" prefHeight="23.0" prefWidth="75.0" styleClass="button-default"
+              text="搜索"/>
    </children>
 </AnchorPane>

@@ -19,8 +19,11 @@
             <TableColumn fx:id="addressColumn" prefWidth="147.0" text="地址" />
          </columns>
       </TableView>
-      <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox" prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: white;" text="只在住过的酒店中搜索" />
-      <Button layoutX="52.0" layoutY="352.0" mnemonicParsing="false" onAction="#setDetailedInformationButton" text="查看选中的酒店" />
-      <Button layoutX="327.0" layoutY="352.0" mnemonicParsing="false" onAction="#setOrderButton" text="预定选中的酒店" />
+       <CheckBox fx:id="livedOnlyBox" layoutX="293.0" layoutY="28.0" mnemonicParsing="false" onAction="#setLivedOnlyBox"
+                 prefHeight="16.0" prefWidth="143.0" style="-fx-text-fill: orange;" text="只在住过的酒店中搜索"/>
+       <Button layoutX="250.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDetailedInformationButton"
+               prefWidth="75.0" styleClass="button-default" text="详情"/>
+       <Button layoutX="350.0" layoutY="360.0" mnemonicParsing="false" onAction="#setOrderButton" prefWidth="75.0"
+               styleClass="button-default" text="预定"/>
    </children>
 </AnchorPane>

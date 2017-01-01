@@ -6,7 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-sign-in" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.view.CustomerInfoModifyController">
+<AnchorPane prefHeight="400.0" prefWidth="475.0" styleClass="background-default" stylesheets="@DarkTheme.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.customer.view.CustomerInfoModifyController">
    <children>
       <GridPane layoutX="14.0" layoutY="85.0" prefHeight="231.0" prefWidth="560.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <children>
@@ -35,7 +37,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="111.0" layoutY="335.0" mnemonicParsing="false" onAction="#setConfirmButton" onMouseClicked="#setConfirmButton" prefHeight="23.0" prefWidth="72.0" text="确认" />
-      <Button layoutX="312.0" layoutY="335.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0" prefWidth="72.0" text="取消" />
+      <Button layoutX="87.0" layoutY="316.0" mnemonicParsing="false" onAction="#setConfirmButton"
+              onMouseClicked="#setConfirmButton" prefHeight="23.0" prefWidth="100.0" styleClass="button-default"
+              text="确认"/>
+      <Button layoutX="288.0" layoutY="316.0" mnemonicParsing="false" onAction="#setCancelButton" prefHeight="23.0"
+              prefWidth="100.0" styleClass="button-default" text="取消"/>
    </children>
 </AnchorPane>
