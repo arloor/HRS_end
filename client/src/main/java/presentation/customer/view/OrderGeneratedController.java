@@ -96,7 +96,7 @@ public class OrderGeneratedController {
     private void setNoButton(){
         hasChildren="no";
     }
-    @FXML
+
     private void initialize(){
         final ToggleGroup group=new ToggleGroup();
         yesButton.setToggleGroup(group);

@@ -317,4 +317,11 @@ public class MainAPP extends Application{
         alert.setContentText(information);
         alert.showAndWait();
     }
+    public Boolean check(String str){
+        if(str.length()!=11) {
+            errorAlert("联系方式位数不正确");
+            return false;
+        }
+        return true;
+    }
 }
