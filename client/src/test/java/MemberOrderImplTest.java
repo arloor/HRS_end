@@ -1,6 +1,9 @@
+import businesslogic.creditbl.Credit;
+import businesslogic.customerbl.Customer;
 import businesslogic.orderbl.OrderImpl;
 import businesslogic.orderbl.OrderProcesser;
 import org.junit.*;
+import vo.CustomerVO;
 import vo.OrderEvaluationVO;
 import vo.OrderVO;
 
@@ -99,10 +102,37 @@ public void testGetOrderInfo() throws Exception {
      * Method: cancelOrder(int orderID)
      *
      */
-    @Test@Ignore
-    public void testCancelOrder() throws Exception {
+    @Test
+    public void testCancelOrder1() throws Exception {
 //TODO: Test goes here...
         order.cancelOrder(3);
+        Credit credit=new Credit("arloor");
+        double oldCreditNum=credit.getNumCredit("arloor");
+
+        //判断是否将状态设为已撤销状态
+        Assert.assertEquals(order.getOrderInfo(3).getStatus(),"已撤销");
+        double newCredit=credit.getNumCredit("arloor");
+        //判断信用值变化（应该不发生变化）
+        Assert.assertEquals(oldCreditNum,newCredit);
+    }
+
+    /**
+     *
+     * Method: cancelOrder(int orderID)
+     *
+     */
+    @Test
+    public void testCancelOrder2() throws Exception {
+//TODO: Test goes here...
+        order.cancelOrder(4);
+        Credit credit=new Credit("arloor");
+        double oldCreditNum=credit.getNumCredit("arloor");
+
+        //判断是否将状态设为已撤销状态
+        Assert.assertEquals(order.getOrderInfo(4).getStatus(),"已撤销");
+        double newCredit=credit.getNumCredit("arloor");
+        //判断信用值变化（应该发生变化）
+        Assert.assertEquals(oldCreditNum,newCredit-order.getOrderInfo(4).getCharge()*0.5);
     }
 
     /**
