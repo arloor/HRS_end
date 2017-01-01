@@ -12,14 +12,14 @@
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="presentation.customer.view.DetailedSearchController">
    <children>
-      <Label layoutX="20.0" layoutY="73.0" text="城市(*)" textFill="#0f0f0f">
+      <Label layoutX="20.0" layoutY="69.0" text="城市(*)" textFill="#0f0f0f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="addressField" layoutX="80.0" layoutY="70.0" prefHeight="23.0" prefWidth="125.0"
                  styleClass="text-field-default"/>
-      <Label layoutX="250.0" layoutY="73.0" text="商圈(*)">
+      <Label layoutX="250.0" layoutY="69.0" text="商圈(*)">
          <font>
             <Font size="18.0" />
          </font>

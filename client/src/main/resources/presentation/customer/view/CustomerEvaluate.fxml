@@ -13,7 +13,8 @@
    <children>
       <Label layoutX="22.0" layoutY="127.0" text="评分" />
       <Label layoutX="22.0" layoutY="172.0" text="评价" />
-      <TextArea fx:id="evaluateTextArea" layoutX="62.0" layoutY="180.0" prefHeight="150.0" prefWidth="363.0" />
+       <TextArea fx:id="evaluateTextArea" layoutX="62.0" layoutY="180.0" prefHeight="150.0" prefWidth="363.0"
+                 wrapText="true"/>
        <Button layoutX="250.0" layoutY="352.0" mnemonicParsing="false" onAction="#setConfirmButton" prefWidth="75.0"
                styleClass="button-default" text="确认"/>
        <Button layoutX="350.0" layoutY="352.0" mnemonicParsing="false" onAction="#setCancelButton" prefWidth="75.0"

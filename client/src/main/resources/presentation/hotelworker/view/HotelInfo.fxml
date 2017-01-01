@@ -47,7 +47,8 @@
                     </rowConstraints>
                     <children>
                         <Label text="  酒店名称：" GridPane.halignment="LEFT"/>
-                        <TextField fx:id="nameField" maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1"/>
+                        <TextField fx:id="nameField" editable="false" maxWidth="200.0" prefWidth="200.0"
+                                   GridPane.columnIndex="1"/>
                         <GridPane GridPane.columnIndex="2">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
@@ -101,7 +102,8 @@
         <GridPane prefWidth="475.0" GridPane.rowIndex="3">
             <children>
                 <Label text="  简介：" GridPane.valignment="TOP"/>
-                <TextArea fx:id="introductionArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+                <TextArea fx:id="introductionArea" maxWidth="385.0" opacity="0.933333" wrapText="true"
+                          GridPane.columnIndex="1"/>
             </children>
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
@@ -114,7 +116,8 @@
         <GridPane prefWidth="475.0" GridPane.rowIndex="4">
             <children>
                 <Label text="  设施服务：" GridPane.valignment="TOP"/>
-                <TextArea fx:id="facilityArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+                <TextArea fx:id="facilityArea" maxWidth="385.0" opacity="0.933333" wrapText="true"
+                          GridPane.columnIndex="1"/>
             </children>
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
@@ -127,7 +130,8 @@
         <GridPane prefWidth="475.0" GridPane.rowIndex="5">
             <children>
                 <Label text="  合作企业：" GridPane.valignment="TOP"/>
-                <TextArea fx:id="cooperArea" maxWidth="385.0" opacity="0.933333" GridPane.columnIndex="1"/>
+                <TextArea fx:id="cooperArea" maxWidth="385.0" opacity="0.933333" wrapText="true"
+                          GridPane.columnIndex="1"/>
             </children>
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0"/>
@@ -147,9 +151,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <Button onAction="#confirmAction" mnemonicParsing="false" prefWidth="75.0" styleClass="button-default"
-                        text="确认"
-                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP"/>
+                <Button mnemonicParsing="false" onAction="#confirmAction" prefWidth="75.0" styleClass="button-default"
+                        text="确认" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP"/>
             </children>
         </GridPane>
     </children>
