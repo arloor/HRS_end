@@ -62,25 +62,25 @@ public class SalePromotionController {
     @FXML
     private void confirmAction() {
         HotelBirthdayPromotionVO hotelBirthdayPromotionVO = null;
-        if (birthdayDiscountField.getText() != null && birthdayDiscountField.getText().length() != 0) {
+        if (birthdayDiscountField.getText() != null && birthdayDiscountField.getText().length() != 0) { // 检查输入
             hotelBirthdayPromotionVO = new HotelBirthdayPromotionVO(mainApp.getHotelName(), Double.valueOf(birthdayDiscountField.getText()));
         }
 
         HotelCompanyPromotionVO hotelCompanyPromotionVO = null;
-        if (companyDiscountField.getText() != null && companyDiscountField.getText().length() != 0) {
+        if (companyDiscountField.getText() != null && companyDiscountField.getText().length() != 0) { // 检查输入
             hotelCompanyPromotionVO = new HotelCompanyPromotionVO(mainApp.getHotelName(), Double.valueOf(companyDiscountField.getText()));
         }
 
         HotelMultiRoomsPromotionVO hotelMultiRoomsPromotionVO = null;
         if (multiRoomsDiscountField.getText() != null && multiRoomsDiscountField.getText().length() != 0
-                && multiRoomsMinimumField.getText() != null && multiRoomsMinimumField.getText().length() != 0) {
+                && multiRoomsMinimumField.getText() != null && multiRoomsMinimumField.getText().length() != 0) { // 检查输入
             hotelMultiRoomsPromotionVO = new HotelMultiRoomsPromotionVO(mainApp.getHotelName(), Integer.valueOf(multiRoomsMinimumField.getText()), Double.valueOf(multiRoomsDiscountField.getText()));
         }
 
         HotelSpecialTimePromotionVO hotelSpecialTimePromotionVO = null;
         if (holidayDiscountField.getText() != null && holidayDiscountField.getText().length() != 0
                 && startDateField.getText() != null && startDateField.getText().length() != 0
-                && endDateField.getText() != null && endDateField.getText().length() != 0) {
+                && endDateField.getText() != null && endDateField.getText().length() != 0) { // 检查输入
             hotelSpecialTimePromotionVO = new HotelSpecialTimePromotionVO(mainApp.getHotelName(), startDateField.getText(), endDateField.getText(), Double.valueOf(holidayDiscountField.getText()));
         }
 

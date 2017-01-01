@@ -143,6 +143,7 @@ public class OrderManageController {
 
     @FXML
     private void initialize() {
+        // 初始化未执行订单列表
         unexecutedOrderIDColumn.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
         unexecutedCustomerIDColumn.setCellValueFactory(cellData -> cellData.getValue().customerIDProperty());
         unexecutedRoomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().roomTypeProperty());
@@ -154,6 +155,7 @@ public class OrderManageController {
         unexecutedPriceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty());
         unexecutedChargeColumn.setCellValueFactory(cellData -> cellData.getValue().chargeProperty());
 
+        // 初始化已执行订单列表
         executedOrderIDColumn.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
         executedCustomerIDColumn.setCellValueFactory(cellData -> cellData.getValue().customerIDProperty());
         executedRoomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().roomTypeProperty());
@@ -167,6 +169,7 @@ public class OrderManageController {
         executedPriceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty());
         executedChargeColumn.setCellValueFactory(cellData -> cellData.getValue().chargeProperty());
 
+        // 初始化已撤销订单列表
         canceledOrderIDColumn.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
         canceledCustomerIDColumn.setCellValueFactory(cellData -> cellData.getValue().customerIDProperty());
         canceledRoomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().roomTypeProperty());
@@ -177,6 +180,7 @@ public class OrderManageController {
         canceledPriceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty());
         canceledChargeColumn.setCellValueFactory(cellData -> cellData.getValue().chargeProperty());
 
+        // 初始化异常订单列表
         abnormalOrderIDColumn.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
         abnormalCustomerIDColumn.setCellValueFactory(cellData -> cellData.getValue().customerIDProperty());
         abnormalRoomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().roomTypeProperty());
