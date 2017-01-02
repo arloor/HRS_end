@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import util.ResultMessage;
 import vo.*;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -92,10 +93,13 @@ public class OrderGenerated2Controller {
          PromotionBLService salePromotionBLService=new Promotion();
         orderVO=salePromotionBLService.calculatePrice(orderVO);
         String promotionType=orderVO.getPromotionType();
+        double price= orderVO.getCharge();
+        DecimalFormat df=new DecimalFormat("0.00");
+        String CNY=df.format(price);
         if(promotionType!=null)
-            actualPrice.setText(String.valueOf(orderVO.getCharge())+" "+promotionType);
+            actualPrice.setText(CNY+" "+promotionType);
         else
-            actualPrice.setText(String.valueOf(orderVO.getCharge()));
+            actualPrice.setText(CNY);
         initialPrice.setText(String.valueOf(orderVO.getPrice()));
     }
     @FXML

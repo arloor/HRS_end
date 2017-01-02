@@ -67,7 +67,14 @@ public class CustomerEvaluateController {
     private void setConfirmButton(){
         String grade=gradeField.getText();
         String evaluation=evaluateTextArea.getText();
-        OrderEvaluationVO orderEvaluationVO=new OrderEvaluationVO(orderVO.getOrderID(),Double.parseDouble(grade),evaluation);
+        double d;
+        try{
+            d = Double.parseDouble(grade);
+        }catch(Exception ex){
+            mainAPP.errorAlert("评价应为数值");
+            return;
+        }
+        OrderEvaluationVO orderEvaluationVO=new OrderEvaluationVO(orderVO.getOrderID(),d,evaluation);
         OrderBLservice orderBLservice=OrderImpl.getMemberOrderInstance(customerVO.getUserName());
         orderBLservice.evaluateOrder(orderEvaluationVO);
         mainAPP.informationAlert("评价成功");
