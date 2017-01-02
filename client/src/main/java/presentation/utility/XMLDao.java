@@ -13,8 +13,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +35,8 @@ public class XMLDao {
             factory.setIgnoringElementContentWhitespace(true);
 
             DocumentBuilder db = factory.newDocumentBuilder();
-            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml/Circles.xml").toURI()));
+            InputStream is = XMLDao.class.getResourceAsStream("xml/Circles.xml");
+            Document xmldoc = db.parse(is);
             Element root = xmldoc.getDocumentElement();
 
             NodeList nodes = selectNodes("//Circle[@City='" + city + "']", root);
@@ -69,7 +69,8 @@ public class XMLDao {
             factory.setIgnoringElementContentWhitespace(true);
 
             DocumentBuilder db = factory.newDocumentBuilder();
-            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml/Cities.xml").toURI()));
+            InputStream is = XMLDao.class.getResourceAsStream("xml/Cities.xml");
+            Document xmldoc = db.parse(is);
             Element root = xmldoc.getDocumentElement();
 
             NodeList nodes = selectNodes("/Cities/City", root);
