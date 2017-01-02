@@ -10,24 +10,29 @@
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="presentation.customer.view.CustomerInfoController">
    <children>
-      <GridPane layoutX="13.0" layoutY="28.0" prefHeight="231.0" prefWidth="560.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="75.0">
+       <GridPane layoutX="100.0" layoutY="75.0" prefHeight="230.0" prefWidth="350.0">
          <children>
             <Label text="用户名" />
             <Label text="用户姓名" GridPane.rowIndex="1" />
             <Label text="用户类型" GridPane.rowIndex="2" />
             <Label text="联系方式" GridPane.rowIndex="4" />
             <Label text="信用" GridPane.rowIndex="5" />
-            <Label fx:id="idtentifyField" text="Label" GridPane.rowIndex="3"/>
-            <Label fx:id="usernameField" prefHeight="15.0" prefWidth="255.0" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="trueNameField" prefHeight="15.0" prefWidth="262.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="customerTypeField" prefHeight="15.0" prefWidth="269.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="idtentifyContextField" prefHeight="15.0" prefWidth="270.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="contactField" prefHeight="15.0" prefWidth="278.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="numCreditField" prefHeight="15.0" prefWidth="199.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+             <Label fx:id="idtentifyField" text="Label" GridPane.rowIndex="3"/>
+             <Label fx:id="usernameField" prefHeight="15.0" prefWidth="200.0" text="Label" GridPane.columnIndex="1"/>
+             <Label fx:id="trueNameField" prefHeight="15.0" prefWidth="200.0" text="Label" GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"/>
+             <Label fx:id="customerTypeField" prefHeight="15.0" prefWidth="200.0" text="Label" GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"/>
+             <Label fx:id="idtentifyContextField" prefHeight="15.0" prefWidth="200.0" text="Label"
+                    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+             <Label fx:id="contactField" prefHeight="15.0" prefWidth="200.0" text="Label" GridPane.columnIndex="1"
+                    GridPane.rowIndex="4"/>
+             <Label fx:id="numCreditField" prefHeight="15.0" prefWidth="200.0" text="Label" GridPane.columnIndex="1"
+                    GridPane.rowIndex="5"/>
          </children>
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="87.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="328.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+             <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="250.0"/>
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -38,9 +43,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="282.0" layoutY="345.0" mnemonicParsing="false" onAction="#setModifyButton" prefWidth="75.0"
-              styleClass="button-default" text="修改信息"/>
-      <Button layoutX="182.0" layoutY="345.0" mnemonicParsing="false" onAction="#setDetailedCreditButton"
-              prefWidth="75.0" styleClass="button-default" text="信用记录"/>
+       <Button layoutX="350.0" layoutY="345.0" mnemonicParsing="false" onAction="#setModifyButton" prefWidth="75.0"
+               styleClass="button-default" text="修改信息"/>
+       <Button layoutX="250.0" layoutY="345.0" mnemonicParsing="false" onAction="#setDetailedCreditButton"
+               prefWidth="75.0" styleClass="button-default" text="信用记录"/>
    </children>
 </AnchorPane>

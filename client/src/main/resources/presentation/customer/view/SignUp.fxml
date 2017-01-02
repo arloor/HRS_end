@@ -13,9 +13,9 @@
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="presentation.customer.view.SignUpController">
    <children>
-      <Button fx:id="nextButton" layoutX="425.0" layoutY="354.0" mnemonicParsing="false" onAction="#NextStep"
+      <Button fx:id="nextButton" layoutX="425.0" layoutY="346.0" mnemonicParsing="false" onAction="#NextStep"
               prefWidth="75.0" styleClass="button-default" text="下一步"/>
-      <GridPane layoutX="102.0" layoutY="70.0" prefHeight="243.0" prefWidth="333.0" AnchorPane.rightAnchor="100.0">
+      <GridPane layoutX="167.0" layoutY="43.0" prefHeight="243.0" prefWidth="333.0" AnchorPane.rightAnchor="100.0">
          <children>
             <TextField fx:id="usernameField" />
             <TextField fx:id="trueNameField" GridPane.rowIndex="3" />
@@ -36,15 +36,16 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Label layoutX="100.0" layoutY="83.0" text="用户名"/>
-      <Label layoutX="100.0" layoutY="123.0" text="密码"/>
-      <Label layoutX="100.0" layoutY="163.0" text="确认密码"/>
-      <Label layoutX="100.0" layoutY="203.0" text="真实姓名"/>
-      <Label layoutX="100.0" layoutY="243.0" text="联系方式"/>
-      <Label layoutX="100.0" layoutY="283.0" text="邮箱"/>
-      <Label layoutX="100.0" layoutY="335.0" text="用户类型"/>
-      <RadioButton fx:id="personalButton" layoutX="189.0" layoutY="335.0" mnemonicParsing="false" onAction="#setPersonalButton" style="-fx-text-fill: white;" text="个人用户" />
-      <RadioButton fx:id="enterpriseButton" layoutX="189.0" layoutY="365.0" mnemonicParsing="false"
+      <Label layoutX="100.0" layoutY="56.0" text="用户名"/>
+      <Label layoutX="100.0" layoutY="96.0" text="密码"/>
+      <Label layoutX="100.0" layoutY="136.0" text="确认密码"/>
+      <Label layoutX="100.0" layoutY="176.0" text="真实姓名"/>
+      <Label layoutX="100.0" layoutY="216.0" text="联系方式"/>
+      <Label layoutX="100.0" layoutY="256.0" text="邮箱"/>
+      <Label layoutX="100.0" layoutY="308.0" text="用户类型"/>
+      <RadioButton fx:id="personalButton" layoutX="189.0" layoutY="308.0" mnemonicParsing="false"
+                   onAction="#setPersonalButton" style="-fx-text-fill: white;" text="个人用户"/>
+      <RadioButton fx:id="enterpriseButton" layoutX="189.0" layoutY="338.0" mnemonicParsing="false"
                    onAction="#setEnterpriseButton" style="-fx-text-fill: white;" text="企业用户"/>
    </children>
 </AnchorPane>
