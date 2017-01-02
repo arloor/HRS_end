@@ -1,10 +1,14 @@
 package presentation.websalesman.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import presentation.utility.XMLDao;
 import presentation.websalesman.MainApp;
 import presentation.websalesman.model.CirclePromotion;
 import vo.WebPromotionVO.CircleVO;
@@ -16,14 +20,38 @@ public class CirclePromotionController {
     private MainApp mainApp;
     private Stage stage;
 
+    private ObservableList<String> cityList = FXCollections.observableArrayList();
+    private ObservableList<String> circleList = FXCollections.observableArrayList();
+
     private CirclePromotion circlePromotion;
 
     @FXML
-    private TextField circleField;
+    private ChoiceBox<String> cityChoiceBox;
+    @FXML
+    private ChoiceBox<String> circleChoiceBox;
     @FXML
     private TextField discountField;
     @FXML
     private Button confirmButton;
+
+    @FXML
+    private void initialize() {
+        for (String tempCity : XMLDao.getCities()) {
+            cityList.add(tempCity);
+        }
+        cityChoiceBox.setItems(cityList);
+        cityChoiceBox.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> setCircleBoxItems((String) newValue));
+    }
+
+    private void setCircleBoxItems(String city) {
+        circleList = FXCollections.observableArrayList();
+        for (String tempStr : XMLDao.getCircles(city)) {
+            circleList.add(tempStr);
+        }
+        circleChoiceBox.setItems(circleList);
+
+    }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -40,7 +68,10 @@ public class CirclePromotionController {
     public void setCirclePromotion(CirclePromotion circlePromotion) {
         if (circlePromotion != null) {
             this.circlePromotion = circlePromotion;
-            circleField.setText(circlePromotion.getCircle());
+
+            cityChoiceBox.getSelectionModel().select(XMLDao.findCity(circlePromotion.getCircle()));
+            circleChoiceBox.getSelectionModel().select(circlePromotion.getCircle());
+
             discountField.setText(circlePromotion.getDiscount());
         }
     }
@@ -48,9 +79,9 @@ public class CirclePromotionController {
     @FXML
     private void confirmAction() {
 
-        if (circleField.getText() != null && circleField.getText().length() > 0
+        if (circleChoiceBox.getSelectionModel().getSelectedIndex() >= 0
                 && discountField.getText() != null && discountField.getText().length() > 0) {   // 检查是否完整填写
-            String circle = circleField.getText();
+            String circle = circleChoiceBox.getSelectionModel().getSelectedItem();
             double discount = Double.valueOf(discountField.getText());
             if (circlePromotion != null) {  // 修改原有策略
                 circlePromotion.setCircle(circle);

@@ -24,7 +24,7 @@ import java.util.List;
 public class XMLDao {
 
     /**
-     * 根据某个省份的名字获取此省份的所有城市
+     * 根据某个城市的名字获取此城市的所有商圈
      *
      * @param city
      * @return
@@ -58,7 +58,7 @@ public class XMLDao {
     }
 
     /**
-     * 获取所有省份
+     * 获取所有城市
      *
      * @return
      */
@@ -88,6 +88,26 @@ public class XMLDao {
             e.printStackTrace();
         }
         return list;
+    }
+
+    /**
+     * 根据商圈找到其所属城市
+     *
+     * @param circle
+     * @return
+     */
+    public static String findCity(String circle) {
+        ArrayList<String> cities = (ArrayList<String>) XMLDao.getCities();
+        for (String city : cities) {
+            ArrayList<String> circles = (ArrayList<String>) XMLDao.getCircles(city);
+
+            for (String tempCircle : circles) {
+                if (circle.equals(tempCircle)) {
+                    return city;
+                }
+            }
+        }
+        return null;
     }
 
     /**
