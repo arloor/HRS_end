@@ -36,7 +36,7 @@ public class XMLDao {
             factory.setIgnoringElementContentWhitespace(true);
 
             DocumentBuilder db = factory.newDocumentBuilder();
-            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml\\Circles.xml").toURI()));
+            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml/Circles.xml").toURI()));
             Element root = xmldoc.getDocumentElement();
 
             NodeList nodes = selectNodes("//Circle[@City='" + city + "']", root);
@@ -69,7 +69,7 @@ public class XMLDao {
             factory.setIgnoringElementContentWhitespace(true);
 
             DocumentBuilder db = factory.newDocumentBuilder();
-            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml\\Cities.xml").toURI()));
+            Document xmldoc = db.parse(new File(XMLDao.class.getResource("xml/Cities.xml").toURI()));
             Element root = xmldoc.getDocumentElement();
 
             NodeList nodes = selectNodes("/Cities/City", root);
