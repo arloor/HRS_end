@@ -1,11 +1,13 @@
 package presentation.customer.view;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import presentation.utility.XMLDao;
 import vo.CustomerVO;
 import vo.SearchInfoVO;
 
@@ -15,14 +17,18 @@ import vo.SearchInfoVO;
 public class DetailedSearchController {
     private CustomerVO customerVO;
     private presentation.customer.MainAPP mainAPP;
+
+    private ObservableList<String> cityList = FXCollections.observableArrayList();
+    private ObservableList<String> circleList = FXCollections.observableArrayList();
+
     private double lowestScore;
     private double highestScore;
     private double lowestPrice;
     private double highestPrice;
     @FXML
-    private TextField addressField;
+    private ChoiceBox<String> cityChoiceBox;
     @FXML
-    private TextField areaField;
+    private ChoiceBox<String> circleChoiceBox;
     @FXML
     private TextField hotelNameField;
     @FXML
@@ -41,6 +47,25 @@ public class DetailedSearchController {
     private DatePicker checkOutPicker;
     @FXML
     private Button searchButton;
+
+    @FXML
+    private void initialize() {
+        for (String city : XMLDao.getCities()) {
+            cityList.add(city);
+        }
+        cityChoiceBox.setItems(cityList);
+        cityChoiceBox.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> setCircleBoxItems((String) newValue));
+    }
+
+    private void setCircleBoxItems(String city) {
+        circleList = FXCollections.observableArrayList();
+        for (String tempStr : XMLDao.getCircles(city)) {
+            circleList.add(tempStr);
+        }
+        circleChoiceBox.setItems(circleList);
+
+    }
 
     public void setCustomerVO(CustomerVO customerVO) {
         this.customerVO=customerVO;
@@ -71,13 +96,13 @@ public class DetailedSearchController {
     }
     @FXML
     private void setSearchButton(){
-        if(addressField.getText().equals("")||areaField.getText().equals("")){
+        if (cityChoiceBox.getSelectionModel().getSelectedIndex() < 0 || circleChoiceBox.getSelectionModel().getSelectedIndex() < 0) {
             mainAPP.errorAlert(" 请先选择城市商圈");
             return;
         }
         getGradeInformation();
         getPriceInformation();
-        SearchInfoVO searchInfoVO=new SearchInfoVO(customerVO.getUserName(),addressField.getText(),areaField.getText(),
+        SearchInfoVO searchInfoVO = new SearchInfoVO(customerVO.getUserName(), cityChoiceBox.getSelectionModel().getSelectedItem(), circleChoiceBox.getSelectionModel().getSelectedItem(),
                 exchangeString(hotelNameField.getText()),
                 getLevelInformation(),
                lowestScore,highestScore,
